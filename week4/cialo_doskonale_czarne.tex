@@ -1,0 +1,185 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+\title{Ciało Doskonale Czarne}
+\author{Kacper Kłos}
+
+\begin{document}
+
+\maketitle
+
+Abstract
+
+\newpage
+\section{Podstawy Teoretyczne}
+Jedną z podstawowych metod wymiany ciepła między ciałami jest promieniowanie.
+Promieniujące ciało można opisać za pomocą 3 stałych:
+\begin{itemize}
+    \item współczynnik absorbcji A - ułamek promieniowania jaki zostaje wchłonięty po padnięciu na ciało.
+    \item współczynnik odbicia R - ułamek promieniowania jaki zostaje odbity po padnięciu na ciało.
+    \item współczynnik transmisji T - ułamek promieniowania jaki zostaje przepuszczony przez ciał po padnięciu na nie.
+\end{itemize}
+Wszystkie stałe muszą sumować się do 1 (A+R+T = 1).
+Przydatnym uogólnieniem jest ciało doskonale czarne które cechuje $A=1$ w całym zakresie widma promieniowania.
+
+Wzory używane przy mówieniu o promieniowaniu to:
+Strumień promieniowania danej długości fali w zależności od temperatury dla ciała doskonale czarnego:
+\begin{equation}
+    I(T, \lambda) = \frac{2\pi c^2 h}{\lambda^5} \cdot \frac{1}{\exp(\frac{hc}{\lambda k T}) -1}
+    \label{eq:emision_spectrum}
+\end{equation}
+Oraz wynikające z niego prawo Stefana-Boltzmanna będące sumą po wszystkich długościach fal wzoru \ref{eq:emision_spectrum}:
+\begin{equation}
+    J_{CDC}(T) = \sigma T^4
+    \label{eq:boltzman_law}
+\end{equation}
+Gdzie $\sigma$ jest stałą Stefana-Boltzmanna.
+
+Wzór ten można uogólnić na ciała inne niż doskonale czarne wprowadzając stałą $\epsilon$ definującą zdolność emisyjne ciała, przekształcające wzór \ref{eq:boltzman_law} na:
+\begin{equation}
+    J(T) = \epsilon \sigma T^4
+    \label{eq:boltzman_law_epsilon}
+\end{equation}
+
+Korzystając z tych wzorów możemy znaleźć moc jaką będzie wypromieniowywać dana powierzchnia. Jako że ciało emituje promieniowanie przez swoją temperature ale zarazem przyjmuje promieniowania z otoczenia otrzymujemy wzór:
+\begin{equation}
+    \delta P = AS \sigma (T^4-T^4_{ot})
+    \label{eq:power_loss}
+\end{equation}
+W którym A - absorbcja, S - pole powierzchni ciała. 
+
+W przypadku ciał punktowych energia będzie izotropowo rozprowadzona na powierzchini sfery co prowadzi nas do wzoru na strumień mocy:
+\begin{equation}
+    J(r) = \frac{AS \sigma (T^4-T^4_{ot})}{4\pi r^2}
+    \label{eq:power_flux}
+\end{equation}
+
+\section{Układ Doświadczalny}
+Podstawowym narzędziem z jakiego będziemy korzystać jest detektor promieniowania termiczniego (PASCO TD-8553) dla którego zależność mierzonego napięcia od strumienia mocy jaki pada na miernik jest linowa:
+\begin{equation}
+    U_d = \alpha J_{pad}-\beta
+    \label{eq:measurment_device}
+\end{equation}
+Detektor w pomiarach będzie podłączony do miernika uniwersalnego BRYMEN BM827s do pomiaru napięcia.
+\subsection{Kostka Lesliego}
+W pierwszej części doświadczenia zbadamy emisyjność różnych powierzchni kostki Lesliego (3B Scientific Physics U8498299-230). 
+Kostka składa się z 4 powierzchni: czarnej, białej, metalowej matowej oraz metalowej błyszczącej, do tego kostka może zostać podgrzana od $40 \ ^{\circ}C$ do $120 \ ^{\circ}C$.
+Detektor promieniowania kierujemy na kostkę i mierzymy promieniowania dla różnych powierzchni przy zmienianiu temperatury. 
+Kluczowe jest zasłanianie detektora osłoną podczas oczekiwania na nagrzanie próbki aby nie nabrał temperatury zakłucającej pomiar.
+W trakcie doświadczenia musimy także mierzyć napięcie jakie pokazuje detektor podczas bycia zasłoniętym a żeby móc zidentyfikować jaka część promieniowania pochodzi od ścian a jaka od otoczenia.
+Przy najwyższej temperaturze zbadamy co pokarze detektor przy zasłonieniu ścianki czarnej przez szklany ekran.
+
+Zdjęcie
+
+\subsection{Lampa Stefana-Boltzmana}
+W tej części przeprowadzimy walidację prawa Stefana-Boltzmana. Ustawiamy detektor i żarówkę na szynie z zaznaczonymi odległościami. 
+
+Zdjęcie
+
+Na początku żarówka i detektor są ustawione blisko siebie żeby zmierzyć zależność strumienia mocy od temperatury.
+Zarówkę podłączamy do generatora i mierzymy napięcie oraz natężenia na żarówce za pomocą dwóch mierników BRYMEN BM805s. Zależność temperaturową możemy wyznaczyć wzorami \cite{skrypt}:
+\begin{equation}
+    T = \frac{R - R_{ref}}{\alpha R_ref} + T_{ref}
+    \label{eq:temp_bulb}
+\end{equation}
+We wzorze $T_{ref} = 300\,K$ a $R_{ref} = 0{,}277\, \Omega$, a $\alpha$ opisywane jest zależnością:
+\[
+    \alpha(K^{-1}) = 0{,}00407 \cdot (\frac{R}{R_{ref}})^{0{,}11778}
+\]
+Z mierzonych wartości opór otrzymujemy przez prawo ohma:
+\[
+    R = \frac{U}{I}
+\]
+Przy pomiarze z najwyższą temperaturą sprawdzamy co się stanie gdy pomiędzy detektor a żarówkę wstawimy szklany ekran.
+Po wykonaniu pomiarów zależnych od temperatury, mierzymy zależność od odległości pozostawiając temperaturę stałą poprzez przesówanie detektora na szynie.
+\section{Wyniki Pomierów}
+We wszystkich pomiarach będziemy korzystać ze zmierzonej stałej temperatury pomieszczenia $T_0 = 22 \, ^{\circ}C$.
+Ważne też jest wspomnieć że w poniższej analizie błąd statystyczny zmiennej $x$ oznaczamy $s_x$, błąd pomiarowy $\delta x$ a błąd całkowity $u(x)$.
+Wzór na sumaryczny błąd z jakiego będziemy korzystać w momencie kiedy jest kilka punktów pomiarowych to:
+\begin{equation}
+    u(x) = \sqrt{s_x^2 + (\frac{\delta x}{\sqrt{3}})^2}
+    \label{eq:combined_error}
+\end{equation}
+Gdy pomiar jest pojedyńczy to $u(x) = \delta x$.
+
+Nadmiernie będziemy też korzystać z równania na propagację błędu:
+\begin{equation}
+    \delta f(x) = \sqrt{\sum_{i=1} (\frac{df}{dx_i} \delta x_i)^2}
+    \label{eq:error_propagation}
+\end{equation}
+
+\subsection{Kostka Lesliego}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|cccc|c}
+        \toprule
+        Nr & $T$ [°C] & $U_\text{czarna}$ [mV] & $U_\text{biała}$ [mV] & $U_\text{metal błyszczący}$ [mV] & $U_\text{metal matowy}$ [mV] & $U_\text{otoczenie}$ [mV] \\
+        \midrule
+        1  & 50  & 2{,}05 & 2{,}05 & 0{,}17 & 0{,}53 & 0{,}15 \\
+        2  & 55  & 2{,}56 & 2{,}56 & 0{,}18 & 0{,}63 & 0{,}15 \\
+        3  & 60  & 2{,}94 & 2{,}93 & 0{,}23 & 0{,}71 & 0{,}15 \\
+        4  & 65  & 3{,}45 & 3{,}41 & 0{,}25 & 0{,}80 & 0{,}17 \\
+        5  & 70  & 3{,}89 & 3{,}89 & 0{,}26 & 0{,}95 & 0{,}21 \\
+        6  & 75  & 4{,}43 & 4{,}40 & 0{,}29 & 1{,}04 & 0{,}19 \\
+        7  & 80  & 4{,}97 & 4{,}94 & 0{,}32 & 1{,}16 & 0{,}17 \\
+        8  & 85  & 5{,}43 & 5{,}41 & 0{,}34 & 1{,}28 & 0{,}14 \\
+        9  & 90  & 5{,}95 & 5{,}85 & 0{,}38 & 1{,}39 & 0{,}14 \\
+        10 & 95  & 6{,}52 & 6{,}48 & 0{,}42 & 1{,}53 & 0{,}17 \\
+        11 & 100 & 7{,}12 & 7{,}06 & 0{,}45 & 1{,}71 & 0{,}19 \\
+        12 & 105 & 7{,}66 & 7{,}63 & 0{,}50 & 1{,}85 & 0{,}21 \\
+        13 & 110 & 8{,}34 & 8{,}32 & 0{,}54 & 2{,}06 & 0{,}24 \\
+        14 & 115 & 8{,}87 & 8{,}85 & 0{,}58 & 2{,}15 & 0{,}26 \\
+        15 & 120 & 9{,}52 & 9{,}52 & 0{,}63 & 2{,}34 & 0{,}25 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Pomiary napięcia dla różnych powierzchni w funkcji temperatury.}
+    \label{tab:cube_measurements}
+\end{table}
+Na ekranie kostki Lesligeo widzieliśmy drobne zmianny temperatury dlatego jej błąd uznajemy jako $\delta T = 1 \, ^{\circ}C$.
+Podczas gdy błąd z jakim mierzyliśmy napięcie otrzymujemy z instrukcji multimetru \cite{radiation_multimeter} dla naszego zakresu wynosi $\delta U = 0{,}0012 \cdot U + 0{,}02 [mV]$.
+Co pozwala nam wyznaczyć błąd dla $U_\text{otoczenie}$
+\begin{equation}
+    U_\text{otoczenie} = 0{,}186 \, [mv], \quad s_{U_\text{otoczenie}} = 0{,}039 \, [mv], \quad U_\text{otoczenie} = 0{,}021 \, [mv], \quad U_\text{otoczenie} = 0{,}04 \, [mV]
+    \label{eq:cube_combined_environment}
+\end{equation}
+
+
+
+
+
+\section{Podsumowanie}
+
+
+
+\newpage
+
+\begin{thebibliography}{1}
+
+\bibitem{skrypt}
+\emph{Badanie Promieniowaniia Termicznego}, Uniwersytet Warszawski, Aneta Drabińska.
+
+\bibitem{radiation_multimeter}
+\url{brymen.eu/wp-content/uploads/biall/102091/102091.KARTA_EN..2015-07-08.1.pdf}, miernik uniwersalny BRYMEN BM827s.
+\end{thebibliography}
+
+\end{document}

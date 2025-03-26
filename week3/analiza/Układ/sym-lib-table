@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "hall_symbols")(type "KiCad")(uri "${KIPRJMOD}/hall_symbols.kicad_sym")(options "")(descr ""))
+)
