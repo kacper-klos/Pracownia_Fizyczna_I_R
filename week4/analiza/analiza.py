@@ -6,6 +6,7 @@ MILI = 1e-3
 CENTY = 1e-2
 KELVIN = 273.15
 TEMP_ERROR = 1
+DISTANCE_ERROR = 1*CENTY
 
 cube_measurements = np.array([
     [ 50,  55,  60,  65,  70,  75,  80,  85,  90,  95, 100, 105, 110, 115, 120],  # T [C]
@@ -18,8 +19,11 @@ cube_measurements = np.array([
 cube_measurements[1:] = MILI*cube_measurements[1:]
 cube_measurements[0] = KELVIN+cube_measurements[0]
 
+REFERENCE_TEMP = 300
+REFERENCE_RESISTANCE = 0.277
+
 BULB_DISTANCE = 1.54 # d [m]
-SENSOR_DISTANCE = 1.54 # d [m]
+SENSOR_DISTANCE = 1.49 # d [m]
 temp_measurments = np.array([
     [0.828, 1.775, 2.725, 3.681, 4.64, 5.60, 6.57, 7.53, 8.50, 9.47],  # U_żarówka [V] 
     [0.919, 1.191, 1.432, 1.648, 1.847, 2.033, 2.207, 2.370, 2.524, 2.671],  # I_żarówka [A]
@@ -49,6 +53,23 @@ def CombinedError(stat, measur):
 def DetectorVoltageError(voltage):
     return voltage*0.0012+MILI*0.02
 
+def BulbVoltageError(voltage):
+    voltage_err = 0.005*voltage
+    voltage_err[voltage > 4] += 0.03
+    voltage_err[voltage <= 4] += 0.003
+
+    return np.abs(voltage_err)
+
+def BulbCurrentError(current):
+    return 0.02*current+0.005
+
+def BackgroundVoltage(measurments):
+    mean_surrounding_voltage, mean_surrounding_voltage_staterr = MeanAndStatisticalError(measurments)
+    mean_surrounding_voltage_measerr = DetectorVoltageError(mean_surrounding_voltage)
+    mean_surrounding_voltage_err = CombinedError(mean_surrounding_voltage_staterr, DetectorVoltageError(mean_surrounding_voltage))
+    print(f"mean surronding voltage: {mean_surrounding_voltage}, statistical error: {mean_surrounding_voltage_staterr}, measurment error: {mean_surrounding_voltage_measerr}, error: {mean_surrounding_voltage_err}")
+    return mean_surrounding_voltage, mean_surrounding_voltage_err
+
 def LinearModel(params, x):
     m, c = params
     return m*x+c
@@ -72,20 +93,73 @@ def PlotLineFit(x, y, x_err, y_err, params, x_label, y_label, data_label, fit_la
     plt.legend()
     plt.show()
 
+def AdjustVoltage(voltage, adjustment, adjustment_err):
+    voltage_adj = voltage-adjustment;
+    voltage_adj_err = np.sqrt(DetectorVoltageError(voltage)**2+adjustment_err**2)
+    return voltage_adj, np.abs(voltage_adj_err)
+
 def CubeLineFit(temp, voltage, adjustment, adjustment_err):
-    voltage_err = np.sqrt(DetectorVoltageError(voltage)**2+adjustment**2)
+    voltage_adj, voltage_adj_err = AdjustVoltage(voltage, adjustment, adjustment_err)
     temp_adj = temp**4
     temp_adj_err = 4*temp**3*TEMP_ERROR
-    params_out, params_err = FitToLinearModel(temp_adj, voltage, temp_adj_err, voltage_err)
-    PlotLineFit(temp_adj, voltage, temp_adj_err, voltage_err, params_out, "", "", "", "")
-    
+    params_out, params_err = FitToLinearModel(temp_adj, voltage_adj, temp_adj_err, voltage_adj_err)
+    print(f"fited line params: {params_out}, error: {params_err}")
+    PlotLineFit(temp_adj, voltage_adj, temp_adj_err, voltage_adj_err, params_out, "", "", "", "")
 
 def CubeAnalysis():
-    mean_surrounding_voltage, mean_surrounding_voltage_staterr = MeanAndStatisticalError(cube_measurements[-1])
-    mean_surrounding_voltage_measerr = DetectorVoltageError(mean_surrounding_voltage)
-    mean_surrounding_voltage_err = CombinedError(mean_surrounding_voltage_staterr, DetectorVoltageError(mean_surrounding_voltage))
-    print(f"mean surronding voltage: {mean_surrounding_voltage}, statistical error: {mean_surrounding_voltage_staterr}, measurment error: {mean_surrounding_voltage_measerr}, error: {mean_surrounding_voltage_err}")
+    mean_surrounding_voltage, mean_surrounding_voltage_err = BackgroundVoltage(cube_measurements[-1])
     CubeLineFit(cube_measurements[0], cube_measurements[1], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    CubeLineFit(cube_measurements[0], cube_measurements[2], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    CubeLineFit(cube_measurements[0], cube_measurements[3], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    CubeLineFit(cube_measurements[0], cube_measurements[4], mean_surrounding_voltage, mean_surrounding_voltage_err)
 
+def Resistance(voltage, current, voltage_err, current_err):
+    resistance = voltage/current
+    resistance_err = resistance*np.sqrt((voltage_err/voltage)**2+(current_err/current)**2)
+    return resistance, np.abs(resistance_err)
+
+def Alpha(resistance, resistance_err):
+    exp = 0.11778
+    alpha = 0.00407*((resistance/REFERENCE_RESISTANCE)**exp)
+    alpha_err = exp*alpha*resistance_err/resistance
+    return alpha, np.abs(alpha_err)
+
+def BulbTemperature(resistance, resistance_err):
+    alpha = Alpha(resistance, resistance_err)
+    temp = (resistance - REFERENCE_RESISTANCE)/(alpha[0]*REFERENCE_RESISTANCE)+REFERENCE_TEMP
+    temp_err = np.sqrt((resistance_err/(alpha[0]*REFERENCE_RESISTANCE))**2+(resistance*alpha[1]/(alpha[0]**2*REFERENCE_RESISTANCE))**2)
+    return temp, np.abs(temp_err)
+
+def TemperatureAnalysis():
+    temp, temp_err = BulbTemperature(*Resistance(temp_measurments[0], temp_measurments[1], BulbVoltageError(temp_measurments[0]), BulbCurrentError(temp_measurments[1])))
+    mean_background_voltage, mean_background_voltage_err = BackgroundVoltage(temp_measurments[-1])
+    voltage_adj, voltage_adj_err = AdjustVoltage(temp_measurments[2], mean_background_voltage, mean_background_voltage_err)
+    temp_log = np.log(temp)
+    temp_log_err = np.abs(temp_err/temp)
+    voltage_adj_log = np.log(voltage_adj)
+    voltage_adj_log_err = np.abs(voltage_adj_err/voltage_adj)
+    params_out, params_err = FitToLinearModel(temp_log, voltage_adj_log, temp_log_err, voltage_adj_log_err)
+    print(f"fited line params: {params_out}, error: {params_err}")
+    PlotLineFit(temp_log, voltage_adj_log, temp_log_err, voltage_adj_log_err, params_out, "", "", "", "")
+
+def InverseSquareLaw(distance, distance_err):
+    distance_adj = 1/distance**2
+    distance_adj_err = 2*distance_err/(distance_adj**3)
+    return distance_adj, distance_adj_err
+
+def DistanceAnalysis():
+    true_distance = np.abs(distance_measurments[0]-BULB_DISTANCE)
+    distance_adj = np.log(true_distance)
+    distance_adj_err = np.abs(DISTANCE_ERROR/true_distance)
+    mean_background_voltage, mean_background_voltage_err = BackgroundVoltage(distance_measurments[-1])
+    voltage_adj, voltage_adj_err = AdjustVoltage(distance_measurments[1], mean_background_voltage, mean_background_voltage_err)
+    voltage_adj_log = np.log(voltage_adj)
+    voltage_adj_log_err = np.abs(voltage_adj_err/voltage_adj)
+    params_out, params_err = FitToLinearModel(distance_adj, voltage_adj_log, distance_adj_err, voltage_adj_log_err)
+    print(f"fited line params: {params_out}, error: {params_err}")
+    PlotLineFit(distance_adj, voltage_adj_log, distance_adj_err, voltage_adj_log_err, params_out, "", "", "", "")
 
 CubeAnalysis()
+# TemperatureAnalysis()
+# DistanceAnalysis()
+

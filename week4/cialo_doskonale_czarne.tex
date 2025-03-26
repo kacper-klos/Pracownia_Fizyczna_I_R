@@ -99,7 +99,7 @@ Zdjęcie
 Na początku żarówka i detektor są ustawione blisko siebie żeby zmierzyć zależność strumienia mocy od temperatury.
 Zarówkę podłączamy do generatora i mierzymy napięcie oraz natężenia na żarówce za pomocą dwóch mierników BRYMEN BM805s. Zależność temperaturową możemy wyznaczyć wzorami \cite{skrypt}:
 \begin{equation}
-    T = \frac{R - R_{ref}}{\alpha R_ref} + T_{ref}
+    T = \frac{R - R_{ref}}{\alpha R_{ref}} + T_{ref}
     \label{eq:temp_bulb}
 \end{equation}
 We wzorze $T_{ref} = 300\,K$ a $R_{ref} = 0{,}277\, \Omega$, a $\alpha$ opisywane jest zależnością:
@@ -162,8 +162,52 @@ Co pozwala nam wyznaczyć błąd dla $U_\text{otoczenie}$
     U_\text{otoczenie} = 0{,}186 \, [mv], \quad s_{U_\text{otoczenie}} = 0{,}039 \, [mv], \quad U_\text{otoczenie} = 0{,}021 \, [mv], \quad U_\text{otoczenie} = 0{,}04 \, [mV]
     \label{eq:cube_combined_environment}
 \end{equation}
+Otrzymaną wartość \eqref{eq:cube_combined_environment} możemy odjąć od każdej ze zmierzonych napięć aby otrzymać jedynie wkład promieniowania pochodzący od kostki.
+
+\subsection{Żarówka Boltzmana}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c|c}
+        \toprule
+        Nr & $U_\text{żarówka}$ [V] & $I_\text{żarówka}$ [A] & $U_\text{czujnik}$ [mV] & $U_\text{otoczenie}$ [mV] \\
+        \midrule
+        1  & 0{,}828 & 0{,}919 & 0{,}15 & 0{,}05 \\
+        2  & 1{,}775 & 1{,}191 & 1{,}13 & 0{,}05 \\
+        3  & 2{,}725 & 1{,}432 & 2{,}89 & 0{,}05 \\
+        4  & 3{,}681 & 1{,}648 & 5{,}68 & 0{,}07 \\
+        5  & 4{,}64  & 1{,}847 & 9{,}12 & 0{,}08 \\
+        6  & 5{,}60  & 2{,}033 & 12{,}31 & 0{,}06 \\
+        7  & 6{,}57  & 2{,}207 & 16{,}15 & 0{,}09 \\
+        8  & 7{,}53  & 2{,}370 & 20{,}25 & 0{,}08 \\
+        9  & 8{,}50  & 2{,}524 & 25{,}13 & 0{,}10 \\
+        10 & 9{,}47  & 2{,}671 & 30{,}24 & 0{,}11 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Pomiar napięcia na detektorze dla różnych temperatur źródła promieniowania.}
+    \label{tab:temp_measurements}
+\end{table}
 
 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        \toprule
+        Nr & $d$ [cm] & $U_\text{czujnik}$ [mV] & $U_\text{otoczenie}$ [mV] \\
+        \midrule
+        1 & 149 & 30{,}58 & 0{,}12 \\
+        2 & 144 & 9{,}29  & 0{,}10 \\
+        3 & 139 & 4{,}11  & 0{,}11 \\
+        4 & 134 & 2{,}36  & 0{,}11 \\
+        5 & 129 & 1{,}52  & 0{,}11 \\
+        6 & 124 & 1{,}08  & 0{,}08 \\
+        7 & 119 & 0{,}82  & 0{,}06 \\
+        8 & 114 & 0{,}64  & 0{,}05 \\
+        9 & 109 & 0{,}52  & 0{,}05 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Pomiar napięcia na detektorze dla różnych odległości detektora od źródła.}
+    \label{tab:distance_measurements}
+\end{table}
 
 
 
@@ -173,13 +217,16 @@ Co pozwala nam wyznaczyć błąd dla $U_\text{otoczenie}$
 
 \newpage
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{3}
 
 \bibitem{skrypt}
 \emph{Badanie Promieniowaniia Termicznego}, Uniwersytet Warszawski, Aneta Drabińska.
 
 \bibitem{radiation_multimeter}
 \url{brymen.eu/wp-content/uploads/biall/102091/102091.KARTA_EN..2015-07-08.1.pdf}, miernik uniwersalny BRYMEN BM827s.
+
+\bibitem{bulb_multimeter}
+\url{https://static.eleshop.nl/mage/media/downloads/bm805_datasheet.pdf}, miernik uniwersalny BRYMEN BM 805s.
 \end{thebibliography}
 
 \end{document}
