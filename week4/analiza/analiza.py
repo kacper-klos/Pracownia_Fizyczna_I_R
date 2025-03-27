@@ -5,6 +5,7 @@ import numpy as np
 MILI = 1e-3
 CENTY = 1e-2
 KELVIN = 273.15
+BLACK_EMISSITY = 0.95
 TEMP_ERROR = 1
 DISTANCE_ERROR = 1*CENTY
 
@@ -27,7 +28,7 @@ SENSOR_DISTANCE = 1.49 # d [m]
 temp_measurments = np.array([
     [0.828, 1.775, 2.725, 3.681, 4.64, 5.60, 6.57, 7.53, 8.50, 9.47],  # U_żarówka [V] 
     [0.919, 1.191, 1.432, 1.648, 1.847, 2.033, 2.207, 2.370, 2.524, 2.671],  # I_żarówka [A]
-    [0.15,  1.13, 2.89, 5.68, 9.12, 12.31, 16.15, 20.25, 25.13, 30.24],  # U_czujnik [mV] 
+    [0.25,  1.20, 2.89, 5.68, 9.12, 12.31, 16.15, 20.25, 25.13, 30.24],  # U_czujnik [mV] 
     [0.05,  0.05, 0.05, 0.07, 0.08, 0.06, 0.09, 0.08, 0.10, 0.11]  # U_otoczenie [mV]
 ])
 temp_measurments[2:] = MILI*temp_measurments[2:]
@@ -105,13 +106,25 @@ def CubeLineFit(temp, voltage, adjustment, adjustment_err):
     params_out, params_err = FitToLinearModel(temp_adj, voltage_adj, temp_adj_err, voltage_adj_err)
     print(f"fited line params: {params_out}, error: {params_err}")
     PlotLineFit(temp_adj, voltage_adj, temp_adj_err, voltage_adj_err, params_out, "", "", "", "")
+    return params_out, params_err
+
+def Emissity(black_params, other_params, black_params_err, other_params_err):
+    emissity = BLACK_EMISSITY*other_params[0]/black_params[0]
+    emissity_err = BLACK_EMISSITY*emissity*np.sqrt((black_params_err[0]/black_params[0])**2+(other_params_err[0]/other_params[0])**2)
+    return emissity, emissity_err
 
 def CubeAnalysis():
     mean_surrounding_voltage, mean_surrounding_voltage_err = BackgroundVoltage(cube_measurements[-1])
-    CubeLineFit(cube_measurements[0], cube_measurements[1], mean_surrounding_voltage, mean_surrounding_voltage_err)
-    CubeLineFit(cube_measurements[0], cube_measurements[2], mean_surrounding_voltage, mean_surrounding_voltage_err)
-    CubeLineFit(cube_measurements[0], cube_measurements[3], mean_surrounding_voltage, mean_surrounding_voltage_err)
-    CubeLineFit(cube_measurements[0], cube_measurements[4], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    black_params, black_params_err = CubeLineFit(cube_measurements[0], cube_measurements[1], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    white_params, white_params_err = CubeLineFit(cube_measurements[0], cube_measurements[2], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    shining_params, shining_params_err = CubeLineFit(cube_measurements[0], cube_measurements[3], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    dull_params, dull_params_err = CubeLineFit(cube_measurements[0], cube_measurements[4], mean_surrounding_voltage, mean_surrounding_voltage_err)
+    white_emissity, white_emissity_err = Emissity(black_params, white_params, black_params_err, white_params_err)
+    shining_emissity, shining_emissity_err = Emissity(black_params, shining_params, black_params_err, shining_params_err)
+    dull_emissity, dull_emissity_err = Emissity(black_params, dull_params, black_params_err, dull_params_err)
+    print(f"emissity for white side: {white_emissity}, error: {white_emissity_err}")
+    print(f"emissity for shining side: {shining_emissity}, error: {shining_emissity_err}")
+    print(f"emissity for dull side: {dull_emissity}, error: {dull_emissity_err}")
 
 def Resistance(voltage, current, voltage_err, current_err):
     resistance = voltage/current
@@ -159,7 +172,7 @@ def DistanceAnalysis():
     print(f"fited line params: {params_out}, error: {params_err}")
     PlotLineFit(distance_adj, voltage_adj_log, distance_adj_err, voltage_adj_log_err, params_out, "", "", "", "")
 
-CubeAnalysis()
-# TemperatureAnalysis()
+# CubeAnalysis()
+TemperatureAnalysis()
 # DistanceAnalysis()
 

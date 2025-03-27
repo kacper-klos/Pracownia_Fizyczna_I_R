@@ -63,7 +63,7 @@ Wzór ten można uogólnić na ciała inne niż doskonale czarne wprowadzając s
 
 Korzystając z tych wzorów możemy znaleźć moc jaką będzie wypromieniowywać dana powierzchnia. Jako że ciało emituje promieniowanie przez swoją temperature ale zarazem przyjmuje promieniowania z otoczenia otrzymujemy wzór:
 \begin{equation}
-    \delta P = AS \sigma (T^4-T^4_{ot})
+    \Delta P = AS \sigma (T^4-T^4_{ot})
     \label{eq:power_loss}
 \end{equation}
 W którym A - absorbcja, S - pole powierzchni ciała. 
@@ -114,7 +114,7 @@ Przy pomiarze z najwyższą temperaturą sprawdzamy co się stanie gdy pomiędzy
 Po wykonaniu pomiarów zależnych od temperatury, mierzymy zależność od odległości pozostawiając temperaturę stałą poprzez przesówanie detektora na szynie.
 \section{Wyniki Pomierów}
 We wszystkich pomiarach będziemy korzystać ze zmierzonej stałej temperatury pomieszczenia $T_0 = 22 \, ^{\circ}C$.
-Ważne też jest wspomnieć że w poniższej analizie błąd statystyczny zmiennej $x$ oznaczamy $s_x$, błąd pomiarowy $\delta x$ a błąd całkowity $u(x)$.
+Ważne też jest wspomnieć że w poniższej analizie średnią zmiennej $x$ oznaczamy $\bar{x}$, błąd statystyczny $s_x$, błąd pomiarowy $\delta x$ a błąd całkowity $u(x)$.
 Wzór na sumaryczny błąd z jakiego będziemy korzystać w momencie kiedy jest kilka punktów pomiarowych to:
 \begin{equation}
     u(x) = \sqrt{s_x^2 + (\frac{\delta x}{\sqrt{3}})^2}
@@ -133,7 +133,7 @@ Nadmiernie będziemy też korzystać z równania na propagację błędu:
     \centering
     \begin{tabular}{c|c|cccc|c}
         \toprule
-        Nr & $T$ [°C] & $U_\text{czarna}$ [mV] & $U_\text{biała}$ [mV] & $U_\text{metal błyszczący}$ [mV] & $U_\text{metal matowy}$ [mV] & $U_\text{otoczenie}$ [mV] \\
+        Nr & $T$ [°C] & $U_b$ [mV] & $U_w$ [mV] & $U_{ms}$ [mV] & $U_{mm}$ [mV] & $U_s$ [mV] \\
         \midrule
         1  & 50  & 2{,}05 & 2{,}05 & 0{,}17 & 0{,}53 & 0{,}15 \\
         2  & 55  & 2{,}56 & 2{,}56 & 0{,}18 & 0{,}63 & 0{,}15 \\
@@ -155,19 +155,44 @@ Nadmiernie będziemy też korzystać z równania na propagację błędu:
     \caption{Pomiary napięcia dla różnych powierzchni w funkcji temperatury.}
     \label{tab:cube_measurements}
 \end{table}
-Na ekranie kostki Lesligeo widzieliśmy drobne zmianny temperatury dlatego jej błąd uznajemy jako $\delta T = 1 \, ^{\circ}C$.
+Bane uzyskane z badania kostki Lesliego widizmy w tabeli \ref{tab:cube_measurements}, napięcia są mierzone kolejno dla: $U_b$ - strona czarna, $U_w$ - strona biała, $U_{ms}$ - strona metaliczna błyszcząca, $U_{mm}$ - strona metaliczna matowa i $U_s$ - zasłona blokująca promieniowanie.
+W tabeli \ref{tab:cube_measurements} widzimy że pomiary dla ściany czarnej i białej są na podobnym poziomie, podczas gdy ściana metalowa błyszcząca ledwo pokazywała wartości większe od promieniowania otoczenia, 
+a napięcia wywoływane przez ścianę metalową matową były mniejwięcej stale 4x mniejsze od ściany czarnej, lecz około 3x większe od drugiej metalowej ściany.
+Przeanalizujmy dogłębnie dane aby dowiedzieć się więcej o charakterystyce każdej ze ścian.
+
+Wyznaczmy błąd obserwowany podczas badania kostki. Na ekranie kostki Lesligeo widzieliśmy drobne zmianny temperatury dlatego jej błąd uznajemy jako $\delta T = 1 \, ^{\circ}C$.
 Podczas gdy błąd z jakim mierzyliśmy napięcie otrzymujemy z instrukcji multimetru \cite{radiation_multimeter} dla naszego zakresu wynosi $\delta U = 0{,}0012 \cdot U + 0{,}02 [mV]$.
-Co pozwala nam wyznaczyć błąd dla $U_\text{otoczenie}$
+Co pozwala nam wyznaczyć błąd dla $U_s$ i jej średnią wartość:
 \begin{equation}
-    U_\text{otoczenie} = 0{,}186 \, [mv], \quad s_{U_\text{otoczenie}} = 0{,}039 \, [mv], \quad U_\text{otoczenie} = 0{,}021 \, [mv], \quad U_\text{otoczenie} = 0{,}04 \, [mV]
+    \bar{U_s} = 0{,}186 \, [mV], \quad s_{U_s} = 0{,}039 \, [mV], \quad U_s = 0{,}021 \, [mV], \quad U_s = 0{,}04 \, [mV]
     \label{eq:cube_combined_environment}
 \end{equation}
-Otrzymaną wartość \eqref{eq:cube_combined_environment} możemy odjąć od każdej ze zmierzonych napięć aby otrzymać jedynie wkład promieniowania pochodzący od kostki.
+Otrzymaną wartość \eqref{eq:cube_combined_environment} możemy odjąć od każdej ze zmierzonych napięć aby otrzymać jedynie wkład promieniowania pochodzący od kostki otrzymując $U'$ dla każdej ze stron.
+
+Sprawdzmy czy zależność od temperatury zgadza się z z przewidywanym prawa Stefana-Boltzmana \eqref{eq:boltzman_law} poprzez dopasowanie lini do wykresu $U'(T^4)$ dla wszystkich materiałów.
+
+ZDJĘCIE
+
+Przyczyna błędu otrzymanego w dopasowaniach dla wykresów \ref{} zależy od materiału, możemy to zaobserwować na wykresach $U'(T^4)$. Wszystkie powierzchnie posiadają te samę błędy dla temperatur i w przypadku powierzchni czarnej i białej to jest główny błąd jaki widzimy.
+Natomiast gdy przejdziemy do ścian metalowych których promieniowanie powodowało znacznie mniejsze napięcie na detektorze, błąd pochodzący z tego pomiaru zaczyna mieć większy wpływ. Szczególnie jest to widoczne na wykresie \ref{} dla ściany metalowej błyszczącej.
+Trzeba wspomnieć też o przyczynach niektórych błędów. Napięcie otoczenia mierzyliśmy podczas zasłonięcia kostki osłoną, lecz jak jest to widoczne w tabeli \ref{tab:cube_measurements} napięcie to znacznie się stosunkowo zwiększyło, najprawdopodobniej przez nagrzanie osłony.
+Podobnie istnieje ryzyko że zapisaliśmy wartość napięcia za szybko. Starając się nie nagrzać detektora otkrywaliśmy go jak najkrócej lecz tak by napięcie mogło się ustabilizować, jednak w przypadku dużych temperatur trudno jest stwierdzić kiedy napięcie się ustabilizowałą a kiedy rośnie z powodu nagrzania detektora.
+
+Jako że w trakcie wszystkich pomiarów trzymaliśmy detektor nieruchomo możemy wyznaczyć emisyjność w prawie Stefana-Boltzmana \eqref{eq:boltzman_law_epsilon} znając emisyjność jednej ze stron i porównując ich dopasowanie.
+Zatem załóżmy że strona czarna posiada $\epsilon_b = 0{,}95$ przy innych parametrach identycznych dla każdej ściany skorzystamy z wzoru:
+\begin{equation}
+    \epsilon_o = \epsilon_b \frac{a_o}{a_b} \quad u(\epsilon_o) = \epsilon_o \sqrt{(\frac{u(a_o)}{a_o})^2 + (\frac{u(a_b)}{a_b})^2}
+    \label{eq:epsilon_ratio}
+\end{equation}
+We wzorze $\epsilon_o$ jest emisyjnością innego materiału, a stałe $a_b$ i $a_o$ to współczynniki kierunkowe dla krzywej jakie otrzymaliśmy z dopasowania liniowego. Do otrzymania $u(\epsilon_o)$ wykorzystaliśmy wzór na propagecję błędu \eqref{eq:error_propagation}.
+Podstawiając wartości z \eqref{} do \eqref{eq:epsilon_ratio} otrzymane wartości otrzymujemy:
+
+WARTOŚCI
 
 \subsection{Żarówka Boltzmana}
 \begin{table}[H]
     \centering
-    \begin{tabular}{c|c|c|c|c}
+    \begin{tabular}{c|cc|c|c}
         \toprule
         Nr & $U_\text{żarówka}$ [V] & $I_\text{żarówka}$ [A] & $U_\text{czujnik}$ [mV] & $U_\text{otoczenie}$ [mV] \\
         \midrule
@@ -188,11 +213,12 @@ Otrzymaną wartość \eqref{eq:cube_combined_environment} możemy odjąć od ka�
 \end{table}
 
 
+Następnie przebadajmy zależność promieniowania od odległości źródła.
 \begin{table}[H]
     \centering
     \begin{tabular}{c|c|c|c}
         \toprule
-        Nr & $d$ [cm] & $U_\text{czujnik}$ [mV] & $U_\text{otoczenie}$ [mV] \\
+        Nr & $d$ [cm] & $U_d$ [mV] & $U_s$ [mV] \\
         \midrule
         1 & 149 & 30{,}58 & 0{,}12 \\
         2 & 144 & 9{,}29  & 0{,}10 \\
@@ -208,7 +234,11 @@ Otrzymaną wartość \eqref{eq:cube_combined_environment} możemy odjąć od ka�
     \caption{Pomiar napięcia na detektorze dla różnych odległości detektora od źródła.}
     \label{tab:distance_measurements}
 \end{table}
+W tabeli \ref{tab:distance_measurements} $d$ oznacza dystans jaki odczytaliśmy na szynie w momęcie gdy żarówka znajdowała się na $d_0 = 154 \, [cm]$.
+Na podstawie wzorów \eqref{eq:power_flux} oras \eqref{eq:measurment_device} zakładamy że napięcie będzie proporcjonalne do $\frac{1}{r^2}$. 
+W celu przetestowania tej hipotezy dopasujmy krzywą do zależności $\log(U'(\log(r)))$ gdzie $r = |d-d_0|$ a $U' = U_d - \bar{U_s}$.
 
+\subsection{Transmisyjność Szkła}
 
 
 \section{Podsumowanie}

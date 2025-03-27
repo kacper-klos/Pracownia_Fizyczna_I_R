@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Arch Linux) (preloaded format=pdflatex 2025.3.16)  26 MAR 2025 16:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.26)  27 MAR 2025 14:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -470,51 +470,66 @@ Overfull \hbox (3.20824pt too wide) in paragraph at lines 116--119
  []
 
 
-Overfull \hbox (34.74155pt too wide) in paragraph at lines 134--155
- [][] 
- []
-
-
 
 [4{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-Overfull \hbox (19.11357pt too wide) detected at line 164
-[][][]\OML/lmm/m/it/12 U[] \OT1/lmr/m/n/12 = 0[]186 [\OML/lmm/m/it/12 mv\OT1/lmr/m/n/12 ]\OML/lmm/m/it/12 ;  s[] \OT1/lmr/m/n/12 = 0[]039 [\OML/lmm/m/it/12 mv\OT1/lmr/m/n/12 ]\OML/lmm/m/it/12 ;  U[] \OT1/lmr/m/n/12 = 0[]021 [\OML/lmm/m/it/12 mv\OT1/lmr/m/n/12 ]\OML/lmm/m/it/12 ;  U[] \OT1/lmr/m/n/12 = 0[]04 [\OML/lmm/m/it/12 mV\OT1/lmr/m/n/12 ]
+Overfull \hbox (5.60898pt too wide) in paragraph at lines 163--166
+[]\T1/lmr/m/n/12 Wyznaczmy bª¡d ob-ser-wowany pod-czas bada-nia kostki. Na ekranie kostki Lesli-geo widzieli±my
  []
+
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 176.
+
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 177.
+
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 188.
 
 
 
 [5]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 182.
+
+[6]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 256.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 [][]$\T1/lmtt/m/n/12 brymen . eu / wp-[]content / uploads / biall / 102091 / 102091 . KARTA _ EN . .2015-[]07-[]08 . 1 .
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 259--260
+[][]$\T1/lmtt/m/n/12 https : / / static . eleshop . nl / mage / media / downloads / bm805 _ datasheet . pdf$[]\T1/lmr/m/n/12 ,
+ []
 
-[6] (./cialo_doskonale_czarne.aux)
+
+
+[7] (./cialo_doskonale_czarne.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `cialo_doskonale_czarne.out' has not changed.
-(rerunfilecheck)             Checksum: 480BB28D4B2B158156A42B2F2542A483;965.
+(rerunfilecheck)             Checksum: 2A2C75C608D2DB8492CE19C2F9361A3E;1285.
  ) 
 Here is how much of TeX's memory you used:
- 13314 strings out of 474651
- 211750 string characters out of 5756731
- 620374 words of memory out of 5000000
- 36240 multiletter control sequences out of 15000+600000
- 613803 words of font info for 86 fonts, out of 8000000 for 9000
+ 13329 strings out of 474651
+ 211986 string characters out of 5756723
+ 621671 words of memory out of 5000000
+ 36248 multiletter control sequences out of 15000+600000
+ 616801 words of font info for 87 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 75i,12n,79p,559b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on cialo_doskonale_czarne.pdf (6 pages, 219258 bytes).
+ 75i,12n,79p,559b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on cialo_doskonale_czarne.pdf (7 pages, 223442 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 199 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
