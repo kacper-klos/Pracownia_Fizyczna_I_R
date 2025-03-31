@@ -31,7 +31,10 @@
 Abstract
 
 \newpage
+\section{Wstęp}
+W tym artykule zbadamy zależności opisujące transfer energi między dwoma ciałami za pośrednictwem promieniowania. Wpierw skorzystamy z kostki Lesliego z dostosowywalną temperaturą oraz detektorem promieniowania aby zbadać zależność promieniowania od temperatury dla powierzchni o różnych parametrach. Następnie przy użyciu tego samego detektora oraz żarówki sprawdzimy co dzieje się z odbieranym promieniowaniem wraz ze zmianą odległości między żarówką i detektorem przy stałej temperatury żarówki, a także ze zmianą temperatury przy niezmienej oddległości. Finalnie dla pomiarów kostki Lesliego i żarówki sprawdzimy co się dzieje gdy między źródłem promieniowania a detektorem ustawimy szklany ekran.
 \section{Podstawy Teoretyczne}
+Przedstawiona tutaj wyprowadzenie używanych w doświadczeniu wzorów jest skróconą wersją wyprowadzenia znajdującego się w \cite{skrypt}.
 Jedną z podstawowych metod wymiany ciepła między ciałami jest promieniowanie.
 Promieniujące ciało można opisać za pomocą 3 stałych:
 \begin{itemize}
@@ -82,19 +85,28 @@ Podstawowym narzędziem z jakiego będziemy korzystać jest detektor promieniowa
 \end{equation}
 Detektor w pomiarach będzie podłączony do miernika uniwersalnego BRYMEN BM827s do pomiaru napięcia.
 \subsection{Kostka Lesliego}
-W pierwszej części doświadczenia zbadamy emisyjność różnych powierzchni kostki Lesliego (3B Scientific Physics U8498299-230). 
+W pierwszej części doświadczenia zbadamy emisyjność różnych powierzchni kostki Lesliego (3B Scientific Physics U8498299-230) przy pomocy statycznego miernika promieniowania (rys. \ref{fig:cube_diagram}. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{cube}
+    \caption{Diagram układu doświadczalnego dla kostki Lesliego (źródło: \cite{skrypt})}
+    \label{fig:cube_diagram}
+\end{figure}
 Kostka składa się z 4 powierzchni: czarnej, białej, metalowej matowej oraz metalowej błyszczącej, do tego kostka może zostać podgrzana od $40 \ ^{\circ}C$ do $120 \ ^{\circ}C$.
 Detektor promieniowania kierujemy na kostkę i mierzymy promieniowania dla różnych powierzchni przy zmienianiu temperatury. 
 Kluczowe jest zasłanianie detektora osłoną podczas oczekiwania na nagrzanie próbki aby nie nabrał temperatury zakłucającej pomiar.
 W trakcie doświadczenia musimy także mierzyć napięcie jakie pokazuje detektor podczas bycia zasłoniętym a żeby móc zidentyfikować jaka część promieniowania pochodzi od ścian a jaka od otoczenia.
 Przy najwyższej temperaturze zbadamy co pokarze detektor przy zasłonieniu ścianki czarnej przez szklany ekran.
 
-Zdjęcie
-
 \subsection{Lampa Stefana-Boltzmana}
-W tej części przeprowadzimy walidację prawa Stefana-Boltzmana. Ustawiamy detektor i żarówkę na szynie z zaznaczonymi odległościami. 
+W tej części przeprowadzimy walidację prawa Stefana-Boltzmana. Ustawiamy detektor i żarówkę na szynie z zaznaczonymi odległościami (rys. \ref{fig:lamp_diagram}) w celu zmierzenia zależność promieniowania jakie pada na detektor od promieniowania źródła i odległości od niego.
 
-Zdjęcie
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{lamp}
+    \caption{Diagram układu doświadczalnego dla lampy Stefana-Boltzmana (źródło: \cite{skrypt})}
+    \label{fig:lamp_diagram}
+\end{figure}
 
 Na początku żarówka i detektor są ustawione blisko siebie żeby zmierzyć zależność strumienia mocy od temperatury.
 Zarówkę podłączamy do generatora i mierzymy napięcie oraz natężenia na żarówce za pomocą dwóch mierników BRYMEN BM805s. Zależność temperaturową możemy wyznaczyć wzorami \cite{skrypt}:
@@ -152,7 +164,7 @@ Nadmiernie będziemy też korzystać z równania na propagację błędu:
         15 & 120 & 9{,}52 & 9{,}52 & 0{,}63 & 2{,}34 & 0{,}25 \\
         \bottomrule
     \end{tabular}
-    \caption{Pomiary napięcia dla różnych powierzchni w funkcji temperatury.}
+    \caption{Pomiary napięć dla różnych powierzchni ($U_b$ - czarna, $U_w$ - biała, $U_{ms}$ - metalowa matowa, $U_{mm}$ - metalowa matowa, $U_s$ - tło) w funkcji temperatury $T$.}
     \label{tab:cube_measurements}
 \end{table}
 Bane uzyskane z badania kostki Lesliego widizmy w tabeli \ref{tab:cube_measurements}, napięcia są mierzone kolejno dla: $U_b$ - strona czarna, $U_w$ - strona biała, $U_{ms}$ - strona metaliczna błyszcząca, $U_{mm}$ - strona metaliczna matowa i $U_s$ - zasłona blokująca promieniowanie.
@@ -187,14 +199,29 @@ Zatem załóżmy że strona czarna posiada $\epsilon_b = 0{,}95$ przy innych par
 We wzorze $\epsilon_o$ jest emisyjnością innego materiału, a stałe $a_b$ i $a_o$ to współczynniki kierunkowe dla krzywej jakie otrzymaliśmy z dopasowania liniowego. Do otrzymania $u(\epsilon_o)$ wykorzystaliśmy wzór na propagecję błędu \eqref{eq:error_propagation}.
 Podstawiając wartości z \eqref{} do \eqref{eq:epsilon_ratio} otrzymane wartości otrzymujemy:
 
-WARTOŚCI
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|cc}
+        \toprule
+        materiał ściany & $\epsilon$ & $u(\epsilon)$ \\
+        \midrule
+        biała & 0{,}946 & 0{,}011 \\
+        metal błyszczący  & 0{,}0576 & 0{,}0012 \\
+        metal matowy & 0{,}230 & 0{,}003 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Wyznaczone za pomocą danych tabeli \ref{tab:cube_measurements} emisyjności $\epsiolon$ i ich błędu $u(\epsilon)$ przy założeniu że czarna ściana posiada emisyjność $\epsilon = 0{,}95$.}
+    \label{tab:materials_emisity}
+\end{table}
+
 
 \subsection{Żarówka Boltzmana}
+Wpierw zbadajmy zależność odbieranego przez detektor promieniowania od temperatury włókna żarówki w przypadku stałej odległości $r = 5 \, cm$.
 \begin{table}[H]
     \centering
     \begin{tabular}{c|cc|c|c}
         \toprule
-        Nr & $U_\text{żarówka}$ [V] & $I_\text{żarówka}$ [A] & $U_\text{czujnik}$ [mV] & $U_\text{otoczenie}$ [mV] \\
+        Nr & $U_{l}$ [V] & $I_{l}$ [A] & $U_{d}$ [mV] & $U_{s}$ [mV] \\
         \midrule
         1  & 0{,}828 & 0{,}919 & 0{,}15 & 0{,}05 \\
         2  & 1{,}775 & 1{,}191 & 1{,}13 & 0{,}05 \\
@@ -208,12 +235,12 @@ WARTOŚCI
         10 & 9{,}47  & 2{,}671 & 30{,}24 & 0{,}11 \\
         \bottomrule
     \end{tabular}
-    \caption{Pomiar napięcia na detektorze dla różnych temperatur źródła promieniowania.}
+    \caption{Pomiar napięcia $U_d$ na detektorze dla różnych napięć $U_l$ i natężeń $I_l$ na żarówce bez zasłon i $U_s$ z zasłoną.}
     \label{tab:temp_measurements}
 \end{table}
 
 
-Następnie przebadajmy zależność promieniowania od odległości źródła.
+Następnie przebadajmy zależność promieniowania od odległości źródła dla pomiarów ze stałym napięciem $U_l = 9{,}47$ i natężeniem $I_l = 2{,}670$ na żarówce.
 \begin{table}[H]
     \centering
     \begin{tabular}{c|c|c|c}
@@ -231,15 +258,50 @@ Następnie przebadajmy zależność promieniowania od odległości źródła.
         9 & 109 & 0{,}52  & 0{,}05 \\
         \bottomrule
     \end{tabular}
-    \caption{Pomiar napięcia na detektorze dla różnych odległości detektora od źródła.}
+    \caption{Pomiar napięcia $U_d$ na detektorze dla różnych znaczników na szynie $d$, oraz pomiar napięcia powodowany przez tło $U_s$.}
     \label{tab:distance_measurements}
 \end{table}
 W tabeli \ref{tab:distance_measurements} $d$ oznacza dystans jaki odczytaliśmy na szynie w momęcie gdy żarówka znajdowała się na $d_0 = 154 \, [cm]$.
 Na podstawie wzorów \eqref{eq:power_flux} oras \eqref{eq:measurment_device} zakładamy że napięcie będzie proporcjonalne do $\frac{1}{r^2}$. 
 W celu przetestowania tej hipotezy dopasujmy krzywą do zależności $\log(U'(\log(r)))$ gdzie $r = |d-d_0|$ a $U' = U_d - \bar{U_s}$.
 
-\subsection{Transmisyjność Szkła}
+ZDJĘCIE
 
+Dopasowane parametry krzywej są w dobrej zgodności z zależnością teoretyczną która mieści się wewnątrz błędu pomiarowego.
+
+\subsection{Transmisyjność Szkła}
+Możemy również wyciągnąć pewne wnioski o transmisyjności szkła z dwóch pomiarów jakie wykonaliśmy. Najpierw porównajmy pomiar detektora dla czarnej ściany kostki Lesliego w temperaturze $T = 150 \, ^{\circ}C$ (tab. \ref{tab:cube_glass}. Później wyznaczmy wartości napięcia na detektorze dla żarówki oddalonej o $r = 5 \, cm$ od detektora, na której jest napięcie $U = 9{,}47 \, V$ i przepływa natężenie $I = 2{,}670 \, A$ (tab. \ref{tab:bulb_glass}.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        \toprule
+        Pomiar & $U_d$
+        \midrule
+        Bez szkła & 9{,}53
+        Szkło & 0{,}19
+        \bottomrule
+    \end{tabular}
+    \caption{Porównanie pomiarów napięcia na detektorze promieniowania od kostki Lesliego z ekranem szklanym pomiędzy kostką i detektorem oraz bez.}
+    \label{tab:cube_glass}
+\end{table}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cc}
+        \toprule
+        Pomiar & $U_d$
+        \midrule
+        Bez szkła & 30{,}24
+        Szkło & 22{,}10
+        \bottomrule
+    \end{tabular}
+    \caption{Porównanie pomiarów napięcia na detektorze promieniowania od żarówki z ekranem szklanym pomiędzy żarówką i detektorem oraz bez.}
+    \label{tab:bulb_glass}
+\end{table}
+Jesteśmy w stanie zauważyć że w przypadku czarnej ściany kostki (tab. \ref{tab:cube_glass}) szkoło blokuje praktycznie całe promieniowanie, odbierane przez nas prowmieniowanie było na poziomie tego obieranego z reszty pokoju podczas innych pomiarów. Natomiast gdy proównujemy napięcie powodowane przez promieniowanie wywoływane przez żarówkę za szybą i bez (tab. \ref{tab:bubl_glass} widzimy spadek jednak ani trochę tak spektakularnego jak w przypadku kostki.
+
+ZDJĘCIE
+
+Z tych pomoarów możemy zauważyć że transmisyjność szkła dla promieni podczerwonych które dominowały w pomiarach dla kostki jest, jest bliska zera, dlatego widzimy taki spadek napięcia w tabel \ref{tab:cube_glass}. Podczas gdy transmisyjność szkoła w przypadku światła widzialnego jest wysoka dlatego w przypadku żarówki stosunek napięcia bez szkła do tego ze szkłem wynosi $73\%$, najpewniej ponieważ wciąż część energi jest obecna w promieniowaniu podczerwonym.
 
 \section{Podsumowanie}
 

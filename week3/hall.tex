@@ -21,12 +21,13 @@
 \setlength{\topmargin}{0in}
 \setlength{\headheight}{18pt}
 
-\title{}
+\title{Wyznaczanie ruchliwości i koncentracji nośników w półprzewodniku}
 \author{Kacper Kłos}
 
 \begin{document}
 
 \maketitle
+W poniższym artykule wyznaczyliśmy liczne parametry próbki domieszkowanego Ge o znanej geometrii. Wpierw mierząc napięcie i natężenie dostarczane na próbce, dopasowaliśmy krzywą aby określić jej przewodność w warunkach pokojowych wyznaczoną dla nas na $\sigma = 56{,}10 \pm 0{,}05 \, \Omega^{-1}m^{-1}$. Następnie wykonując pomiary dla kilku wartości natężenia i pola magnetycznego otrzymaliśmy wartość stałej hall równy $R_h = 5{,}30\times 10^{-3} \pm 0{,}03\times 10^{-3} \, m^3 C^{-1}$. Analizując dana dla pojedyńczyego pomiaru udało nam się określić znak nośników na dodatni. Łącząc poprzednie pomiary określiliśmy mobilność ładunków na $\mu = 2922 \pm 4 \, cm^2s^{-1}V^{-1}$ oraz koncentracje nośników na $1{,}1985 \times 10^{15} \pm 0{,}0013 \times 10^{15} \, cm^{-3}$, obie warości w temperaturze pokojowej. Na koniec sprawdziliśmy co dzieje się z koncentracją i mobilnością przy wzroście temperatury oraz wyznaczyliśmy energię aktywacji domieieszek. Gdy temperatura rośnie mobilność nośników maleje w przeciwieństwie do ich koncentracji, dopasowując krzywą do zaleźności temperaturowych otrzymaliśmy energię aktywacji domieszek $E_{A_s} = 0{,}658 \pm 0{,}018 \, eV$.
 
 \newpage
 \section{Wstęp}
@@ -35,6 +36,8 @@ oraz jej stałą halla. Przy pomocy tych wartości wyznaczymy koncentrację noś
 Na koniec dopasujemy krzywą do zależności teoretycznej dla tych zachowań i wyznaczymy energię aktywacji domieszek.
 
 \section{Podstawy Teoretyczne}
+Przedstawiona tutaj wyprowadzenie używanych w doświadczeniu wzorów jest skróconą wersją wyprowadzenia znajdującego się w \cite{skrypt}.
+
 Podczas gdy do próbki nie jest przyłorzone żadne napięcie, nośniki ładunków poruszają się w kompletnie losowych kierunkach.
 Lecz gdy na jej jednym końcu będzie większy potencjał niż na drugim wewnątrz próbki powstanie pole elektryczne.
 Spowoduje ono że wciąż losowy ruch dla pojedyńczego nośnika, będzie mieć dla dużej liczby nośników, prędkość zależną od znaku nosników.
@@ -148,12 +151,12 @@ Do danych dopasowujemy krzywą.
 \end{figure}
 Z dopasowania krzywej do wartości z \ref{tab:ohm_measurements} otrzymujemy krzywą na wykresie \ref{fig:ohm_measurments} i wartości:
 \begin{equation}
-    R = 35.65 \ \Omega, \quad  u(R) = 0.04 \ \Omega
+    R = 35{,}65 \ \Omega, \quad  u(R) = 0{,}04 \ \Omega
     \label{eq:resistance}
 \end{equation}
 Korzystając z równania \ref{eq:ohm_law}, wartości \ref{eq:resistance}, oraz wymiarów próbki otrzymujemy:
 \begin{equation}
-    \sigma = 56.10 \ \Omega^{-1}m^{-1}, \quad u(\sigma) = 0.05 \ \Omega^{-1}m^{-1}
+    \sigma = 56{,}10 \ \Omega^{-1}m^{-1}, \quad u(\sigma) = 0{,}05 \ \Omega^{-1}m^{-1}
     \label{eq:final_conductivity}
 \end{equation}
 Gdzie $u(\sigma)$ otrzymujemy z propagacji błędu:
@@ -199,7 +202,7 @@ Oraz wartości:
 \]
 Mnożąc przez $h$ mamy:
 \begin{equation}
-    |R_{H_C}| = 5{,}30\cdot10^{-3} \ m^3C^{-1} \quad, u(|R_{H_C}|) = 0{,}03\cdot10^{-3} \ m^3C^{-1}  
+    |R_{H_C}| = 5{,}30\times 10^{-3} \ m^3C^{-1} \quad, u(|R_{H_C}|) = 0{,}03\times 10^{-3} \ m^3C^{-1}  
     \label{eq:hall_constant_current}
 \end{equation}
 Rozwarzanie znaku $R_H$ pozostawimy na później.
@@ -254,8 +257,8 @@ Korzystając z wyznaczonych \ref{eq:hall_constant_current}\ref{eq:hall_constant_
 \end{equation}
 
 
-\subsection{Nośników napięcia i mobilność}
-Zeby wyznaczyć znak stałej halla przyjrzyjmy się pomiarą wykonanym równolegle z pomiarem $U_1$ w serii ze stałym natężeniem \ref{tab:const_current_measurements} i ostatnim pomiarem $U_s$ w serii \ref{tab:ohm_measurements}. 
+\subsection{Znak nośników napięcia, mobilność i koncentracja ładunków}
+Żeby wyznaczyć znak stałej halla przyjrzyjmy się pomiarą wykonanym równolegle z pomiarem $U_1$ w serii ze stałym natężeniem \ref{tab:const_current_measurements} i ostatnim pomiarem $U_s$ w serii \ref{tab:ohm_measurements}. 
 Za pomocą kompasu wyznaczamy kierunek pola magnetycznego, które dla tych pomiarów jest skierowane z ekranu.
 Widzimy że oba napięcia są negatywne, oznacza to że na rysunku \ref{fig:diagram} wyższe napięcie jest na wyjściu 5 niż na 6, oraz na wyjściu 4 niż na 3 próbki Ge.
 Załóżmy że nośniki natężenia mają ładunek pozytywny, zatem będą się one poruszać od większego do mniejszego potencjału $5 \rightarrow 6$. 
