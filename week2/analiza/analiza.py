@@ -319,8 +319,8 @@ def final_graph():
     plt.clf()
 
 
-# plot_power()
+plot_power()
 # plot_power(s, e, model_fit)
 # final_graph()
-for i in range(len(lines)):
-    test_fit(i)
+# for i in range(len(lines)):
+#     test_fit(i)

@@ -1,6 +1,11 @@
 import scipy
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+
+plt.rcParams.update({"font.size": 14})
+
+IMAGE_PATH = "images"
 
 MILI = 1e-3
 CENTY = 1e-2
@@ -229,15 +234,15 @@ def FitToLinearModel(x, y, x_err, y_err):
     return out.beta, out.sd_beta
 
 
-def PlotLineFit(x, y, x_err, y_err, params, x_label, y_label, data_label, fit_label):
+def PlotLineFit(x, y, x_err, y_err, params, x_label, y_label, data_label, fit_label, title, line_color):
     plt.errorbar(x, y, xerr=x_err, yerr=y_err, fmt="o", label=data_label)
     x_fit = np.linspace(min(x), max(x), 200)
     y_fit = LinearModel(params, x_fit)
-    plt.plot(x_fit, y_fit, "r-", label=fit_label)
+    plt.plot(x_fit, y_fit, f"-{line_color}", label=fit_label)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.legend()
-    plt.savefig("graph.png", dpi=300, bbox_inches="tight")
+    plt.savefig(os.path.join(IMAGE_PATH, f"{title}.png"), dpi=300, bbox_inches="tight")
     plt.clf()
 
 
@@ -247,22 +252,17 @@ def AdjustVoltage(voltage, adjustment, adjustment_err):
     return voltage_adj, np.abs(voltage_adj_err)
 
 
-def Chi2Test(x, y, y_err, params, function, df):
-    chi = np.sum(((params[0] * function(x) + params[1] - y) / y_err) ** 2)
-    p_simple = scipy.stats.chi2.sf(chi, df)
-    return np.sqrt(chi), p_simple
 
-
-def CubeLineFit(temp, voltage, adjustment, adjustment_err):
+def CubeLineFit(temp, temp_err, voltage, adjustment, adjustment_err, title, line_color):
     voltage_adj, voltage_adj_err = AdjustVoltage(voltage, adjustment, adjustment_err)
     temp_adj = temp**4
-    temp_adj_err = 4 * temp**3 * TEMP_ERROR
+    temp_adj_err = 4 * temp**3 * temp_err 
     params_out, params_err = FitToLinearModel(
         temp_adj, voltage_adj, temp_adj_err, voltage_adj_err
     )
     print(f"fited line params: {params_out}, error: {params_err}")
     PlotLineFit(
-        temp_adj, voltage_adj, temp_adj_err, voltage_adj_err, params_out, "", "", "", ""
+        temp_adj, voltage_adj/MILI, temp_adj_err, voltage_adj_err/MILI, params_out/MILI, r"$T^4 \, [K^4]$", r"$U' \, [mV]$", "punkty pomiarowe", "dopasowanie liniowe", title, line_color
     )
     return params_out, params_err
 
@@ -286,27 +286,39 @@ def CubeAnalysis():
     )
     black_params, black_params_err = CubeLineFit(
         cube_measurements[0],
+        TEMP_ERROR,
         cube_measurements[1],
         mean_surrounding_voltage,
         mean_surrounding_voltage_err,
+        "cube_black",
+        "k"
     )
     white_params, white_params_err = CubeLineFit(
         cube_measurements[0],
+        TEMP_ERROR,
         cube_measurements[2],
         mean_surrounding_voltage,
         mean_surrounding_voltage_err,
+        "cube_white",
+        "y"
     )
     shining_params, shining_params_err = CubeLineFit(
         cube_measurements[0],
+        TEMP_ERROR,
         cube_measurements[3],
         mean_surrounding_voltage,
         mean_surrounding_voltage_err,
+        "cube_shining",
+        "m"
     )
     dull_params, dull_params_err = CubeLineFit(
         cube_measurements[0],
+        TEMP_ERROR,
         cube_measurements[4],
         mean_surrounding_voltage,
         mean_surrounding_voltage_err,
+        "cube_dull",
+        "g"
     )
     white_emissity, white_emissity_err = Emissity(
         black_params, white_params, black_params_err, white_params_err
@@ -350,41 +362,12 @@ def BulbTemperature(resistance, resistance_err):
     )
     return temp, np.abs(temp_err)
 
-
-def TemperatureAnalysis():
-    temp, temp_err = BulbTemperature(
-        *Resistance(
-            temp_measurments[0],
-            temp_measurments[1],
-            BulbVoltageError(temp_measurments[0]),
-            BulbCurrentError(temp_measurments[1]),
-        )
-    )
-    mean_background_voltage, mean_background_voltage_err = BackgroundVoltage(
-        temp_measurments[-1]
-    )
-    voltage_adj, voltage_adj_err = AdjustVoltage(
-        temp_measurments[2], mean_background_voltage, mean_background_voltage_err
-    )
-    temp_log = np.log(temp)
-    temp_log_err = np.abs(temp_err / temp)
-    voltage_adj_log = np.log(voltage_adj)
-    voltage_adj_log_err = np.abs(voltage_adj_err / voltage_adj)
-    params_out, params_err = FitToLinearModel(
-        temp_log, voltage_adj_log, temp_log_err, voltage_adj_log_err
-    )
-    print(f"fited line params: {params_out}, error: {params_err}")
-    PlotLineFit(
-        temp_log,
-        voltage_adj_log,
-        temp_log_err,
-        voltage_adj_log_err,
-        params_out,
-        "",
-        "",
-        "",
-        "",
-    )
+def Chi2TestBoltzmanTemp(T4, T4_err, voltage, voltage_err, params, df):
+    line = (LinearModel(params, T4) - voltage)**2
+    sigma = T4_err**2 * (params[0]**2) + voltage_err**2  
+    chi = np.sum(line / sigma)
+    p = scipy.stats.chi2.sf(chi, df)
+    return chi, p
 
 
 def TemperatureAnalysisExponent():
@@ -400,20 +383,19 @@ def TemperatureAnalysisExponent():
         temp_measurments[-1]
     )
     params_out, params_err = CubeLineFit(
-        temp, temp_measurments[2], mean_background_voltage, mean_background_voltage_err
+        temp, temp_err, temp_measurments[2], mean_background_voltage, mean_background_voltage_err, "boltzman_temp", "r",
     )
     voltage_adj, voltage_adj_err = AdjustVoltage(
         temp_measurments[2], mean_background_voltage, mean_background_voltage_err
     )
-    chi = Chi2Test(
-        temp,
-        temp_measurments[2] - voltage_adj,
-        np.sqrt(DetectorVoltageError(temp_measurments[2]) ** 2 + voltage_adj_err**2),
+    chi = Chi2TestBoltzmanTemp(
+        temp**4,
+        4*temp**3*temp_err,
+        voltage_adj,
+        voltage_adj_err,
         params_out,
-        lambda x: x**4,
         len(temp_measurments) - 2,
     )
-    print(f"fited line params: {params_out}, error: {params_err}")
     print(f"resulting chi2 test: {chi}")
 
 
@@ -422,6 +404,12 @@ def InverseSquareLaw(distance, distance_err):
     distance_adj_err = 2 * distance_err / (distance_adj**3)
     return distance_adj, distance_adj_err
 
+def Chi2TestBoltzmanDistance(x, y, x_err, y_err, params, df):
+    line = (LinearModel(params, np.log(x))-np.log(y))**2
+    sigma = ((x_err/x)**2 + (y_err/y)**2)
+    chi = np.sum(line/sigma)
+    p_simple = scipy.stats.chi2.sf(chi, df)
+    return chi, p_simple
 
 def DistanceAnalysis():
     true_distance = np.abs(distance_measurments[0] - BULB_DISTANCE)
@@ -445,11 +433,15 @@ def DistanceAnalysis():
         distance_adj_err,
         voltage_adj_log_err,
         params_out,
-        "",
-        "",
-        "",
-        "",
+        "$\log{U'}$",
+        "$\log{r}$",
+        "punkty pomiarowe",
+        "dopasowanie liniowe",
+        "boltzman_distance",
+        "c"
     )
+    chi = Chi2TestBoltzmanDistance(true_distance, voltage_adj, DISTANCE_ERROR, voltage_adj_err, params_out, len(distance_measurments[0])-2)
+    print(f"resulting chi2 test: {chi}")
 
 
 # CubeAnalysis()

@@ -27,7 +27,7 @@
 \begin{document}
 
 \maketitle
-W tym raporcie wyznaczyliśmy masę włókna małej żarówki wolfrmowej. Otrzymana przez nas wartość wynosi $m = 0{,}69 \pm 0{,}04 \, mg$, do otrzymania tego wyniku wyznaczyliśmy opor żarówki $R_0 = 2{,}887 \pm 0{,}015 \, \Omega$ oraz opornika pomocnicznego $R = 9{,}795 \pm 0{,}015 \, \Omega$. Następnie wyznaczyliśmy zależność liniową $P_w = 0{,}00383 \cdot R_w - 0{,}0121$, dla pomiarów mocy rozpraszanej przez żarówkę w zależności od jej oporu dla małych oporów. Finalnie wyznaczając nachylenie krzywej napięcia tuż po przyłożeniu napięcia otrzymaliśmy punkty pomiarowe do równania do którego dopasowana krzywa wyznaczyła nam iloczyn masy i ciepła właściwego włókna na $mc_w=1{,} \times 10^{-5} \pm 0{,}05 \times 10^{-5} \, J/K$. Za pomocą tej wartości i danych o cieple właściwym wolframu otrzymaliśmy masę włókna.
+W tym raporcie wyznaczyliśmy masę włókna małej żarówki wolframowej. Otrzymana przez nas wartość wynosi $m = 0{,}69 \pm 0{,}04 \, mg$. Do otrzymania tego wyniku wyznaczyliśmy opór żarówki $R_0 = 2{,}887 \pm 0{,}015 \, \Omega$ oraz opornika pomocnicznego $R = 9{,}795 \pm 0{,}015 \, \Omega$. Następnie wyznaczyliśmy zależność liniową $P_w = 0{,}00383 R_w - 0{,}0121$, dla pomiarów mocy rozpraszanej przez żarówkę w zależności od jej oporu dla małych temperatur. Ostatecznie wyznaczając nachylenie krzywej napięcia tuż po przyłożeniu napięcia otrzymaliśmy punkty pomiarowe do równania do którego dopasowana krzywa wyznaczyła nam iloczyn masy i ciepła właściwego włókna na $mc_w=(1{,}00 \pm 0{,}05) \times 10^{-5}\, J/K$. Za pomocą tej wartości i danych o cieple właściwym wolframu otrzymaliśmy masę włókna.
 \newpage
 
 \section{Wstęp}
@@ -51,7 +51,7 @@ gdzie:
 \item $\alpha$ – współczynnik temperaturowy oporu (stała proporcjonalności dla wolframu).
 \end{itemize}
 
-Prąd przepływający przez żarówkę dostarcza do niej moc, która jest następnie wykorzystywana na:  
+Prąd przepływający przez żarówkę dostarcza do niej moc, która jest wykorzystywana na:  
 \begin{enumerate}
 \item ogrzanie włókna (zwiększanie jego temperatury),  
 \item straty ciepła (głównie w postaci wypromieniowanej energii).  
@@ -180,7 +180,7 @@ W oparciu o tą wiedze i wyniki pomiarów znajdujące się w tabeli \ref{tab:opo
         3 & 9{,}796  & 2{,}902 \\
         \bottomrule
     \end{tabular}
-    \caption{Pomiary oporów dla rezystora ($R$) oraz żarówki w temperaturze referencyjnej ($R_0$).}
+    \caption{Pomiary oporów rezystora ($R$) oraz żarówki w temperaturze referencyjnej ($R_0$).}
     \label{tab:opory}
 \end{table}
 
@@ -230,7 +230,7 @@ Za niepewność pomiaru woltomierza uznajemy maksymalne wahanie napięcia po jeg
         25 & 9{,}51  & 2{,}2113 & 0{,}015 & 0{,}0020  \\
         \bottomrule
     \end{tabular}
-    \caption{Pomiary zależności napięcia $U_R$ na rezystorze $R$ od napięcia zasilającego $U_0$ oraz ich błędy pomiarowe.}
+    \caption{Pomiary zależności napięcia $U_R$ na rezystorze od napięcia zasilającego $U_0$ oraz ich błędy pomiarowe.}
     \label{tab:resistor_voltage}
 \end{table}
 
@@ -319,7 +319,7 @@ W tej części badamy zależność $U_R(t)$ tuż po przyłożeniu napięcia $U_0
                 &         & \multicolumn{5}{c}{\textbf{t [ms]}} & \\[6pt]
         \bottomrule
     \end{tabular}
-    \caption{Serie pomiarowe napięcia $U_R(t)$ tuż po ustabilizowaniu się wartości $U_0$. W nawiasach kursywą podano czasy w ms.}
+    \caption{Serie pomiarowe napięcia na rezystorze $U_R(t)$ od czasu $t$ tuż po zniknięciu zakłóceń, przy napięcia na zasilaczu $U_0$}
     \label{tab:lines_data}
 \end{table}
 
@@ -342,7 +342,7 @@ Po dopasowaniu prostych metodą najmniejszych kwadratów do każdej serii otrzym
         2{,}01  & 0{,}012 & 1{,}418  & 0{,}01   & -0{,}00190 & 0{,}00019 \\
         \bottomrule
     \end{tabular}
-    \caption{Zestawienie napięć $U_0(t_0)$, $U_R(t_0)$ i współczynników kierunkowych $\frac{dU_R}{dt}$ po dopasowaniu do serii pomiarowych.}
+    \caption{Zestawienie napięć na zasilaczu $U_0(t_0)$ i rezystorze $U_R(t_0)$ orza współczynników kierunkowych $\frac{dU_R}{dt}$ po dopasowaniu do serii pomiarowych.}
     \label{tab:dynamic_data}
 \end{table}
 Za niepewność każdego $U_R(t_0)$ przyjmujemy największe zaobserwowane wychylenie napięcia w danej serii. Zakładamy, że czas (odczyt z oscyloskopu) jest zmierzony z pomijalną niepewnością.
@@ -373,11 +373,11 @@ Na rys. \ref{fig:final_graph} przedstawiono punktową zależność $Y(X)$ wraz z
 \end{figure}
 Wynik dopasowania daje:
 \[
-    m\,c_w = 1{,}0\times 10^{-5}\,\mathrm{J/K}, 
+    m\,c_w = 1{,}00 \times 10^{-5}\,\mathrm{J/K}, 
     \quad
     u(m\,c_w) = 0{,}05\times 10^{-5}\,\mathrm{J/K}.
 \]
-Wykorzystując wartość ciepła właściwego wolframu $c_w = 144\,\mathrm{J/(kg\,K)}$ \cite{heat_capacity}, otrzymujemy ostatecznie:
+Wykorzystując wartość ciepła właściwego wolframu $c_w = 144\,\mathrm{J/(kg\,K)}$ \cite{skrypt}, otrzymujemy ostatecznie:
 \[
     m =0{,}69\,\mathrm{mg},
     \quad
@@ -389,11 +389,11 @@ Wykorzystując wartość ciepła właściwego wolframu $c_w = 144\,\mathrm{J/(kg
 \section{Podsumowanie}
 W przedstawionym doświadczeniu staraliśmy się wyznaczyć masę włókna żarówki wolframowej. Na początku określiliśmy opór żarówki oraz rezystora, wykonując kilka pomiarów miernikiem uniwersalnym (tabela~\ref{tab:opory}). Otrzymaliśmy wartości $R_{0} = 2{,}887 \pm 0{,}015\,\Omega$ dla żarówki oraz $R = 9{,}795 \pm 0{,}014\,\Omega$ dla rezystora.
 
-Następnie zmierzyliśmy napięcie na oporniku w zależności od napięcia zasilacza, aby dopasować zależność liniową dla małych napięć do wzoru~\ref{eq:power_dis}. Z tabeli~\ref{tab:resistor_voltage} wybraliśmy kilka pierwszych punktów, w których obserwowaliśmy zależność liniową, i dopasowaliśmy krzywą widoczną na rys.~\ref{fig:power_res_line}, uzyskując wartości współczynników $a=0{,}00383 \pm 0{,}00008\,W\,\Omega^{-1}$ oraz $b=-0{,}0121 \pm 0{,}0005\,W$.
+Potem zmierzyliśmy napięcie na oporniku w zależności od napięcia zasilacza, aby dopasować zależność liniową dla małych napięć do wzoru~\ref{eq:power_dis}. Z tabeli~\ref{tab:resistor_voltage} wybraliśmy kilka pierwszych punktów, w których obserwowaliśmy zależność liniową, i dopasowaliśmy krzywą widoczną na rys.~\ref{fig:power_res_line}, uzyskując wartości współczynników $a=0{,}00383 \pm 0{,}00008\,W\,\Omega^{-1}$ oraz $b=-0{,}0121 \pm 0{,}0005\,W$.
 
-Kolejno, dopasowaliśmy prostą (tabela~\ref{tab:lines_data}) do napięcia na rezystorze w funkcji czasu dla kilku wartości napięcia ustawionych na generatorze (tabela~\ref{tab:dynamic_data}), tuż po zamknięciu układu. Wszystkie otrzymane wielkości wprowadziliśmy do równania~\eqref{eq:final}, do którego również dopasowaliśmy prostą pozwalającą nam wyznaczyć końcowy wynik masy włókna żarówki: $m=0{,}69\pm0{,}04\,\mathrm{mg}$. Otrzymany wynik wydaje się prawdopodobny, badana żarówka była niewielka oraz składała się z pojedyńczego druta wolframu grubości ludzkiego włosa oraz długości w okolicach centymetra.
+Na dalszym etapie, dopasowaliśmy prostą (tabela~\ref{tab:lines_data}) do napięcia na rezystorze w funkcji czasu dla kilku wartości napięcia ustawionych na generatorze (tabela~\ref{tab:dynamic_data}), tuż po zamknięciu układu. Wszystkie otrzymane wielkości wprowadziliśmy do równania~\eqref{eq:final}, do którego również dopasowaliśmy prostą pozwalającą nam wyznaczyć końcowy wynik masy włókna żarówki: $m=0{,}69\pm0{,}04\,\mathrm{mg}$. Otrzymany wynik wydaje się prawdopodobny, badana żarówka była niewielka oraz składała się z pojedyńczego drutu wolframu grubości rzędu części dziesiątych milimetra.
 
-Błąd jaki otrzymaliśmy w znaczącej części pochodzi od wyznaczonych pochodnych które zawierały perturbacje sygnału spowodowane nagłym zamknięciem układu. Widać to na wykresach w suplemęcie \ref{fig:line_fit_graph}, oraz na końcowym wykresie \ref{fig:final_graph} na którym widoczny jest błąd zmiennej X w przeciwieństwie do tego pochodzącego od zmiennej Y. Inne błędy napotkane w równaniach są marginalne, opór żarówki i opornika mają kolejno około $0{,}5 \%$ i $0{,}2 \%$, podobnie współczynniki znalezione w części stacjonarnej, procentowo błędy prezentują się $2\%$ dla $a$ oraz $4\%$ dla $b$. Widzimy że błędy z częsci dynamicznej musiały zawyżyć błąd masy, osiągający parawie $6\%$.
+Błąd jaki otrzymaliśmy w znaczącej części pochodzi od wyznaczonych pochodnych, które zawierały perturbacje sygnału spowodowane nagłym zamknięciem układu. Widać to na wykresach w suplemencie \ref{fig:line_fit_graph}, oraz na końcowym wykresie \ref{fig:final_graph} na którym widoczny jest błąd zmiennej X, w przeciwieństwie do tego pochodzącego od zmiennej Y. Inne błędy napotkane w równaniach są marginalne, opór żarówki i opornika mają kolejno około $0{,}5 \%$ i $0{,}2 \%$, podobnie współczynniki znalezione w części stacjonarnej, procentowo błędy prezentują się $2\%$ dla $a$ oraz $4\%$ dla $b$. Widzimy że błędy z częsci dynamicznej musiały zawyżyć błąd masy, osiągający prawie $6\%$.
 
 
 \newpage
@@ -414,16 +414,12 @@ Błąd jaki otrzymaliśmy w znaczącej części pochodzi od wyznaczonych pochodn
 \bibitem{heat_resist}
 Giancoli, Douglas C., \emph{Physics}, 4th Ed.
 
-\bibitem{heat_capacity}
-A. Łopion, P. Węgrzyn, P. Fita, \emph{Żarówka}.
-
 \end{thebibliography}
 
 \newpage
 
 \section{Suplement}
 Wykresy dopasowań liniowych do danych z tabeli~\ref{tab:lines_data}.
-
 
 \begin{figure}[H]
     \centering
@@ -468,7 +464,7 @@ Wykresy dopasowań liniowych do danych z tabeli~\ref{tab:lines_data}.
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.58]{nachylenie_8}
+    \includegraphics[scale=0.58]{nachylenie_9}
     \caption{Punkty pomiarowe oraz dopasowanie liniowe dla napięcia na generatorze $U_0 = 2{,}01 \, V$}
 \end{figure}
 
