@@ -28,154 +28,185 @@
 
 \maketitle
 
-Abstract
+W niniejszym raporcie wyznaczyliśmy zawartość radonu na podstawie produktów jego rozpadu oraz zbadaliśmy zależność promieniowania od odległości. Najpierw umieszczaliśmy próbkę toru nad scyntylatorem i rejestrowaliśmy jego odczyty podczas 2-minutowych interwałów, po czym zwiększaliśmy dystans między próbką a detektorem. Na podstawie dopasowania danych w skali log–log uzyskaliśmy, że liczba zarejestrowanych cząstek jest proporcjonalna do odwrotności odległości: \(N \propto 1/r\).
+
+Następnie wykorzystaliśmy metodę Markova, służącą do wyznaczania zawartości polonu w powietrzu, który powstaje w wyniku rozpadu radonu. Pomiar polegał na serii cykli pompowania powietrza przez filtr (ze zliczaniem objętości przepływającego gazu), a następnie dwóch pomiarach promieniowania rejestrowanego z tego filtra. Uzyskane wyniki wskazują, że koncentracja radonu w powietrzu: \((25 \pm 11)\,\mathrm{Bq\,m^{-3}}\) występuje nad stertą skał, 
+
+\((9 \pm 6)\,\mathrm{Bq\,m^{-3}}\) w korytarzu przylegającym do pomieszczenia, w którym prowadzono pomiary, oraz \((10 \pm 9)\,\mathrm{Bq\,m^{-3}}\) w próbkach świeżego powietrza z zewnątrz.
+
 
 \newpage
+
 \section{Wstęp}
-W owym raporcie przedstawimy wyniki jakie uzystakliśmy przy badaniu zawartości radonu w powietrzu obecnym w różnych pomieszczeniach. Do tego spróbójemy wyznaczyć zależność odbieranego promieniowania w funkcji odległości źródła od detektora promieniowania.
+W niniejszym raporcie przedstawiamy zbadamy zawartości radonu w powietrzu pochodzącym z różnych otoczeń. Dodatkowo analizujemy, jak zmienia się zarejestrowane promieniowanie w funkcji odległości źródła od detektora cząstek.
 
 \section{Podstawy Teoretyczne}
-Jedyne prawo fizyczne z którego będziemy korzystać jest prawo rozpadu, mówiące że ilość rozpadów promieniotwórczych jest wprost proporcjonalna do ilości rozpadanego izotopu.
+W naszych rozważaniach korzystamy głównie z prawa rozpadu promieniotwórczego, zgodnie z którym liczba jąder izotopu (np. radonu lub produktów jego rozpadu) maleje w czasie w tempie proporcjonalnym do bieżącej liczby jąder:
 \[
-	\frac{dN(t)}{dt} = - \lambda N
+\frac{dN(t)}{dt} \;=\; -\,\lambda\,N(t),
 \]
-Gdzie lambda jest dodatnią stałą zależną od izotopu, a znak minus oznacza że ilość jąder maleje z czasem. Rozwiązując to równanie dochodzimy do zależności:
+gdzie \(\lambda\) jest dodatnią stałą rozpadu zależną od danego izotopu. Rozwiązaniem tego równania jest:
 \begin{equation}
-	N(t) = N(0) e^{-\lambda t}
+	N(t) \;=\; N(0)\,e^{-\lambda\,t}.
 	\label{eq:decay}
 \end{equation}
 
-
 \section{Układ Doświadczalny}
+Zarówno do pomiarów zależności natężenia promieniowania od odległości, jak i do określania zawartości radonu w powietrzu, wykorzystaliśmy ten sam detektor cząstek (jego dokładniejszy opis można znaleźć w \cite{skrypt}), który liczy rozpad w danym przedziale czasowym.
 
-W pomiarach zależności od promieniowania od odległości jak i wyznaczania zawartości radonu w powietrzu skorzystamy z detektora promieniowania (dokładna budowa opisana w \cite{skrypt}) który wyznacza ilość zarejestrowanych rozpadów w danym przedziale czasowym.
+\subsection{Pomiar zależności od odległości}
+Schemat układu przedstawiono na rys. \ref{fig:diagram}. Próbkę promieniotwórczego toru umieszczano na regulowanym stojaku nad detektorem, a następnie zmieniano odległość między próbką a detektorem i mierzono liczbę zarejestrowanych rozpadów w ustalonym czasie (2 minuty).
 
-Układ jaki wykorzystamy do zmierzenia zależności zmierzonego promieniowania od odległości widnieje na rys. \ref{fig:diagram}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=1]{układ}
+	\caption{Układ pomiarowy do badania zależności promieniowania od odległości: 1 – miernik promieniowania, 2 – stojak z miarką, 3 – źródło promieniotwórcze.}
 	\label{fig:diagram}
-	\caption{Układ pomiarowy wykorzystywany w doświadczeniu. 1 - miernik promieniowania, 2 - stojak z linijką, 3 - promieniotwórczy materiał.}
 \end{figure}
 
-Do zmierzenia zawartości radonu w powietrzu wykorzystamy pomiar polonu będący efektem rozpadu radonu. Aby wyznaczyć ilość polonu w powietrzu wykorzystamy metodę opisaną przez Markova \cite{equation}. Dzielimy pomiar na 3 fazy z przerwami:
-\begin{enumerate}
-	\item 5 min - pompowanie powietrza na filtr
-	\item 1 min - przerwa
-	\item 3 min - mierzenie promieniowania generowanego przez filtr
-	\item 3 min - przerwa
-	\item 3 min - mierzenie promieniowania generowanego przez filtr
-\end{enumerate}
-Graficznie widoczny na rys.
+\subsection{Pomiar zawartości radonu w powietrzu (metoda Markova)}
+Do określania ilości polonu-218 (pochodnej radonu-222) w badanym powietrzu zastosowaliśmy metodę Markova \cite{equation}. Mierzone powietrze było przepompowywane przez filtr (na którym osadzały się produkty rozpadu), a później wykonywano dwa pomiary aktywności filtra w ściśle określonych odstępach czasowych. Schemat cyklu to:
+\begin{itemize}
+	\item 5 minut – pompowanie powietrza przez filtr,
+	\item 1 minuta – przerwa,
+	\item 3 minuty – pierwszy pomiar aktywności filtra,
+	\item 3 minuty – przerwa,
+	\item 3 minuty – drugi pomiar aktywności filtra.
+\end{itemize}
+Graficzne przedstawienie cyklu widnieje na rys. \ref{fig:cycle}. Podczas pompowania monitorowano całkowitą objętość powietrza \(\nu\) za pomocą gazomierzu, a pomiary promieniowania przeprowadzano detektorem umieszczonym w pobliżu filtra.
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{cycle}
+	\caption{Schemat cyklu pomiarowego (źródło: \cite{skrypt}).}
 	\label{fig:cycle}
-	\caption{Graficzna reprezentacja cyklu (źródło:~\cite{skrypt})}
 \end{figure}
-Do pompowania wykorzystamy odkurzacz z podłączonym miernikiem objętości gazu.
-Stosując wzór \eqref{eq:decay} wraz z danymi pochodzącymi z \cite{skrypt} otrzymamy wzór:
+
+Poprzez prostą analizę z urzyciem wzoru \eqref{eq:decay} otrzymana koncentracja polonu (co za tym idzie radonu) w powietrzu \(C_A\) wyraża się w postaci:
 \[
-	C_A = \frac{7{,}3 \times 10^{-5} (N_1 - N_2)}{\epsilon \, \nu \, \eta}
+    C_A \;=\; \frac{7{,}3 \times 10^{-5}\,\bigl(N_1 - N_2\bigr)}{\epsilon\,\nu\,\eta},
 \]
-We wzorze $N_i$ oznacza pomiar zarejestrowanych rozpadów w pierwszymi i drugim okresie, $\epsilon$ to wydajność miernika w rejestrowaniu cząstek, $\eta$ jest efektywnością zatrzymywanie produktów rozpadu na filtrze oraz $\nu$ to prędkość pompowania objęctości powietrza.
+gdzie \(N_1\) i \(N_2\) są zarejestrowanymi rozpadami w pierwszym i drugim okresie pomiarowym, \(\nu\) to objętość powietrza przepompowanego przez filtr w danym czasie, \(\epsilon\) oznacza wydajność rejestracji cząstek przez detektor, a \(\eta\approx 1\) jest efektywnością zatrzymywania produktów rozpadu na filtrze.  
 
-W dalszej części przyjmiemy że $\eta \approx 1$ jako że prawdziwa wartość jest tak bliska $1$ że nie będziemy w stanie jej dokładnie wyznaczyć. Także założymy $\epsilon \approx 0{,}0875$, jako że próbkę stawiamy na detektor połowa z cząstek poleciała w przeciwnym kierunku, a także zakładamy że $17{,}5\%$ cząstek które poleciały w stronę detektora do niego nie dotarły i zostały wykryte. Nasze oszacowanie opieramy na pracy \cite{scynt} w której efektywność scyntylatora jest wspomniana jako $33--44\%$, prze założeniu że nasz scyntylator jest raczej jednym z tych mniej dokładnych użyjemy wartości $35\%$. Następną składową jest to że nie wszystkie cząstki alpha dolecą do urządzenia przez ich silną interakcje z materią, pozyskując się \cite{alpha_range} zakładamy że $45\%$ cząstek nie doleci do detektora. Mnożąc te dwie wartości otrzymujemy wcześniej wspomniane $17{,}5$ oraz biorąc pod uwagę geometrię $\epsilon \approx 0{,}0875$. Zatem w analizie danych będziemy stosować wzór:
-
+W naszej analizie przyjęliśmy \(\eta=1\) oraz \(\epsilon \approx 0{,}0875\). Kulczowe założenia jakie poczyniliśmy to że promieniowanie roznosi się po sferze zatem tylko \(50\%\) kieruje się w strone detektora, przy czym tylko \(45\%\) dociera do detektora w którym zostaje wykrytych tylko $35\%$ cząstek.
+Nasze oszacowanie opieramy na publikacjach \cite{scynt,alpha_range}. Końcowo używamy uproszczonego wzoru:
 \begin{equation}
-	C_A = \frac{83{,}43 \times 10^{-5} (N_1 - N_2)}{\nu}
-	\label{eq:markov}
+    C_A \;=\; \frac{83{,}43 \times 10^{-5}\,\bigl(N_1 - N_2\bigr)}{\nu}.
+    \label{eq:markov}
 \end{equation}
 
-\section{Wyniki Pomierów}
-Wpierw ustawiamy próbkę radioaktywnego Th na stojaku (rys. \ref{fig:diagram}) w takiej pozycji mierzymy zarejestrowane rozpady w ciągu $t=120s$ i przedstawiamy w tab. \ref{tab:distance_measurments}.
+\section{Wyniki Pomiarów}
+
+\subsection{Zależność promieniowania od odległości}
+W pierwszej serii umieściliśmy próbkę toru nad detektorem (rys.~\ref{fig:diagram}) i mierzyliśmy liczbę zarejestrowanych rozpadów (w ciągu 120~s) przy różnych odległościach \(d\). Wyniki przedstawia tab.~\ref{tab:distance_measurments}.
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|c|c}
 		\toprule
-		Nr & $N$ [Bq] & $d$ [cm] \\
+        Nr & $N$ [Bq] & $d\,[\mathrm{cm}]$ \\
 		\midrule
-		1  & 36       & 1        \\
-		2  & 22       & 2        \\
-		3  & 12       & 3        \\
-		4  & 10       & 4        \\
-		5  & 6        & 5        \\
+		1 & 36 & 1 \\
+		2 & 22 & 2 \\
+		3 & 12 & 3 \\
+		4 & 10 & 4 \\
+		5 & 6  & 5 \\
 		\bottomrule
 	\end{tabular}
-	\caption{Pomiary natężenia promieniowania $N$ w funkcji odległości źródła od góry detektora $d$.}
+	\caption{Pomiar natężenia promieniowania $N$ (liczba zliczeń w 120\,s) w funkcji odległości $d$ próbki od detektora.}
 	\label{tab:distance_measurments}
 \end{table}
-Jako błąd zarejestrowanych pomiarów przyjmiemy $u(N) = \sqrt{N}$ a błąd dystansu uznamy za połowę podziałki $u(d) = 0.05 cm$.
-Dla lepszego zrozumienia danych możemy przedstawić je na wykresie~\ref{fig:distance}.
+
+Niepewność statystyczną zarejestrowanej liczby rozpadów szacujemy jako \(u(N)=\sqrt{N}\), a błąd odległości ustalamy na połowę podziałki \(\delta d=0{,}05\,\mathrm{cm}\). Zależność \(N(d)\) pokazuje rys.~\ref{fig:distance}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{distance}
+	\caption{Zależność zarejestrowanych rozpadów $N$ od odległości $d$.}
 	\label{fig:distance}
-	\caption{Zależność zarejestrowanych rozpadów $N$ od odległości próbki od detektora $d$}
 \end{figure}
 
-Zależność na wykresie~\ref{fig:distance} możemy zbadać dokładniej dopasowując prostą do wykresu log-log.
+Aby zbadać typową formę prawa potęgowego, przedstawiamy dane w skali log–log (rys.~\ref{fig:distance_log}) i dopasowujemy prostą: \(\log(N)=a\,\log(d)+b\).
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{distance_log}
+	\caption{Wykres zależności $\log(N)$ od $\log(d)$.}
 	\label{fig:distance_log}
-	\caption{Zależność logarytmu z zarejestrowanych rozpadów $N$ od logarytmu odległości próbki od detektora $d$}
 \end{figure}
-Otrzymane przez nas dopasowanie posiada parametry:
+
+Dopasowanie dało:
 \[
-	a = -1{,}0 \pm 0{,}1, \quad b = 3{,}6 \pm 0{,}1
+	a = -1{,}0 \pm 0{,}1, 
+	\quad
+	b = 3{,}6 \pm 0{,}1,
 \]
-Oznacza to że $N \propto \frac{1}{d}$.
+co odpowiada zależności \(N \propto 1/d\). Warto jednak zaznaczyć, że w idealnym przypadku cząstki powinny rozchodzić się sferycznie (\(1/r^2\)) i maleć wykładniczo z powodu interakcji z powietrzem (\(\exp(-r)\)). Otrzymany wynik powinien być kombinacją tych przypadków, jednak uwzględniając duże błędy pomiarowe trudno jest dokładnie oszacować zależność.
 
+\subsection{Koncentracja radonu (metoda Markova)}
+Kolejno wykonaliśmy cykl opisany na rys.~\ref{fig:cycle} w trzech różnych miejscach: 
+\begin{enumerate}[noitemsep]
+	\item nad stertą kamieni (starsze próbki skalne),  
+	\item w korytarzu tuż przed pomieszczeniem,  
+	\item na zewnątrz (powietrze czerpane przez okno).
+\end{enumerate}
 
-Następnie wykonując cykl Markova (rys.~\ref{fig:cycle}) będziemy badać stężenie polonu w powietrzu różnych środowisk. Wpierw badamy powietrze nad stertą kamieni wydobytych pewien czas temu, potem korytarza przed pokojem w którym wykonujemy doświadczenie i na koniec na dworze przez okno pokoju.
+W tab.~\ref{tab:density_measurments} zestawiono: $N_1$, $N_2$ – rozpad w dwóch pomiarach po cyklu pompowania powietrza, a także objętości powietrza przed i po pomiarze (\(V_{\text{przed}}\), \(V_{\text{po}}\)). Przyjmujemy błąd \(\sqrt{N_i}\) dla zarejestrowanych rozpadów, \(\delta V=0{,}01\,\mathrm{m^3}\) dla objętości oraz \(\delta t = 1s\).
+Błąd na objętość (\(\delta V\)) oraz czas (\(\delta t\)) są znacznie poniżej \(1\%\), dlatego pozwalmy sobie go zignorować w dalszej części, skupiając się na błędzie pochodzącym ilości zarejestrowanych rozpadów.
+
 \begin{table}[H]
-    \centering
-    \begin{tabular}{c|cc|cc}
-        \toprule
-        Środowisko & $N_1$ [Bq] & $N_2$ [Bq] & $V_{\text{przed}}$ [m$^3$] & $V_{\text{po}}$ [m$^3$] \\
-        \midrule
-        Kamienie & 132 & 95  & 2479{,}45 & 2483{,}13 \\
-        korytarz & 49  & 35  & 2483{,}13 & 2486{,}95 \\
-        podwórze & 91  & 76  & 2486{,}95 & 2490{,}87 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Pomiar rozpadów $N_i$ w pierwszym i drugim cyklu (rys.~\ref{fig:cycle}) oraz objętości zmierzone przed oraz po fazie pompowania}
-    \label{tab:density_measurments}
+	\centering
+	\begin{tabular}{c|cc|cc}
+		\toprule
+		Środowisko & $N_1$ & $N_2$ & $V_{\text{przed}}\,[\mathrm{m^3}]$ & $V_{\text{po}}\,[\mathrm{m^3}]$ \\
+		\midrule
+		Kamienie & 132 & 95 & 2479{,}45 & 2483{,}13 \\
+		Korytarz & 49  & 35 & 2483{,}13 & 2486{,}95 \\
+		Podwórze & 91  & 76 & 2486{,}95 & 2490{,}87 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Rozpady w pierwszym ($N_1$) i drugim ($N_2$) okresie pomiarowym oraz objętość powietrza przed i po pompowaniu (metoda Markova).}
+	\label{tab:density_measurments}
 \end{table}
-Za błąd pomiarowy rozpadów ponownie uznamy $u(N_i) = \sqrt{N_i}$ a błąd z jakim odczytujemy objętość to $u(V_i) = 0{,}01 \text{m}^3$ oraz czasu pompowania $u(t_p) = 1s$ uznajemy za marginalnie mały w porównaniu z błędem jaki będzie pochodzić od rozpadów.
-Ze wzoru na propagację błędu otrzmamy że błąd wzoru \eqref{eq:markov} wynosi:
 
+Całkowita objętość przepompowanego powietrza \(\nu\) stanowi różnicę \(\nu=\frac{V_{\text{po}}-V_{\text{przed}}}{300s}\). Przy założeniach opisanych w \ref{eq:markov} obliczamy koncentrację radonu \(C_A\). 
+
+Błąd \(u(C_A)\) wynika głównie z niepewności \(\sqrt{N_1 + N_2}\), co prowadzi do:
 \[
-	u(C_A) = \frac{83{,}43 \times 10^{-5} \sqrt{N_1 + N_2}}{\nu}
+	u(C_A) \;=\; \frac{83{,}43 \times 10^{-5}\,\sqrt{N_1 + N_2}}{\nu}.
 \]
 
-Tak wyznaczone wartości ze wzoru \eqref{eq:markov} oraz z błędu powyżej wypisujemy w tab. \ref{tab:concentration_results}.
+Wyniki podsumowano w tab.~\ref{tab:concentration_results}.
 
 \begin{table}[H]
-    \centering
-    \begin{tabular}{c|cc}
-        \toprule
-        Środowisko & $C_A$ [Bq~m$^{-3}$] & $u(C_A)$ [Bq~m$^{-3}$] \\ 
-        \midrule
-        Kamienie & 25 & 11 \\
-        korytarz & 9  & 6 \\
-        podwórze & 10  & 9 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Pomiar rozpadów $N_i$ w pierwszym i drugim cyklu (rys.~\ref{fig:cycle}) oraz objętości zmierzone przed oraz po fazie pompowania}
-    \label{tab:concentration_results}
+	\centering
+	\begin{tabular}{c|cc}
+		\toprule
+		Środowisko & $C_A\,[\mathrm{Bq\,m^{-3}}]$ & $u(C_A)\,[\mathrm{Bq\,m^{-3}}]$ \\
+		\midrule
+		Kamienie  & 25 & 11 \\
+		Korytarz  & 9  & 6  \\
+		Podwórze  & 10 & 9  \\
+		\bottomrule
+	\end{tabular}
+	\caption{Wyniki wyznaczonego stężenia radonu w powietrzu metodą Markova, wraz z niepewnościami.}
+	\label{tab:concentration_results}
 \end{table}
 
 \section{Podsumowanie}
-W powyższym raporcie udało nam się wyznaczyć zależność odbieranych cząstek alfa od odległości. Wyznaczona przez dopasowanie liniowe do wzoru $\log(N) = a \log(r) + B$ daje nam wartości $a = -1{,}0 \pm 0{,}1$ oraz $b = 3{,}6 \pm 0{,}1$, które mówią nam o zależności $N \propto \frac{1}{r}$.
-Następnie badaliśmy obecność Po-$218$ w powietrzu, w celu ustalenia zawartości Rn-$222$ który rozpada się na wspomniany polon. Badanie przeprowadziliśmy przy pomocy wzoru wyprowadzonego przez Markova \cite{equation}, badaliśmy trzy różnych otoczenia i otrzymaliśmy wartości: $C_{A_s} = 25 \pm 11$ [Bq~m$^{-3}$] dla sterty kamieni,
-$C_{A_c} = 9 \pm 6$ [Bq~m$^{-3}$] dla korytarza budynku w którym było wykonywane doświadczenia oraz $C_{A_o} = 10 \pm 9$ [Bq~m$^{-3}$] w przypadku podwórza.
+W ramach przeprowadzonych badań wyznaczyliśmy zależność liczby zarejestrowanych rozpadów od odległości próbki toru od detektora. Analiza w skali log–log zasugerowała zależność zbliżoną do \(1/d\), co odbiega od oczekiwanego wyniku. Jest to spowodowane ogromnymi niepewnościami w pomiarze rozpadów.
 
-Możemy zastanowić się jakich wartości spodziewalibyśmy się w powyższych eksperymentach. Wiemy że promieniowanie wraz z odległością powinno być pewnego rodzaju kompozycją odwrotności kwadrata (ponieważ cząstki rozchodzą się po sferze), a także spadku wykładniczego wywołanego coraz mniejszą ilością cząstek dochodzących do detektora. Otrzymane przez nas dopasowanie nie przedstawia takiego stanu rzeczy, lecz z powodu ogromnych błędów pomiarowych, równie dobrze może się tak zachowywać ale pomiar nie był na tyle dokładny by to zaobserwować. Posłógując się raportem \cite{concentration} możemy określić jakość naszych pomiarów zawartości radonu w powietrzu. Widzimy że różnica jest duża, niemniej jednak udało nam się uchwycić pewne niuanse, powietrze nad kamieniami ma zauważalnie większą obecność radonu co zgadza się z badaniem w którym powietrze bliżej centrum ziemi ma większą koncentrację tego pierwiastka.
+Następnie, stosując metodę Markova, oszacowaliśmy koncentrację radonu-222 (poprzez pomiar polonu-218) w powietrzu: 
+\[
+C_{A,\text{kamienie}}=(25 \pm 11)\,\mathrm{Bq\,m^{-3}}, 
+\quad
+C_{A,\text{korytarz}}=(9 \pm 6)\,\mathrm{Bq\,m^{-3}}, 
+\quad
+C_{A,\text{podwórze}}=(10 \pm 9)\,\mathrm{Bq\,m^{-3}}.
+\]
+Otrzymane wartości wskazują nieznacznie podwyższoną zawartość radonu przy stercie kamieni w porównaniu z korytarzem i otoczeniem zewnętrznym, co może być związane z większą obecnością minerałów zawierających tor czy uran. 
 
-Różnice między otrzymanymi wartościami a otrzymanymi w innych publikacjach pochodzi z ogromnego błędu obecnego w naszych pomiarach. Błąd statystyczny pomiaru zarejestrowanych cząstek już posiada ogromny błąd $\sqrt{N}$, w dodatku w ocenie obecności radonu użyliśmy bardzo ogólnych oszacowań dotyczących wydajności rejestracji cząstek, oraz założyliśmy że wszystkie cząstki zatrzymują się na filtrze podczas pompowania. Wszystkie te czynniki sprawiają że nasz pomiar jest obarczony dużymi błędami.
+Z literatury \cite{concentration} wiadomo, że stężenia radonu w warunkach naturalnych mogą się znacznie różnić w zależności od geologii i wentylacji pomieszczeń. Nasze wyniki, choć obarczone znacznymi błędami (m.in. ze względu na ograniczoną wydajność detektora i przybliżenia co do zatrzymywania cząstek na filtrze), pokazują jednak pewną różnicę między miejscami z potencjalnie wyższym uwalnianiem radonu (skały) a miejscami mniej nim zanieczyszczonymi.
 
 \newpage
 
@@ -183,15 +214,21 @@ Różnice między otrzymanymi wartościami a otrzymanymi w innych publikacjach p
 
 	\bibitem{skrypt}
 	\emph{Pomiar Zawartości Radonu w Powietrzu}, Uniwersytet Warszawski.
-	\bibitem{equation}
-	\emph{Atomnaja Energia 12}, K.P. Markov, N.W. Rijabov, K.N. Stas.
-    \bibitem{scynt}
-    \url{https://scintacor.com/wp-content/uploads/2021/09/Comparisons-of-new-simple-methods-in-fabricating-ZnS-Ag-scintillatiors-for-detecting-alpha-particles.pdf}, \emph{Comparison of New Simple Methods in Fabricating ZnS(Ag) Scintillators for Detecting Alpha Particles}, Seung Kyu LEE, Shin Yang KANG, Doh Yun JANG, Cheol Ho LEE, Sang Mook KANG, Byoung Hwi KANG, Woo Gyo LEE, and Yong Kyun KIM. 
-    \bibitem{alpha_range}
-    \url{https://www.rad-proceedings.org/papers/RadProc.2018.25.pdf}, \emph{ALPHA SELF-ABSORPTION EVALUATION IN RADIOMETRIC FILTER MATERIAL FOR THE NATURAL RANGE OF ALPHA ENERGY (5-9 MeV)}, M. Y.A. Mostafa, M.V. Zhukovsky.
-    \bibitem{concentration}
-    \emph{Promieniotwórczość a życie: problem ryzyka związanego z promieniowaniem jonizującym, Raport Nr 12, Dział Szkolenia IPJ}, L. Dobrzyński i E. Droste, Warszawa 1999
 
+	\bibitem{equation}
+	K.P. Markov, N.W. Rijabov, K.N. Stas, \emph{Atomnaja Energia 12}.
+
+	\bibitem{scynt}
+	\url{https://scintacor.com/wp-content/uploads/2021/09/Comparisons-of-new-simple-methods-in-fabricating-ZnS-Ag-scintillatiors-for-detecting-alpha-particles.pdf},
+	\emph{Comparison of New Simple Methods in Fabricating ZnS(Ag) Scintillators for Detecting Alpha Particles}, 
+	S. K. Lee, S. Y. Kang, D. Y. Jang et al.
+
+	\bibitem{alpha_range}
+	\url{https://www.rad-proceedings.org/papers/RadProc.2018.25.pdf},
+	M. Y. A. Mostafa, M. V. Zhukovsky, \emph{Alpha Self-Absorption Evaluation in Radiometric Filter Material for the Natural Range of Alpha Energy (5–9 MeV)}.
+
+	\bibitem{concentration}
+	L. Dobrzyński i E. Droste, \emph{Promieniotwórczość a życie: problem ryzyka związanego z promieniowaniem jonizującym}, Raport Nr 12, Dział Szkolenia IPJ, Warszawa 1999.
 
 \end{thebibliography}
 

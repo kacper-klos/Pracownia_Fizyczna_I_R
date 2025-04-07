@@ -16,7 +16,7 @@ DISTANCE_ERROR = 0.05
 VOLUME_ERROR = 0.01
 TIME_VOLUME_ERROR = 1
 
-SCYNTILLATOR_EFFICIENCY = 0.0875
+SCYNTILLATOR_EFFICIENCY = 0.030625
 
 distance_measurments = np.array([[36, 22, 12, 10 ,6], # N [bq]
                                  [1, 2, 3, 4, 5]]) # d[cm]
@@ -65,9 +65,9 @@ def PlotLineFit(
     plt.clf()
 
 def PlotDistanceMeasurments():
-    plt.errorbar(distance_measurments[1], distance_measurments[1], xerr=DISTANCE_ERROR, yerr=np.sqrt(distance_measurments[1]), fmt="o")
-    plt.xlabel("")
-    plt.ylabel("")
+    plt.errorbar(distance_measurments[1], distance_measurments[1], xerr=DISTANCE_ERROR, yerr=np.sqrt(distance_measurments[1]), fmt="o", label="Punkty pomiarowe")
+    plt.xlabel(r"$d$ [cm]")
+    plt.ylabel(r"$N$ [Bq]")
     plt.legend()
     plt.savefig(os.path.join(IMAGE_PATH, f"{"distance"}.png"), dpi=300, bbox_inches="tight")
     plt.clf()
@@ -82,7 +82,7 @@ def DistanceLogLog():
     y_err = DecayError(distance_measurments[0])/distance_measurments[0]
     params_out, params_err = FitToLinearModel(x_log, y_log, x_err, y_err)
     print(f"params: {params_out}, error: {params_err}")
-    PlotLineFit(x_log, y_log, x_err, y_err, params_out, "", "", "", "", "distance_log", "r")
+    PlotLineFit(x_log, y_log, x_err, y_err, params_out, r"$\log(N)$", r"$\log(d)$", "Punkty pomiarowe", "Dopasowanie liniowe", "distance_log", "r")
 
 def Concentration(N_1, N_2, V_start, V_end, time):
     N_diff = N_1 - N_2
@@ -94,6 +94,6 @@ def ConcentrationMeasurments():
     concentration, concentration_err = Concentration(density_measurments[0], density_measurments[1], density_measurments[2], density_measurments[3], PUMP_TIME)
     print(f"concentration: {concentration}, errors: {concentration_err}")
 
-# DistanceLogLog()
-# PlotDistanceMeasurments()
-ConcentrationMeasurments()
+DistanceLogLog()
+PlotDistanceMeasurments()
+# ConcentrationMeasurments()
