@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1744111240.85836 "radon.tex" "radon.pdf" "radon" 1744111241.552 0
+["pdflatex"] 1744218477.47666 "radon.tex" "radon.pdf" "radon" 1744218478.23011 0
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1742685315 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1742685315 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1742685315 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -131,9 +131,9 @@
   "images/distance.png" 1743970570.15047 52215 262f2ef7e97b47a515c5628f3c23eaf3 ""
   "images/distance_log.png" 1743970570.02345 100199 cd7ec2613f51da582fe729decf0de82d ""
   "images/układ.png" 1743600518.99281 7033 88e239dcb7193a7bb976bd21fcf02a6e ""
-  "latex_build/radon.aux" 1744111241.49029 4460 a8fcf40ca4c93132422885a64cddc0a7 "pdflatex"
-  "latex_build/radon.out" 1744111241.49141 1696 5046a5151a959e0076ea2b15676a1f2b "pdflatex"
-  "radon.tex" 1744111239.33825 12560 c56d16b62b5da5926c71b0676f674e6c ""
+  "latex_build/radon.aux" 1744218478.1702 4895 847f4b87c4e1e8114d060ecdf79a084c "pdflatex"
+  "latex_build/radon.out" 1744218478.1711 1696 5046a5151a959e0076ea2b15676a1f2b "pdflatex"
+  "radon.tex" 1744218477.21346 14955 a9f6fd509f2e5eb247c125b574c96363 ""
   (generated)
   "latex_build/radon.aux"
   "latex_build/radon.log"

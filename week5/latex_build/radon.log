@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.26)  8 APR 2025 13:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.26)  9 APR 2025 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -458,23 +458,23 @@ Overfull \hbox (10.15346pt too wide) in paragraph at lines 41--42
 <./images/ukÅ‚ad.png, id=54, 116.1138pt x 185.493pt>
 File: ./images/ukÅ‚ad.png Graphic file (type png)
 <use ./images/ukÅ‚ad.png>
-Package pdftex.def Info: ./images/ukÅ‚ad.png  used on input line 62.
+Package pdftex.def Info: ./images/ukÅ‚ad.png  used on input line 63.
 (pdftex.def)             Requested size: 116.11351pt x 185.49254pt.
 
 
 [2]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 70.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 71.
  (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (25.76967pt too wide) in paragraph at lines 76--77
-\T1/lmr/m/n/12 caªkow-it¡ ob-j¦-to±¢ powi-etrza $\OML/lmm/m/it/12 ^^W$ \T1/lmr/m/n/12 za po-moc¡ gazomierzu, a po-mi-ary promieniowa-nia przeprowadzano
+Overfull \hbox (6.1864pt too wide) in paragraph at lines 77--78
+\T1/lmr/m/n/12 caªkow-it¡ ob-j¦-to±¢ powi-etrza $\OML/lmm/m/it/12 ^^W$ \T1/lmr/m/n/12 za po-moc¡ gazomierzu, a po-mi-ary promieniowa-nia przeprowad-
  []
 
 <./images/cycle.png, id=68, 536.0025pt x 131.74219pt>
 File: ./images/cycle.png Graphic file (type png)
 <use ./images/cycle.png>
-Package pdftex.def Info: ./images/cycle.png  used on input line 80.
+Package pdftex.def Info: ./images/cycle.png  used on input line 81.
 (pdftex.def)             Requested size: 375.19919pt x 92.21889pt.
 
 
@@ -482,7 +482,7 @@ Package pdftex.def Info: ./images/cycle.png  used on input line 80.
 <./images/distance.png, id=86, 407.6028pt x 319.9152pt>
 File: ./images/distance.png Graphic file (type png)
 <use ./images/distance.png>
-Package pdftex.def Info: ./images/distance.png  used on input line 124.
+Package pdftex.def Info: ./images/distance.png  used on input line 125.
 (pdftex.def)             Requested size: 285.32pt x 223.9391pt.
 
 
@@ -490,41 +490,53 @@ Package pdftex.def Info: ./images/distance.png  used on input line 124.
 <./images/distance_log.png, id=98, 420.8523pt x 320.8788pt>
 File: ./images/distance_log.png Graphic file (type png)
 <use ./images/distance_log.png>
-Package pdftex.def Info: ./images/distance_log.png  used on input line 133.
+Package pdftex.def Info: ./images/distance_log.png  used on input line 134.
 (pdftex.def)             Requested size: 294.5946pt x 224.61362pt.
 
 
 [5 <./images/distance.png> <./images/distance_log.png>]
 
+LaTeX Warning: Command \l invalid in math mode on input line 163.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 164.
+
+
+LaTeX Warning: Command \l invalid in math mode on input line 164.
+
+
+
 [6]
-Overfull \hbox (5.79149pt too wide) in paragraph at lines 206--208
+Overfull \hbox (5.79149pt too wide) in paragraph at lines 230--232
 \T1/lmr/m/n/12 Otrzymane warto±ci wskazuj¡ niez-nacznie pod-wy»s-zon¡ za-warto±¢ radonu przy ster-cie kamieni
  []
 
 
 
 [7]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 222.
+
+[8]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 246.
  (/usr/share/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 222--225
+Underfull \hbox (badness 10000) in paragraph at lines 246--249
 [][]$\T1/lmtt/m/n/12 https : / / scintacor . com / wp-[]content / uploads / 2021 / 09 /
  []
 
 
-Overfull \hbox (178.69823pt too wide) in paragraph at lines 222--225
+Overfull \hbox (178.69823pt too wide) in paragraph at lines 246--249
 \T1/lmtt/m/n/12 Comparisons-[]of-[]new-[]simple-[]methods-[]in-[]fabricating-[]ZnS-[]Ag-[]scintillatiors-[]for-[]detecting-[]alpha-[]particles .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--229
+Underfull \hbox (badness 10000) in paragraph at lines 251--253
 [][]$\T1/lmtt/m/n/12 https : / / www . rad-[]proceedings . org / papers / RadProc . 2018 . 25 . pdf$[]\T1/lmr/m/n/12 , M. Y. A.
  []
 
 
 
-[8] (latex_build/radon.aux)
+[9] (latex_build/radon.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -533,18 +545,18 @@ Package rerunfilecheck Info: File `radon.out' has not changed.
 (rerunfilecheck)             Checksum: 5046A5151A959E0076EA2B15676A1F2B;1696.
  ) 
 Here is how much of TeX's memory you used:
- 13387 strings out of 474651
- 213035 string characters out of 5756723
- 615780 words of memory out of 5000000
- 36304 multiletter control sequences out of 15000+600000
+ 13392 strings out of 474651
+ 213103 string characters out of 5756723
+ 614938 words of memory out of 5000000
+ 36306 multiletter control sequences out of 15000+600000
  613803 words of font info for 86 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 75i,13n,79p,546b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,14n,79p,790b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on latex_build/radon.pdf (8 pages, 399328 bytes).
+Output written on latex_build/radon.pdf (9 pages, 405211 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 164 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
+ 229 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
