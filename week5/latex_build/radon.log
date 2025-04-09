@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.26)  6 APR 2025 22:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.3.26)  8 APR 2025 13:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -471,7 +471,7 @@ Overfull \hbox (25.76967pt too wide) in paragraph at lines 76--77
 \T1/lmr/m/n/12 caªkow-it¡ ob-j¦-to±¢ powi-etrza $\OML/lmm/m/it/12 ^^W$ \T1/lmr/m/n/12 za po-moc¡ gazomierzu, a po-mi-ary promieniowa-nia przeprowadzano
  []
 
-<./images/cycle.png, id=67, 536.0025pt x 131.74219pt>
+<./images/cycle.png, id=68, 536.0025pt x 131.74219pt>
 File: ./images/cycle.png Graphic file (type png)
 <use ./images/cycle.png>
 Package pdftex.def Info: ./images/cycle.png  used on input line 80.
@@ -479,7 +479,7 @@ Package pdftex.def Info: ./images/cycle.png  used on input line 80.
 
 
 [3{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./images/ukÅ‚ad.png> <./images/cycle.png>]
-<./images/distance.png, id=85, 407.6028pt x 319.9152pt>
+<./images/distance.png, id=86, 407.6028pt x 319.9152pt>
 File: ./images/distance.png Graphic file (type png)
 <use ./images/distance.png>
 Package pdftex.def Info: ./images/distance.png  used on input line 124.
@@ -487,7 +487,7 @@ Package pdftex.def Info: ./images/distance.png  used on input line 124.
 
 
 [4{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-<./images/distance_log.png, id=97, 420.8523pt x 320.8788pt>
+<./images/distance_log.png, id=98, 420.8523pt x 320.8788pt>
 File: ./images/distance_log.png Graphic file (type png)
 <use ./images/distance_log.png>
 Package pdftex.def Info: ./images/distance_log.png  used on input line 133.
@@ -535,16 +535,16 @@ Package rerunfilecheck Info: File `radon.out' has not changed.
 Here is how much of TeX's memory you used:
  13387 strings out of 474651
  213035 string characters out of 5756723
- 614780 words of memory out of 5000000
+ 615780 words of memory out of 5000000
  36304 multiletter control sequences out of 15000+600000
  613803 words of font info for 86 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 75i,13n,79p,542b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,546b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on latex_build/radon.pdf (8 pages, 399140 bytes).
+Output written on latex_build/radon.pdf (8 pages, 399328 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 163 compressed objects within 2 object streams
+ 212 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
  36 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

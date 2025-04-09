@@ -28,7 +28,7 @@
 
 \maketitle
 
-W niniejszym raporcie wyznaczyliśmy zawartość radonu na podstawie produktów jego rozpadu oraz zbadaliśmy zależność promieniowania od odległości. Najpierw umieszczaliśmy próbkę toru nad scyntylatorem i rejestrowaliśmy jego odczyty podczas 2-minutowych interwałów, po czym zwiększaliśmy dystans między próbką a detektorem. Na podstawie dopasowania danych w skali log–log uzyskaliśmy, że liczba zarejestrowanych cząstek jest proporcjonalna do odwrotności odległości: \(N \propto 1/r\).
+W niniejszym raporcie wyznaczyliśmy zawartość radonu na podstawie produktów jego rozpadu oraz zbadaliśmy zależność promieniowania od odległości. Najpierw umieszczaliśmy próbkę toru-232 nad scyntylatorem i rejestrowaliśmy jego odczyty podczas 2-minutowych interwałów, po czym zwiększaliśmy dystans między próbką a detektorem. Na podstawie dopasowania danych w skali log–log uzyskaliśmy, że liczba zarejestrowanych cząstek jest proporcjonalna do odwrotności odległości: \(N \propto 1/r\).
 
 Następnie wykorzystaliśmy metodę Markova, służącą do wyznaczania zawartości polonu w powietrzu, który powstaje w wyniku rozpadu radonu. Pomiar polegał na serii cykli pompowania powietrza przez filtr (ze zliczaniem objętości przepływającego gazu), a następnie dwóch pomiarach promieniowania rejestrowanego z tego filtra. Uzyskane wyniki wskazują, że koncentracja radonu w powietrzu: \((25 \pm 11)\,\mathrm{Bq\,m^{-3}}\) występuje nad stertą skał, 
 
@@ -55,7 +55,7 @@ gdzie \(\lambda\) jest dodatnią stałą rozpadu zależną od danego izotopu. Ro
 Zarówno do pomiarów zależności natężenia promieniowania od odległości, jak i do określania zawartości radonu w powietrzu, wykorzystaliśmy ten sam detektor cząstek (jego dokładniejszy opis można znaleźć w \cite{skrypt}), który liczy rozpad w danym przedziale czasowym.
 
 \subsection{Pomiar zależności od odległości}
-Schemat układu przedstawiono na rys. \ref{fig:diagram}. Próbkę promieniotwórczego toru umieszczano na regulowanym stojaku nad detektorem, a następnie zmieniano odległość między próbką a detektorem i mierzono liczbę zarejestrowanych rozpadów w ustalonym czasie (2 minuty).
+Schemat układu przedstawiono na rys. \ref{fig:diagram}. Próbkę promieniotwórczego toru-232 umieszczano na regulowanym stojaku nad detektorem, a następnie zmieniano odległość między próbką a detektorem i mierzono liczbę zarejestrowanych rozpadów w ustalonym czasie (2 minuty).
 
 \begin{figure}[H]
 	\centering
@@ -65,7 +65,7 @@ Schemat układu przedstawiono na rys. \ref{fig:diagram}. Próbkę promieniotwór
 \end{figure}
 
 \subsection{Pomiar zawartości radonu w powietrzu (metoda Markova)}
-Do określania ilości polonu-218 (pochodnej radonu-222) w badanym powietrzu zastosowaliśmy metodę Markova \cite{equation}. Mierzone powietrze było przepompowywane przez filtr (na którym osadzały się produkty rozpadu), a później wykonywano dwa pomiary aktywności filtra w ściśle określonych odstępach czasowych. Schemat cyklu to:
+Do określania ilości polonu-218 (pochodnej radonu-222) w badanym powietrzu zastosowaliśmy metodę Markova \cite{equation}. Mierzone powietrze było przepompowywane przez filtr (na którym osadzały się produkty rozpadu), a później wykonywano dwa pomiary aktywności filtra, kładąc go bezpośrednio na detektor (rys. \ref{fig:diagram}), w ściśle określonych odstępach czasowych. Schemat cyklu to:
 \begin{itemize}
 	\item 5 minut – pompowanie powietrza przez filtr,
 	\item 1 minuta – przerwa,
@@ -88,8 +88,8 @@ Poprzez prostą analizę z urzyciem wzoru \eqref{eq:decay} otrzymana koncentracj
 \]
 gdzie \(N_1\) i \(N_2\) są zarejestrowanymi rozpadami w pierwszym i drugim okresie pomiarowym, \(\nu\) to objętość powietrza przepompowanego przez filtr w danym czasie, \(\epsilon\) oznacza wydajność rejestracji cząstek przez detektor, a \(\eta\approx 1\) jest efektywnością zatrzymywania produktów rozpadu na filtrze.  
 
-W naszej analizie przyjęliśmy \(\eta=1\) oraz \(\epsilon \approx 0{,}0875\). Kulczowe założenia jakie poczyniliśmy to że promieniowanie roznosi się po sferze zatem tylko \(50\%\) kieruje się w strone detektora, przy czym tylko \(45\%\) dociera do detektora w którym zostaje wykrytych tylko $35\%$ cząstek.
-Nasze oszacowanie opieramy na publikacjach \cite{scynt,alpha_range}. Końcowo używamy uproszczonego wzoru:
+W naszej analizie przyjęliśmy \(\eta=1\) oraz \(\epsilon \approx 0{,}0875\). Kulczowe założenia jakie poczyniliśmy to że promieniowanie roznosi się po sferze, zatem tylko \(50\%\) kieruje się w strone detektora, przy czym tylko \(45\%\) do niego dociera, a zostaje wykrytych jedynie $35\%$ cząstek.
+Nasze oszacowanie opieramy na publikacjach \cite{scynt,alpha_range} i daje wspomniany wynik \(\epsilon \approx 0{,}0875\). Skutkiem tych oszacowań jest uproszczony wzór:
 \begin{equation}
     C_A \;=\; \frac{83{,}43 \times 10^{-5}\,\bigl(N_1 - N_2\bigr)}{\nu}.
     \label{eq:markov}
@@ -194,7 +194,7 @@ Wyniki podsumowano w tab.~\ref{tab:concentration_results}.
 \end{table}
 
 \section{Podsumowanie}
-W ramach przeprowadzonych badań wyznaczyliśmy zależność liczby zarejestrowanych rozpadów od odległości próbki toru od detektora. Analiza w skali log–log zasugerowała zależność zbliżoną do \(1/d\), co odbiega od oczekiwanego wyniku. Jest to spowodowane ogromnymi niepewnościami w pomiarze rozpadów.
+W ramach przeprowadzonych badań wyznaczyliśmy zależność liczby zarejestrowanych rozpadów od odległości próbki toru-232 od detektora. Analiza w skali log–log zasugerowała zależność zbliżoną do \(1/d\), co odbiega od oczekiwanego wyniku. Jest to spowodowane ogromnymi niepewnościami w pomiarze rozpadów.
 
 Następnie, stosując metodę Markova, oszacowaliśmy koncentrację radonu-222 (poprzez pomiar polonu-218) w powietrzu: 
 \[

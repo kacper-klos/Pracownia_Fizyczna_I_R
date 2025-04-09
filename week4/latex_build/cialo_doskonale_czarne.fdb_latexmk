@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1743700919.37903 "cialo_doskonale_czarne.tex" "cialo_doskonale_czarne.pdf" "cialo_doskonale_czarne" 1743700920.72016 0
+["pdflatex"] 1744110616.16924 "cialo_doskonale_czarne.tex" "cialo_doskonale_czarne.pdf" "cialo_doskonale_czarne" 1744110617.43914 0
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1742685315 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1742685315 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1742685315 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -129,9 +129,7 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1743060121 5344687 b8cc3e41c7a56fde16a369954ea9cfec ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1743026068 2109591 9678979f2cf2e1953c3e4fad97241e18 ""
-  "cialo_doskonale_czarne.aux" 1743700920.65251 8690 2bb3971b9be9fc3b4a48c98be96ed902 "pdflatex"
-  "cialo_doskonale_czarne.out" 1743700920.65449 1888 5e0508a00b4ed244101d0f38e5235cb4 "pdflatex"
-  "cialo_doskonale_czarne.tex" 1743700911.07219 23358 c9b99d6ef6267ecd606364a042e9966a ""
+  "cialo_doskonale_czarne.tex" 1744110615.36086 23918 ed84bdd3e8a649247726b0d867fc0e44 ""
   "images/black_body.png" 1743530394.29876 27801 84478a340553fa25a56a6465ecbe1ac2 ""
   "images/boltzman_distance.png" 1743534777.59575 93041 75a7e036ee48fb3e22be2b9f7d94889d ""
   "images/boltzman_temp.png" 1743529815.36016 97908 8a332ba4ca908cda93356a3c6db31c6e ""
@@ -141,9 +139,11 @@
   "images/cube_shining.png" 1743524349.05529 108854 ce2c17297e071af0e05a663d23da85de ""
   "images/cube_white.png" 1743524348.88669 103384 4d3139e0b48735c5ceac533e001ebf0f ""
   "images/lamp.png" 1743400877.01639 49099 834db61884fbb73cfc24d7109c2bf449 ""
+  "latex_build/cialo_doskonale_czarne.aux" 1744110617.37596 9304 cd1b62af4f7514c851491c0758f1bfdf "pdflatex"
+  "latex_build/cialo_doskonale_czarne.out" 1744110617.37687 1888 8a9524f021e37e0b4953d8b2936a6833 "pdflatex"
   (generated)
-  "cialo_doskonale_czarne.aux"
-  "cialo_doskonale_czarne.log"
-  "cialo_doskonale_czarne.out"
   "cialo_doskonale_czarne.pdf"
+  "latex_build/cialo_doskonale_czarne.aux"
+  "latex_build/cialo_doskonale_czarne.log"
+  "latex_build/cialo_doskonale_czarne.out"
   (rewritten before read)
