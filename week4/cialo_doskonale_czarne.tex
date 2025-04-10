@@ -28,10 +28,10 @@
 
 \maketitle
 
-W niniejszej pracy przeprowadziliśmy badanie transferu energii poprzez promieniowanie cieplne. Najpierw mierzyliśmy zależność napięcia na detektorze (proporcjonalnego do natężenia padającego światła) od temperatury dla różnych powierzchni kostki Lesliego. Do uzyskanych wyników dopasowaliśmy liniową zależność (rys.~\ref{fig:cube_temp}), wynikającą z Prawa Stefana–Boltzmanna \eqref{eq:boltzman_law}, w celu wyznaczenia emisyjności badanych powierzchni. Zakładając, że emisyjność powierzchni czarnej wynosi $\epsilon_b = 0{,}95$, otrzymaliśmy następujące wartości: $\epsilon_w = 0{,}946 \pm 0{,}011$ (\text{biała}), $\epsilon_m = 0{,}230 \pm 0{,}003$ (\text{metalowa matowa}), $\epsilon_s = 0{,}0576 \pm 0{,}0012$ (\text{błyszcząca}).
+W niniejszej pracy przeprowadziliśmy badanie transferu energii poprzez promieniowanie cieplne. Najpierw mierzyliśmy zależność napięcia na detektorze (proporcjonalnego do natężenia padającego światła) od temperatury dla różnych powierzchni kostki Lesliego. Do uzyskanych wyników dopasowaliśmy liniową zależność (rys.~\ref{fig:cube_temp}), wynikającą z prawa Stefana–Boltzmanna \eqref{eq:boltzman_law}, w celu wyznaczenia emisyjności badanych powierzchni. Zakładając, że emisyjność powierzchni czarnej wynosi $\epsilon_b = 0{,}95$, otrzymaliśmy następujące wartości: $\epsilon_w = 0{,}946 \pm 0{,}011$ (\text{biała}), $\epsilon_m = 0{,}230 \pm 0{,}003$ (\text{metalowa matowa}), $\epsilon_s = 0{,}0576 \pm 0{,}0012$ (\text{błyszcząca}).
 
-Następnie zbadaliśmy zależność mierzonego promieniowania od temperatury i odległości, wykorzystując żarówkę o znanej zależności temperaturowej. Najpierw zbadaliśmy wpływ temperatury, dopasowując zależność napięcia i temperatury do Prawa Stefana–Boltzmanna ($U' = a_{l_t}\,T^4 + b_{l_t}$). Uzyskaliśmy $a_{l_t} = (0{,}79 \pm 0{,}03) \times 10^{-15}\,[VK^{-4}]$ oraz $b_{l_t} = -0{,}15 \pm 0{,}05\,[mV]$.
-Weryfikacja dopasowania testem $\chi^2$ dała wartość $8{,}36$ przy $8$ stopniach swobody, co potwierdza poprawność modelu wynikającego z Prawa Stefana–Boltzmanna. 
+Następnie zbadaliśmy zależność mierzonego promieniowania od temperatury i odległości, wykorzystując żarówkę o znanej zależności temperaturowej. Najpierw zbadaliśmy wpływ temperatury, dopasowując zależność napięcia i temperatury do prawa Stefana–Boltzmanna ($U' = a_{l_t}\,T^4 + b_{l_t}$). Uzyskaliśmy $a_{l_t} = (0{,}79 \pm 0{,}03) \times 10^{-15}\,[VK^{-4}]$ oraz $b_{l_t} = (-0{,}15 \pm 0{,}05)\,[mV]$.
+Weryfikacja dopasowania testem $\chi^2$ dała wartość $8{,}36$ przy $8$ stopniach swobody, co potwierdza poprawność modelu wynikającego z prawa Stefana–Boltzmanna. 
 
 Następnie, analizując zmienną odległość, zastosowaliśmy dopasowanie liniowe w skali log–log ($\log(U') = a_{l_d}\,\log(r) + b_{l_d}$), uzyskując $a_{l_d} = -2{,}013 \pm 0{,}017$ oraz $b_{l_d} = -9{,}34 \pm 0{,}03$.
 Test $\chi^2$ dał w tym przypadku $0{,}97$ dla $7$ stopni swobody, co dobrze potwierdza intuicję, że natężenie promieniowania maleje proporcjonalnie do kwadratu odległości. 
@@ -53,7 +53,7 @@ Jedną z głównych form wymiany ciepła między ciałami jest promieniowanie. P
 \end{itemize}
 Te trzy wielkości spełniają zależność $A + R + T = 1$. Szczególnie użytecznym modelem jest \emph{ciało doskonale czarne}, dla którego $A=1$ w całym widmie.
 
-\subsection{Spektrum i Prawo Stefana–Boltzmanna}
+\subsection{Spektrum i prawo Stefana–Boltzmanna}
 Podstawowe równanie opisujące strumień promieniowania ciała doskonale czarnego w zależności od długości fali i temperatury stanowi:
 \begin{equation}
 	I(T, \lambda) = \frac{2\pi c^2 h}{\lambda^5}\,\frac{1}{\exp\!\Bigl(\tfrac{hc}{\lambda k T}\Bigr)-1},
@@ -61,7 +61,7 @@ Podstawowe równanie opisujące strumień promieniowania ciała doskonale czarne
 \end{equation}
 gdzie $c$ oznacza prędkość światła, $h$ — stałą Plancka, a $k$ — stałą Boltzmanna. 
 
-Całkując powyższe równanie po wszystkich długościach fali, uzyskujemy \emph{Prawo Stefana–Boltzmanna}:
+Całkując powyższe równanie po wszystkich długościach fali, uzyskujemy \emph{prawo Stefana–Boltzmanna} opisujące całkowity strumień prowmieniowania:
 \begin{equation}
 	J_{\mathrm{CDC}}(T) = \sigma T^4,
 	\label{eq:boltzman_law}
@@ -87,6 +87,7 @@ Jeśli przyjmujemy, że źródło promieniowania jest punktowe, to energia rozch
 	J(r) = \frac{A\,S\,\sigma\,\bigl(T^4 - T_{\mathrm{ot}}^4\bigr)}{4\pi\,r^2}.
 	\label{eq:power_flux}
 \end{equation}
+Opisująca strumień promieniowania wypromieniowywany przez ciało.
 
 \section{Układ Doświadczalny}
 W doświadczeniu wykorzystujemy detektor promieniowania termicznego PASCO TD-8553, którego wskazania napięcia są liniowo zależne od strumienia mocy:
@@ -102,7 +103,7 @@ W pierwszej części doświadczenia badamy emisyjność różnych powierzchni ko
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{cube}
-	\caption{Schemat układu do pomiarów z kostką Lesliego (źródło: \cite{skrypt}).}
+	\caption{Schemat układu do pomiarów z kostką Lesliego (źródło: \cite{skrypt}). Po lewej stronie widzimy kostkę, w centrum detektor promieniowania, a po prawej miernik napięcia.}
 	\label{fig:cube_diagram}
 \end{figure}
 
@@ -110,12 +111,12 @@ Kostka ma cztery powierzchnie: czarną, białą, metalową matową oraz metalow�
 Przy najwyższej temperaturze kostki, sprawdzamy co się stanie gdy między detektor a ścianę czarną włożymy szklany ekran.
 
 \subsection{Lampa Stefana–Boltzmanna}
-W drugiej części weryfikujemy Prawo Stefana–Boltzmanna, używając żarówki i detektora, ustawionych na szynie z zaznaczonymi odległościami (rys.~\ref{fig:lamp_diagram}). 
+W drugiej części weryfikujemy prawo Stefana–Boltzmanna, używając żarówki i detektora, ustawionych na szynie z zaznaczonymi odległościami (rys.~\ref{fig:lamp_diagram}). 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{lamp}
-	\caption{Schemat układu z żarówką i detektorem (źródło: \cite{skrypt}).}
+	\caption{Schemat układu z żarówką i detektorem (źródło: \cite{skrypt}). Po lewej stronie, na szynie, znajduje się detektor promieniowania z podłączonym miernikiem napięcia, w centrum widzimy żarówkę z obwodem podłączonym do generatora napięcia umieszczonego po prawej.}
 	\label{fig:lamp_diagram}
 \end{figure}
 
@@ -184,7 +185,7 @@ Tabela \ref{tab:cube_measurements} zawiera dane z badania kostki Lesliego: napi�
 
 Widać, że ściany czarna i biała dają porównywalne sygnały, podczas gdy metalowa błyszcząca jest niemal na poziomie tła ($U_s$), a metalowa matowa ma wartości pośrednie. Następnie w obliczeniach odejmujemy średni sygnał tła $\bar{U_s}$, aby otrzymać $U' = U - \bar{U_s}$. Zakładamy też niepewności pomiarowe: $\delta T \approx 1\,^\circ\mathrm{C}$ oraz wyznaczamy $\delta U$ z instrukcji multimetru \cite{radiation_multimeter}.
 
-Aby sprawdzić zgodność z Prawem Stefana–Boltzmanna, wykreślamy $U'$ w zależności od $T^4$ i dopasowujemy linię (rys.~\ref{fig:cube_temp}).
+Aby sprawdzić zgodność z prawem Stefana–Boltzmanna, wykreślamy $U'$ w zależności od $T^4$ i dopasowujemy linię (rys.~\ref{fig:cube_temp}).
 
 \begin{figure}[H]
 	\centering
@@ -239,7 +240,7 @@ Współczynniki kierunkowe $a$ z dopasowanych prostych podsumowano w tab.~\ref{t
 	\label{tab:cube_line}
 \end{table}
 
-Załóżmy, że ściana czarna ma emisyjność $\epsilon_b=0{,}95$. Wówczas, porównując współczynniki kierunkowe (podczas pomiarów układ był stacjonarny, jedynie kostka obracała się w miejscu), obliczamy emisyjności innych ścian za pomocą:
+Załóżmy, że ściana czarna ma emisyjność $\epsilon_b=0{,}95$ oraz że emisyjność dla każdej ze ścian jest stała i nie zależy od długości emitowanych fal (co za tym idzie temperatury). Wówczas, porównując współczynniki kierunkowe (podczas pomiarów układ był stacjonarny, jedynie kostka obracała się w miejscu), obliczamy emisyjności innych ścian za pomocą:
 \begin{equation}
 	\epsilon_o = \epsilon_b\,\frac{a_o}{a_b}, 
 	\quad
@@ -302,7 +303,7 @@ Wyznaczone parametry:
 \[
 	a_{l_t} = (0{,}79 \pm 0{,}03) \times 10^{-15}\,[VK^{-4}], 
 	\quad 
-	b_{l_t} = -0{,}15 \pm 0{,}05\,[mV].
+	b_{l_t} = (-0{,}15 \pm 0{,}05) \,[mV].
 \]
 Test $\chi^2$ \eqref{eq:chi2} daje $\chi^2=8{,}36$ przy $8$ stopniach swobody, co wskazuje na dobrą zgodność z modelem Stefana–Boltzmanna.
 
@@ -397,7 +398,7 @@ W przedstawionym doświadczeniu rozpoczęliśmy od analizy kostki Lesliego. Zmie
 
 Następnie zbadaliśmy żarówkę o regulowanej temperaturze (tab.~\ref{tab:temp_measurements}), dopasowując zależność $U' = a_{l_t}\,T^4 + b_{l_t}$ (rys.~\ref{fig:boltzman_temp}), co dało 
 \[
-    a_{l_t} = (0{,}79 \pm 0{,}03) \times 10^{-15}\,[VK^{-4}] \quad \text{oraz} \quad b_{l_t} = -0{,}15 \pm 0{,}05 \, [mV]
+    a_{l_t} = (0{,}79 \pm 0{,}03) \times 10^{-15}\,[VK^{-4}] \quad \text{oraz} \quad b_{l_t} = (-0{,}15 \pm 0{,}05) \, [mV]
 \]
 zweryfikowane testem $\chi^2$ (uzyskano $\chi^2=8{,}36$ przy 8 stopniach swobody). Przy stałej temperaturze żarówki (tab.~\ref{tab:distance_measurements}) zmienialiśmy odległość do detektora, otrzymując wyniki zgodne z zależnością $U'\propto 1/r^2$ (rys.~\ref{fig:boltzman_distance}), z parametrem nachylenia $a_{l_d}=-2{,}013 \pm 0{,}017$ (test $\chi^2=0{,}97$ przy $7$ stopniach swobody). 
 

@@ -286,15 +286,15 @@ def plot_power(start=0, end=len(bulb_resistance), params=None):
 
 
 def test_fit(ind):
-    x_data = lines[ind][1]
+    x_data = 1000*lines[ind][1]
     y_data = lines[ind][0]
     x_model = np.linspace(min(x_data), max(x_data))
     params = fited_lines[ind][0]
-    y_model = new_line(x_model, *params)
+    y_model = new_line(x_model, params[0]/1000, params[1])
     plt.errorbar(x_data, y_data, yerr=lines_err[ind], fmt="o", label="Punkty pomiarowe")
     plt.plot(x_model, y_model, "r-", label="Dopasowanie Liniowe")
-    plt.xlabel(r"$U_R$ [V]")
-    plt.ylabel(r"$t$ [ms]")
+    plt.ylabel(r"$U_R$ [mV]")
+    plt.xlabel(r"$t$ [ms]")
     plt.legend()
     plt.savefig(f"nachylenie_{ind+1}.png", dpi=300, bbox_inches="tight")
     plt.clf()
@@ -319,8 +319,8 @@ def final_graph():
     plt.clf()
 
 
-plot_power()
+#plot_power()
 # plot_power(s, e, model_fit)
 # final_graph()
-# for i in range(len(lines)):
-#     test_fit(i)
+for i in range(len(lines)):
+    test_fit(i)
