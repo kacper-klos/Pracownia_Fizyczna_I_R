@@ -28,9 +28,11 @@
 
 \maketitle
 
-W niniejszym raporcie wyznaczyliśmy zawartość radonu na podstawie produktów jego rozpadu oraz zbadaliśmy zależność promieniowania od odległości. Najpierw umieszczaliśmy próbkę toru-232 nad scyntylatorem i rejestrowaliśmy jego odczyty podczas 2-minutowych interwałów, po czym zwiększaliśmy dystans między próbką a detektorem. Na podstawie dopasowania danych w skali log–log uzyskaliśmy, że liczba zarejestrowanych cząstek jest proporcjonalna do odwrotności odległości: \(N \propto 1/r\). Później, przy pomocy paru pomiarów promieniowania tła oszacowaliśmy dla jakiego dystansu odbierane promieniowanie nie pochodziło od toru. Na podstawie tych danych wyznaczyliśmy zakres energi cząstek alfa na \(E \in (3{,}6 4{,}5) MeV\).
+W niniejszym raporcie wyznaczyliśmy zawartość radonu na podstawie produktów jego rozpadu oraz zbadaliśmy zależność promieniowania od odległości. Najpierw umieszczaliśmy próbkę toru-232 nad scyntylatorem i rejestrowaliśmy jego odczyty podczas 2-minutowych interwałów, po czym zwiększaliśmy dystans między próbką a detektorem. Na podstawie dopasowania danych w skali log–log uzyskaliśmy, że liczba zarejestrowanych cząstek jest proporcjonalna do odwrotności odległości: \(N \propto 1/r\).
 
-Następnie wykorzystaliśmy metodę Markova, służącą do wyznaczania zawartości polonu w powietrzu, który powstaje w wyniku rozpadu radonu. Pomiar polegał na serii cykli pompowania powietrza przez filtr (ze zliczaniem objętości przepływającego gazu), a następnie dwóch pomiarach promieniowania rejestrowanego z tego filtra. Uzyskane wyniki wskazują, że koncentracja radonu w powietrzu: \((25 \pm 11)\,\mathrm{Bq\,m^{-3}}\) występuje nad stertą skał, 
+Później, korzystając z kilku dodatkowych pomiarów promieniowania tła, na tej podstawie wyznaczyliśmy zakres energii cząstki alfa emitowanej przez tor na dwa sposoby. Najpierw oceniliśmy, przy której odległości rejestrowane promieniowanie spada do poziomu tła i otrzymaliśmy $E \in (4{,}0;\,4{,}6)\,\mathrm{MeV}$. Energię uadło nam się także wyznaczyć, korzystając z dopasowanej krzywej, w tym przypadku uzyskany przedział wynosi $E \in (4{,}1;\,7{,}1)\,\mathrm{MeV}$.
+
+Następnie wykorzystaliśmy metodę Markova, służącą do wyznaczania zawartości polonu w powietrzu, który powstaje w wyniku rozpadu radonu. Pomiar polegał na serii cykli pompowania powietrza przez filtr (ze zliczaniem objętości przepływającego gazu), a następnie dwóch pomiarach promieniowania rejestrowanego z tego filtra. Uzyskane wyniki wskazują, że koncentracja radonu w powietrzu: \((25 \pm 11)\,\mathrm{Bq\,m^{-3}}\) występuje nad stertą skał,
 
 \((9 \pm 6)\,\mathrm{Bq\,m^{-3}}\) w korytarzu przylegającym do pomieszczenia, w którym prowadzono pomiary, oraz \((10 \pm 9)\,\mathrm{Bq\,m^{-3}}\) w próbkach świeżego powietrza z zewnątrz.
 
@@ -43,7 +45,7 @@ W niniejszym raporcie przedstawiamy zbadamy zawartości radonu w powietrzu pocho
 \section{Podstawy Teoretyczne}
 W naszych rozważaniach korzystamy głównie z prawa rozpadu promieniotwórczego, zgodnie z którym liczba jąder izotopu (np. radonu lub produktów jego rozpadu) maleje w czasie w tempie proporcjonalnym do bieżącej liczby jąder:
 \[
-\frac{dN(t)}{dt} \;=\; -\,\lambda\,N(t),
+	\frac{dN(t)}{dt} \;=\; -\,\lambda\,N(t),
 \]
 gdzie \(\lambda\) jest dodatnią stałą rozpadu zależną od danego izotopu. Rozwiązaniem tego równania jest:
 \begin{equation}
@@ -56,7 +58,7 @@ Zarówno do pomiarów zależności natężenia promieniowania od odległości, j
 
 \subsection{Pomiar zależności od odległości}
 Schemat układu przedstawiono na rys. \ref{fig:diagram}. Próbkę promieniotwórczego toru-232 umieszczano na regulowanym stojaku nad detektorem, a następnie zmieniano odległość między próbką a detektorem i mierzono liczbę zarejestrowanych rozpadów w ustalonym czasie (2 minuty).
-Potem wykonaliśmy jeszcze parę pomiarów promienioawnia tła, aby oszacować przy jakiej odległości cząstki alfa nie docierają do detektora. Te dane pomogą nam oszacować energię emitowanego promieniowania.
+Potem wykonaliśmy jeszcze parę pomiarów promieniowania tła, aby oszacować przy jakiej odległości cząstki alfa nie docierają do detektora. Te dane pomogą nam oszacować energię emitowanych cząstek.
 
 \begin{figure}[H]
 	\centering
@@ -85,15 +87,15 @@ Graficzne przedstawienie cyklu widnieje na rys. \ref{fig:cycle}. Podczas pompowa
 
 Poprzez prostą analizę z urzyciem wzoru \eqref{eq:decay} otrzymana koncentracja polonu (co za tym idzie radonu) w powietrzu \(C_A\) wyraża się w postaci:
 \[
-    C_A \;=\; \frac{7{,}3 \times 10^{-5}\,\bigl(N_1 - N_2\bigr)}{\epsilon\,\nu\,\eta},
+	C_A \;=\; \frac{7{,}3 \times 10^{-5}\,\bigl(N_1 - N_2\bigr)}{\epsilon\,\nu\,\eta},
 \]
-gdzie \(N_1\) i \(N_2\) są zarejestrowanymi rozpadami w pierwszym i drugim okresie pomiarowym, \(\nu\) to objętość powietrza przepompowanego przez filtr w danym czasie, \(\epsilon\) oznacza wydajność rejestracji cząstek przez detektor, a \(\eta\approx 1\) jest efektywnością zatrzymywania produktów rozpadu na filtrze.  
+gdzie \(N_1\) i \(N_2\) są zarejestrowanymi rozpadami w pierwszym i drugim okresie pomiarowym, \(\nu\) to objętość powietrza przepompowanego przez filtr w danym czasie, \(\epsilon\) oznacza wydajność rejestracji cząstek przez detektor, a \(\eta\approx 1\) jest efektywnością zatrzymywania produktów rozpadu na filtrze.
 
 W naszej analizie przyjęliśmy \(\eta=1\) oraz \(\epsilon \approx 0{,}0875\). Kulczowe założenia jakie poczyniliśmy to że promieniowanie roznosi się po sferze, zatem tylko \(50\%\) kieruje się w strone detektora, przy czym tylko \(45\%\) do niego dociera, a zostaje wykrytych jedynie $35\%$ cząstek.
 Nasze oszacowanie opieramy na publikacjach \cite{scynt,alpha_range} i daje wspomniany wynik \(\epsilon \approx 0{,}0875\). Skutkiem tych oszacowań jest uproszczony wzór:
 \begin{equation}
-    C_A \;=\; \frac{83{,}43 \times 10^{-5}\,\bigl(N_1 - N_2\bigr)}{\nu}.
-    \label{eq:markov}
+	C_A \;=\; \frac{83{,}43 \times 10^{-5}\,\bigl(N_1 - N_2\bigr)}{\nu}.
+	\label{eq:markov}
 \end{equation}
 
 \section{Wyniki Pomiarów}
@@ -105,13 +107,13 @@ W pierwszej serii umieściliśmy próbkę toru nad detektorem (rys.~\ref{fig:dia
 	\centering
 	\begin{tabular}{c|c|c}
 		\toprule
-        Nr & $N$ [Bq] & $d\,[\mathrm{cm}]$ \\
+		Nr & $N$ [Bq] & $d\,[\mathrm{cm}]$ \\
 		\midrule
-		1 & 36 & 1 \\
-		2 & 22 & 2 \\
-		3 & 12 & 3 \\
-		4 & 10 & 4 \\
-		5 & 6  & 5 \\
+		1  & 36       & 1                  \\
+		2  & 22       & 2                  \\
+		3  & 12       & 3                  \\
+		4  & 10       & 4                  \\
+		5  & 6        & 5                  \\
 		\bottomrule
 	\end{tabular}
 	\caption{Pomiar natężenia promieniowania $N$ (liczba zliczeń w 120\,s) w funkcji odległości $d$ próbki od detektora.}
@@ -122,7 +124,7 @@ Niepewność statystyczną zarejestrowanej liczby rozpadów szacujemy jako \(u(N
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{distance}
+	\includegraphics[scale=0.68]{distance}
 	\caption{Zależność zarejestrowanych rozpadów $N$ od odległości $d$.}
 	\label{fig:distance}
 \end{figure}
@@ -131,50 +133,82 @@ Aby zbadać typową formę prawa potęgowego, przedstawiamy dane w skali log–l
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.7]{distance_log}
+	\includegraphics[scale=0.68]{distance_log}
 	\caption{Wykres zależności $\log(N)$ od $\log(d)$.}
 	\label{fig:distance_log}
 \end{figure}
 
 Dopasowanie dało:
-\[
-	a = -1{,}0 \pm 0{,}1, 
+\begin{equation}
+	a = -1{,}0 \pm 0{,}1,
 	\quad
 	b = 3{,}6 \pm 0{,}1,
-\]
+	\label{eq:linefit}
+\end{equation}
 co odpowiada zależności \(N \propto 1/d\). Warto jednak zaznaczyć, że w idealnym przypadku cząstki powinny rozchodzić się sferycznie (\(1/r^2\)) i maleć z powodu interakcji z powietrzem. Jednak uwzględniając duże błędy pomiarowe trudno jest dokładnie oszacować zależność.
 
-Na podstawie pomiarów z tabeli~\ref{tab:background} w której widoczne są pomiary promieniowania tła dla 3 serii trwających 1 minutę możemy starać się oszacować energię emitowanych poprzez tor-232 cząstek alfa.
+\subsection{Energia cząstek \(\alpha\) toru-232}
+
+Na podstawie danych z tabeli~\ref{tab:background}, przedstawiającej pomiary promieniowania tła w trzech 1-minutowych seriach, możemy oszacować energię cząstek alfa emitowanych przez tor-232.
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|c}
 		\toprule
-        Nr & $N_{\text{tło}}$ [Bq]\\
+		Nr & $N_{\text{tło}}$ [Bq] \\
 		\midrule
-		1 & 3 \\
-		2 & 2 \\
-		3 & 2 \\
+		1  & 3                     \\
+		2  & 2                     \\
+		3  & 2                     \\
 		\bottomrule
 	\end{tabular}
-	\caption{Pomiary zarejestrowanych cząstek \(N\) pochodzących od promieniowania tła w interwale 1 minuty.}
+	\caption{Pomiary zarejestrowanych cząstek \(N_{tło_1}\) pochodzących od promieniowania tła w czasie 1 minuty.}
 	\label{tab:background}
 \end{table}
 
-Widzimy że dla przedziału 1 minutowego pomiary mieszczą się w przedziale \(N_{tło_1} \in [2, 3]\). Na podstawie tego możemy wyznaczyć zakres ile cząstek takich interakcji powinno zajść w interwale 2 minutowym (2x większym od badanego).
-Otrzymamy wtedy przedział \(N_{tło_2} \in [3,7]\) poszerzony o błąd pomiarowy będący w okolicach \(u(N_{tło_2}) = 1\).
-Jedyna wartośc z danych dla pomiaru odległości (tab.~\ref{tab:distance_measurments}) która wpada w ten przedział to ostatni pomiar w którym otrzymaliśmy \(N = 6\) [Bq] dla dystansu \(d = 5\) cm. 
-Także możemy wnioskować że zasięg cząstek alfa emitowanych przez tor-232 mieści się w przedziale (4cm, 5cm). Przy pomocy tabeli zależności zasięgu cząstek alfa od ich energi \cite{skrypt} możemy wyznaczyć przedział energetyczny cząstek alfa.
-Na podstawie tych danych wyznaczamy przedział energii cząstek na \(E \in (3{,}6 4{,}5) MeV\).
+Widzimy że dla przedziału 1 minutowego pomiary mieszczą się w przedziale \(N_{tło_1} \in [2; 3]\). Na podstawie tego możemy wyznaczyć ile takich detekcji powinno zajść w interwale 2 minutowym.
+Otrzymamy przedział \(N_{tło_2} \in [3;7]\) poszerzyliśmy o błąd pomiarowy będący w okolicach \(u(N_{tło_2}) = 1\).
+Jedyna wartośc z danych dla pomiaru odległości (tab.~\ref{tab:distance_measurments}) która mieści się w tym przedziale to ostatni pomiar w którym otrzymaliśmy \(N = 6 \, \mathrm{Bq}\) dla dystansu \(d = 5 \, \mathrm{cm}\).
+Także możemy wnioskować że ten wynik jest jedynie wywołany przez tło. W takim wypadku zasięg cząstek alfa emitowanych przez tor-232 mieści się w przedziale \((4; 5) \, \mathrm{cm}\). Przy pomocy tabeli~\ref{tab:energy_range} opisującej zależność zasięgu od energii cząstki możemy wyznaczyć tą wartość dla cząstki emitowanej przez toru.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+		\midrule
+		\(E\) [\(\mathrm{Mev}\)]            & \(2{,}8\)  & \(3{,}2\)  & \(3{,}6\)  & \(4\)      & \(4{,}5\) & \(5\)      & \(5{,}7\) & \(6{,}4\)  & \(7\)     & \(8\)       & \(9\)      & \(10\)      \\
+		\midrule
+		zasięg [\(\mathrm{mg \, cm}^{-2}\)] & \(2{,}74\) & \(3{,}24\) & \(3{,}77\) & \(4{,}34\) & \(5\)     & \(5{,}92\) & \(7\)     & \(8{,}46\) & \(9{,}7\) & \(11{,}83\) & \(14{,}2\) & \(16{,}74\) \\
+		\bottomrule
+	\end{tabular}
+	\caption{Zależność zasięgu cząstek \(\alpha\) w aluminium (Źródła. \cite{skrypt}\cite{alpha_max_range})}
+	\label{tab:energy_range}
+\end{table}
+
+Cząstka aby zostać wykryta musi przebyć odległość \(d\) w powietrzu o gęstości \(1{,}23\) (dane dotyczące, temperatury, ciśnienia i wilgotności powietrza 2 kwietnia w okolicach godziny 12 w Warszawie, uzyskaliśmy z \cite{temp} a potem użyliśmy narzędzi \cite{density}\cite{dew} do otrzymania wspomnianej wartości) oraz przejść przez powłokę aluminiową detektora o grubości \(4\mu \)m. Zakładając że 1\(\mu\)m aluminium odpowiada \(0{,}27\)mg cm\(^{-2}\) oraz że zasięg w aluminium jest taki sam jak w powietrzu otrzymujemy przedział \((4{,}33\), \(5{,}15) \, \mathrm{mg \, cm^{-2}}\). Który, odczytując dane z tabeli~\ref{tab:energy_range}, odpowiada przedziałowi energii \(E \in (4{,}0; 4{,}6) \, \mathrm{Mev}\).
+
+Alternatywnie mogliśmy obliczyć średnią z pomiarów (tabela \ref{tab:background}) oraz wyznaczyć niepewność na podstawie wzoru:
+\[
+	u\bigl(N_{tło_1}\bigr) \;=\; \sqrt{\,s^2_{N_{tło_1}} \;+\; \frac{\bigl(\delta N_{tło_1}\bigr)^2}{3}\,},
+\]
+gdzie \(s_{N_{tło_1}}^2\) oznacza wariancję (odchylenie standardowe kwadrat) z pomiarów, a \(\delta N_{tło_1}\) jest błędem pomiarowym pojedynczego odczytu. Następnie tak wyznaczoną średnią wstawiliśmy do dopasowania uzyskanego w~\eqref{eq:linefit} w celu określenia odległości. Otrzymujemy wówczas zależność:
+\[
+	d \;=\; \exp\!\Bigl(\frac{\log\bigl(2\,N_{tło_1} \bigr) - b}{a}\Bigr).
+\]
+Gdzie 2 przed promieniowaniem tła wynika z przejścia do przedziału 2 minutowego. Dla średniej \(N_{tło_1} = 2{,}33\) i jej niepewności \(u\bigl(N_{tło_1}\bigr) = 0{,}95\) uzyskujemy:
+\[
+	d = 8{,}1 \, \mathrm{cm},
+	\quad
+	u(d) = 3{,}9 \, \mathrm{cm}.
+\]
+Z powodu dość dużych błędów w pomiarach, zakres możliwych wartości odległości jest szeroki. Stosując analogiczną analizę jak w poprzedniej metodzie (dotyczącej warstwy powietrza i aluminium), otrzymujemy zakres energii cząstek \(\alpha\) równy \(E \in (4{,}1;\,7{,}1)\,\mathrm{MeV}\). W praktyce niemal cały ten przedział nakłada się na wynik wyznaczony wcześniejszą metodą, co pozwala sądzić, że wcześniej uzyskany zakres \(E \in (4{,}0;\,4{,}6)\,\mathrm{MeV}\) dokładniej przewiduje energię cząstki.
 
 \subsection{Koncentracja radonu (metoda Markova)}
-Kolejno wykonaliśmy cykl opisany na rys.~\ref{fig:cycle} w trzech różnych miejscach: 
+Kolejno wykonaliśmy cykl opisany na rys.~\ref{fig:cycle} w trzech różnych miejscach:
 \begin{enumerate}[noitemsep]
-	\item nad stertą kamieni (starsze próbki skalne),  
-	\item w korytarzu tuż przed pomieszczeniem,  
+	\item nad stertą kamieni (starsze próbki skalne),
+	\item w korytarzu tuż przed pomieszczeniem,
 	\item na zewnątrz (powietrze czerpane przez okno).
 \end{enumerate}
 
-W tab.~\ref{tab:density_measurments} zestawiono: $N_1$, $N_2$ – rozpad w dwóch pomiarach po cyklu pompowania powietrza, a także objętości powietrza przed i po pomiarze (\(V_{\text{przed}}\), \(V_{\text{po}}\)). Przyjmujemy błąd \(\sqrt{N_i}\) dla zarejestrowanych rozpadów, \(\delta V=0{,}01\,\mathrm{m^3}\) dla objętości oraz \(\delta t = 1s\).
+W tab.~\ref{tab:density_measurments} zestawiono: $N_1$, $N_2$ – rozpad w dwóch pomiarach po cyklu pompowania powietrza, a także objętości powietrza przed i po pomiarze (\(V_{\text{przed}}\), \(V_{\text{po}}\)). Przyjmujemy błąd \(\sqrt{N_i}\) dla zarejestrowanych rozpadów, \(\delta V=0{,}01\,\mathrm{m^3}\) dla objętości oraz \(\delta t = 1 \, \mathrm{s}\).
 Błąd na objętość (\(\delta V\)) oraz czas (\(\delta t\)) są znacznie poniżej \(1\%\), dlatego pozwalmy sobie go zignorować w dalszej części, skupiając się na błędzie pochodzącym ilości zarejestrowanych rozpadów.
 
 \begin{table}[H]
@@ -183,16 +217,16 @@ Błąd na objętość (\(\delta V\)) oraz czas (\(\delta t\)) są znacznie poni�
 		\toprule
 		Środowisko & $N_1$ & $N_2$ & $V_{\text{przed}}\,[\mathrm{m^3}]$ & $V_{\text{po}}\,[\mathrm{m^3}]$ \\
 		\midrule
-		Kamienie & 132 & 95 & 2479{,}45 & 2483{,}13 \\
-		Korytarz & 49  & 35 & 2483{,}13 & 2486{,}95 \\
-		Podwórze & 91  & 76 & 2486{,}95 & 2490{,}87 \\
+		Kamienie   & 132   & 95    & 2479{,}45                          & 2483{,}13                       \\
+		Korytarz   & 49    & 35    & 2483{,}13                          & 2486{,}95                       \\
+		Podwórze   & 91    & 76    & 2486{,}95                          & 2490{,}87                       \\
 		\bottomrule
 	\end{tabular}
 	\caption{Rozpady w pierwszym ($N_1$) i drugim ($N_2$) okresie pomiarowym oraz objętość powietrza przed i po pompowaniu (metoda Markova).}
 	\label{tab:density_measurments}
 \end{table}
 
-Całkowita objętość przepompowanego powietrza \(\nu\) stanowi różnicę \(\nu=\frac{V_{\text{po}}-V_{\text{przed}}}{300s}\). Przy założeniach opisanych w \ref{eq:markov} obliczamy koncentrację radonu \(C_A\). 
+Całkowita objętość przepompowanego powietrza \(\nu\) stanowi różnicę \(\nu=\frac{V_{\text{po}}-V_{\text{przed}}}{300s}\). Przy założeniach opisanych w \ref{eq:markov} obliczamy koncentrację radonu \(C_A\).
 
 Błąd \(u(C_A)\) wynika głównie z niepewności \(\sqrt{N_1 + N_2}\), co prowadzi do:
 \[
@@ -207,34 +241,42 @@ Wyniki podsumowano w tab.~\ref{tab:concentration_results}.
 		\toprule
 		Środowisko & $C_A\,[\mathrm{Bq\,m^{-3}}]$ & $u(C_A)\,[\mathrm{Bq\,m^{-3}}]$ \\
 		\midrule
-		Kamienie  & 25 & 11 \\
-		Korytarz  & 9  & 6  \\
-		Podwórze  & 10 & 9  \\
+		Kamienie   & 25                           & 11                              \\
+		Korytarz   & 9                            & 6                               \\
+		Podwórze   & 10                           & 9                               \\
 		\bottomrule
 	\end{tabular}
 	\caption{Wyniki wyznaczonego stężenia radonu w powietrzu metodą Markova, wraz z niepewnościami.}
 	\label{tab:concentration_results}
 \end{table}
 
+
 \section{Podsumowanie}
 W ramach przeprowadzonych badań wyznaczyliśmy zależność liczby zarejestrowanych rozpadów od odległości próbki toru-232 od detektora. Analiza w skali log–log zasugerowała zależność zbliżoną do \(1/d\), co odbiega od oczekiwanego wyniku. Jest to spowodowane ogromnymi niepewnościami w pomiarze rozpadów.
-Także udało nam się oszacować przedział w jakim powinny znajdować się emitowane przez tor cząstki alfa \(E \in (3{,}6 4{,}5) MeV\). Jakość naszego oszacowania możemy określić na podstawie tabeli \cite{alpha_energy} z której odczytujemy że faktyczna energia wynosi \(E = 4{,}08 MeV\), co mieści się w wyznaczonym przedziale.
 
-Następnie, stosując metodę Markova, oszacowaliśmy koncentrację radonu-222 (poprzez pomiar polonu-218) w powietrzu: 
+Ponadto na dwa sposoby oszacowaliśmy przedział energetyczny, w jakim powinna znajdować się emitowana przez tor cząstka alfa. W pierwszej metodzie sprawdzaliśmy, przy której zmierzonej odległości między próbką a detektorem liczba zarejestrowanych rozpadów odpowiada poziomowi promieniowania tła. Tak uzyskany przedział wynosi $E \in (4{,}0;\,4{,}6)\,\mathrm{MeV}$.
+
+W drugiej metodzie wykorzystaliśmy dopasowaną zależność, aby określić odległość, dla której prognozowana liczba zliczeń jest równa średniej uzyskanej z pomiarów tła; w tym ujęciu otrzymaliśmy zakres $E \in (4{,}1;\,7{,}1)\,\mathrm{MeV}$.
+
+Niepewność drugiego oszacowania jest duża, gdyż opiera się na związku liniowym dopasowanym z wysokim błędem oraz na pomiarach tła, które same w sobie są niedokładne. Z kolei w pierwszym przypadku błąd wynika głównie z przyjęcia konkretnej odległości, na której sygnał staje się równy tłu, oraz od tego w jakich odstępach badaliśmy zaleśność odległościową.
+
+Na podstawie danych literaturowych \cite{alpha_energy} wiadomo, że faktyczna energia wynosi około $E = 4{,}08\,\mathrm{MeV}$, co mieści się w przedziale uzyskanym metodą pierwszą oraz leży blisko górnej granicy drugiego przedziału.
+
+Następnie, stosując metodę Markova, oszacowaliśmy koncentrację radonu-222 (poprzez pomiar polonu-218) w powietrzu:
 \[
-C_{A,\text{kamienie}}=(25 \pm 11)\,\mathrm{Bq\,m^{-3}}, 
-\quad
-C_{A,\text{korytarz}}=(9 \pm 6)\,\mathrm{Bq\,m^{-3}}, 
-\quad
-C_{A,\text{podwórze}}=(10 \pm 9)\,\mathrm{Bq\,m^{-3}}.
+	C_{A,\text{kamienie}}=(25 \pm 11)\,\mathrm{Bq\,m^{-3}},
+	\quad
+	C_{A,\text{korytarz}}=(9 \pm 6)\,\mathrm{Bq\,m^{-3}},
+	\quad
+	C_{A,\text{podwórze}}=(10 \pm 9)\,\mathrm{Bq\,m^{-3}}.
 \]
-Otrzymane wartości wskazują nieznacznie podwyższoną zawartość radonu przy stercie kamieni w porównaniu z korytarzem i otoczeniem zewnętrznym, co może być związane z większą obecnością minerałów zawierających tor czy uran. 
+Otrzymane wartości wskazują nieznacznie podwyższoną zawartość radonu przy stercie kamieni w porównaniu z korytarzem i otoczeniem zewnętrznym, co może być związane z większą obecnością minerałów zawierających tor czy uran.
 
 Z literatury \cite{concentration} wiadomo, że stężenia radonu w warunkach naturalnych mogą się znacznie różnić w zależności od geologii i wentylacji pomieszczeń. Nasze wyniki, choć obarczone znacznymi błędami (m.in. ze względu na ograniczoną wydajność detektora i przybliżenia co do zatrzymywania cząstek na filtrze), pokazują jednak pewną różnicę między miejscami z potencjalnie wyższym uwalnianiem radonu (skały) a miejscami mniej nim zanieczyszczonymi.
 
 \newpage
 
-\begin{thebibliography}{5}
+\begin{thebibliography}{10}
 
 	\bibitem{skrypt}
 	\emph{Pomiar Zawartości Radonu w Powietrzu}, Uniwersytet Warszawski.
@@ -244,7 +286,7 @@ Z literatury \cite{concentration} wiadomo, że stężenia radonu w warunkach nat
 
 	\bibitem{scynt}
 	\url{https://scintacor.com/wp-content/uploads/2021/09/Comparisons-of-new-simple-methods-in-fabricating-ZnS-Ag-scintillatiors-for-detecting-alpha-particles.pdf},
-	\emph{Comparison of New Simple Methods in Fabricating ZnS(Ag) Scintillators for Detecting Alpha Particles}, 
+	\emph{Comparison of New Simple Methods in Fabricating ZnS(Ag) Scintillators for Detecting Alpha Particles},
 	S. K. Lee, S. Y. Kang, D. Y. Jang et al.
 
 	\bibitem{alpha_range}
@@ -254,8 +296,20 @@ Z literatury \cite{concentration} wiadomo, że stężenia radonu w warunkach nat
 	\bibitem{concentration}
 	L. Dobrzyński i E. Droste, \emph{Promieniotwórczość a życie: problem ryzyka związanego z promieniowaniem jonizującym}, Raport Nr 12, Dział Szkolenia IPJ, Warszawa 1999.
 
-    \bibitem{alpha_energy}
-    \url{https://people.physics.anu.edu.au/~ecs103/chart/}, tablica nuklidów.
+	\bibitem{alpha_energy}
+	\url{https://people.physics.anu.edu.au/~ecs103/chart/}, tablica nuklidów.
+
+	\bibitem{alpha_max_range}
+	Northcliffe and Schilling \emph{Nucl. Data Tables A7,233(1970)}
+
+	\bibitem{temp}
+	\url{https://www.timeanddate.com/weather/poland/warsaw/historic}
+
+	\bibitem{density}
+	\url{https://wahiduddin.net/calc/density_altitude.htm}
+
+	\bibitem{dew}
+	\url{https://www.calculator.net/dew-point-calculator.html}
 
 \end{thebibliography}
 

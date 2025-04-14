@@ -26,6 +26,7 @@ density_measurments = np.array([[132, 49, 91], # N_1 [bq]
                                 [2479.45, 2483.13, 2486.95],# V_1 [m^3]
                                 [2483.13, 2486.95, 2490.87] # V_2 [m^3]
 ])
+background_measurements = np.array([2, 2, 3])
 def LinearModel(params, x):
     m, c = params
     return m * x + c
@@ -75,6 +76,22 @@ def PlotDistanceMeasurments():
 def DecayError(values):
     return np.sqrt(values)
 
+def BackgroundCalc(values):
+    back_mean = np.mean(values)
+    measurment_back_err = DecayError(back_mean)
+    back_size = values.size
+    stat_err = np.sum((values - back_mean)**2/(back_size*(back_size-1)))
+    full_err = np.sqrt(stat_err + measurment_back_err**2/3)
+    return back_mean, full_err
+
+def BackgroundDistance(params, params_err, back_mean, back_mean_err):
+    distance = np.exp((np.log(2*back_mean)-params[1])/params[0])
+    distance_err_N = back_mean_err/(params[0]*back_mean)
+    distance_err_a = (np.log(2*back_mean)-params[1])/(params[0]**2)*params_err[0]
+    distance_err_b = params_err[1]/params[0]
+    full_err = distance * np.sqrt(distance_err_N**2 + distance_err_a**2 + distance_err_b**2)
+    return distance, full_err
+
 def DistanceLogLog():
     x_log = np.log(distance_measurments[1])
     y_log = np.log(distance_measurments[0])
@@ -82,7 +99,11 @@ def DistanceLogLog():
     y_err = DecayError(distance_measurments[0])/distance_measurments[0]
     params_out, params_err = FitToLinearModel(x_log, y_log, x_err, y_err)
     print(f"params: {params_out}, error: {params_err}")
-    PlotLineFit(x_log, y_log, x_err, y_err, params_out, r"$\log(N)$", r"$\log(d)$", "Punkty pomiarowe", "Dopasowanie liniowe", "distance_log", "r")
+    back_mean, back_mean_err = BackgroundCalc(background_measurements)
+    print(f"background: {back_mean}, error: {back_mean_err}")
+    distance, distance_err = BackgroundDistance(params_out, params_err, back_mean, back_mean_err)
+    print(f"distance: {distance}, error: {distance_err}")
+    PlotLineFit(x_log, y_log, x_err, y_err, params_out, r"$\log(d)$", r"$\log(N)$", "Punkty pomiarowe", "Dopasowanie liniowe", "distance_log", "r")
 
 def Concentration(N_1, N_2, V_start, V_end, time):
     N_diff = N_1 - N_2
@@ -95,5 +116,5 @@ def ConcentrationMeasurments():
     print(f"concentration: {concentration}, errors: {concentration_err}")
 
 DistanceLogLog()
-PlotDistanceMeasurments()
+# PlotDistanceMeasurments()
 # ConcentrationMeasurments()
