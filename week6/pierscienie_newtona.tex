@@ -39,7 +39,7 @@ W tabli~\ref{tab:rgb_measurements_reversed} widoczne są wyniki jakie uzyskaliś
 	\centering
 	\begin{tabular}{c|cc|cc|cc}
 		\toprule
-		Nr & \multicolumn{2}{c|}{\(D_r\)} & \multicolumn{2}{c|}{\(D_g\)} & \multicolumn{2}{c}{\(D_b\)}                            \\
+        Nr & \multicolumn{2}{c|}{\(D_r \, [\mathrm{cm}]\)} & \multicolumn{2}{c|}{\(D_g \, [\mathrm{cm}]\)} & \multicolumn{2}{c}{\(D_b \, [\mathrm{cm}]\)}                            \\
 		   & 1                            & 2                            & 1                           & 2      & 1      & 2      \\
 		\midrule
 		1  & 0{,}33                       & 0{,}32                       & 0{,}29                      & 0{,}30 & 0{,}22 & 0{,}22 \\
@@ -58,8 +58,8 @@ W tabli~\ref{tab:rgb_measurements_reversed} widoczne są wyniki jakie uzyskaliś
 	\label{tab:rgb_measurements_reversed}
 \end{table}
 
-Za błąd pomiarowy uznajemy \(0{,}01\) w przypadku wszystkich pierścieni poza pierwszymi 2 pierścieniami jasnymi.
-Dla dwóch pierszyszych jasnych pierścienie we wszystkich pomiarach zakładamy błąd w okolicach \(0{,}02\) jako że były one znacznie grubsze a nasze pomiary mierzyły śrdnice wyznaczaną przez środek geometryczny, który w przypadku funkcji kwadratowej nie koniecznie się pokrywa.
+Za błąd pomiarowy uznajemy \(0{,}01 \, \mathrm{cm}\) w przypadku wszystkich pierścieni poza pierwszymi 2 pierścieniami jasnymi.
+Dla dwóch pierszyszych jasnych pierścienie we wszystkich pomiarach zakładamy błąd w okolicach \(0{,}02 \, \mathrm{cm}\) jako że były one znacznie grubsze a nasze pomiary mierzyły śrdnice wyznaczaną przez środek geometryczny, który w przypadku funkcji kwadratowej nie koniecznie się pokrywa.
 
 Nasępnie do tych dancyh możemy dopasować prostą do danych z tabli~\ref{tab:rgb_measurements_reversed} aby wyznaczyć współczynnik kierunkowy.
 \begin{equation}
@@ -156,7 +156,7 @@ Korzystając z danych z tabel~\ref{tab:lines_params}~\ref{tab:wavelength} oraz w
 \]
 Oraz błąd
 \[
-	u(R) = 2\frac{a}{\lambda} \sqrt{(\frac{u(\lambda)}{\lambda})^2 + (\frac{u(a)}{a})^2}
+	u(R) = 8\frac{a}{\lambda} \sqrt{(\frac{u(\lambda)}{\lambda})^2 + (\frac{u(a)}{a})^2}
 \]
 Przy pomocy tych wzorów otrzymujemy
 
@@ -183,7 +183,7 @@ Finalnie korzystając z tych wzorów otrzymujemy promień
 \[
 	R = 6{,}613 \pm 0{,}014
 \]
-Możemy zauważyć że główną przyczyną błędów w naszych pomiarach jest błąd pochodzący z długości fali. Światło czerwone posiadało największy błąd dopasowaniaa, lecz z powodu najmniejszego błędu długości fali jest to najdokładniejszy pomiar promienia. Widzimy że najbardziej odbiegający wynik jest dla światła niebieskiego, podczas tych pomiarów musiał się wkraść niespodziewany błąd który widzimy szczególnie z powodu że parametr \(b\) jest ujemny. Obecny jest też błąd systematyczny spowodowany naszym dopasowaniem skali do papieru mimiletrowego.
+Możemy zauważyć że główną przyczyną błędów w naszych pomiarach jest błąd pochodzący z długości fali. Światło czerwone posiadało największy błąd dopasowaniaa, lecz z powodu najmniejszego błędu długości fali jest to najdokładniejszy pomiar promienia. Widzimy że najbardziej odbiegający wynik jest dla światła niebieskiego, podczas tych pomiarów musiał się wkraść niespodziewany błąd który widzimy szczególnie z powodu że parametr \(b\) jest ujemny. Obecny jest też błąd systematyczny spowodowany kalibracją skali do papieru mimiletrowego.
 
 
 \end{document}
