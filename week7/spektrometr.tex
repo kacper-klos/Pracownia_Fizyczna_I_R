@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+\title{}
+\author{Kacper Kłos}
+
+\begin{document}
+
+\maketitle
+
+Niniejszy raport przedstawia wyniki padania spektrum lampy RGB za pomocą zbudowanego przez nas spektrometru. Spektrometr wykonaliśmy za pomocą trzech soczewek, szczeliny oraz siatki dyfrakcyjnej. Pierwsze odchylenie spektrometru skierowaliśmy na detektor który dokładnie był w stanie wyznaczyć natężenie światła w zależności od położenia. Widmo promieniowania zbadaliśmy spektrometrem komercyjnym w celu wyznaczenia dokładnych długości fal emitowanych przez źródło światła.
+
+\newpage
+\section{Wyniki Pomiarów}
+Wszystkie wspomniane poniżej dane są zawarte w dwóch dołączonych plikach. \textit{spektrometr.csv} przedstawia dane zmierzone przez spektrometr komercyjny, podczas gdy \textit{detektor.csv} wypełniony jest danymi zmierzonymi detektorem intensywność. Plik z detektorem zawiera 5 serii pomiarowych, w raporcie rozważamy jedynie dwie ostatnie jako że wcześniejsze odnoszą się do pomiarów wykonywanych podczas kalibracji spektrometru.
+Otrzymane przez komercyjny spektrometr wyniki przedstawiamy na rysunku~\ref{fig:spektrometr}
+ \begin{figure}[H]
+     \centering
+     \includegraphics[scale=0.7]{spektrum}
+     \caption{Wykres natężenia od długości fali zmierzony przy pomocy spektrometru Flame-T OceanInsight}
+     \label{fig:spektrometr}
+\end{figure}
+Na wykresie widać dokładnie trzy szczyty, które identyfikujemy jako najwyższa wartość w okolicy szczytu. Otrzymaliśmy przy tym wartości:
+\[
+    \lambda_{\mathrm{blue}} = (472 \pm 6) \, \mathrm{nm}, \quad \lambda_{\mathrm{green}} = (522 \pm 3) \, \mathrm{nm}, \quad \lambda_{\mathrm{red}} = (636 \pm 4) \, \mathrm{nm}
+\]
+Za błąd uznaliśmy najwększą różnice między długością fali w szczycie i wartościciami zawierającymi się w 95\% intensywności w szczycie.
+
+Następnie przedstawiemy dane uzyskane przez pomiary wykonane przez detektor dla wybudowanego spektrometru (rys~\ref{fig:detektor})
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{detektor0}
+        \label{fig:detektor_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{detektor1}
+        \label{fig:detektor_2}
+    \end{subfigure}
+    \caption{Pomiar natężenia światła od położenia detektora PASCO OS-8441}
+    \label{fig:detektor}
+\end{figure}
+Widzimy że kształt przypomina ten zmierzony spektrometrem komercyjnym. Różnice w intensywności mogą wynikać z absorbcji przyrządów optycznych lub nie idealnym ustawieniu soczewki ustawionej przed detektorem, skupiającej promienie na detektorze.
+
+Dla pierwszego pomiaru (rys.~\ref{fig:detektor_1}) otrzymujemy szczyty intensywności dla:
+\[
+    y_{\mathrm{blue}} = (37{,}34 \pm 0{,}57) \, \mathrm{nm}, \quad y_{\mathrm{green}} = (42{,}63 \pm 1{,}53) \, \mathrm{nm}, \quad y_{\mathrm{red}} = (59{,}94 \pm 1{,}44) \, \mathrm{nm}
+\]
+Podczas gdy dla drugiego pomiaru (rys.~\ref{fig:detektor_2}):
+\[
+    y_{\mathrm{blue}} = (38{,}03 \pm 1{,}21) \, \mathrm{nm}, \quad y_{\mathrm{green}} = (43{,}88 \pm 0{,}82) \, \mathrm{nm}, \quad y_{\mathrm{red}} = (60{,}51 \pm 0{,}99) \, \mathrm{nm}
+\]
+Błąd otrzymujemy poprzez nawiększą różnice między dystansem w szczycie a tym zawartym w przedziale intensywności 0{,}1 dla pierwszego i 0{,}05 dla drugiego różnicy między maksymalną. Mniejszy błąd dla drugiego wynika z tego że pomiar wykonaliśmy dwukrotnie poruszając detektor w jedną i drugą stronę.
+
+Do tych danych możemy dopasować zależność
+\[
+    \lambda = ay + b
+\]
+Otrzymujemy wykres:
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{line_fit_0}
+        \label{fig:line_fit_1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{line_fit_1}
+        \label{fig:line_fit_2}
+    \end{subfigure}
+    \caption{Dopasowanie zależności liniowej do zależności długości fali od położenia}
+    \label{fig:line_fit}
+\end{figure}
+Otrzymujemy przy tym parametry dla pierwszego rysunku~\ref{fig:line_fit_1}:
+\[
+    a = (0{,}14 \pm 0{,}01) \, \mathrm{\mu m} \quad b = (-28 \pm 6) \, \mathrm{nm}
+\]
+Wraz z macieżą kowariantną:
+\[
+    \begin{bmatrix}
+        0{,}000116797893 & -0{,}0605366210 \\
+        -0{,}0605366210&  31{,}8711499
+    \end{bmatrix}
+\]
+covariance [[]
+ []]
+A dla drugiej serii (rys.~\ref{fig:line_fit_2}):
+\[
+    a = (0{,}140 \pm 0{,}008) \, \mathrm{\mu m} \quad b = (-29 \pm 4) \, \mathrm{nm}
+\]
+
+\end{document}
