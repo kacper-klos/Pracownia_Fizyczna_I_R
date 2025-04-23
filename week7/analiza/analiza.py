@@ -135,7 +135,7 @@ def FitToLinearModel(x, y, x_err, y_err):
 
     odr = scipy.odr.ODR(data, linear, beta0=initial_guess)
     out = odr.run()
-    return out.beta, out.sd_beta, out.cov_beta
+    return out.beta, out.sd_beta, out.cov_beta*out.res_var
 
 
 def PlotLineFit(
@@ -188,14 +188,27 @@ def DetectorAnalysis():
         print(f"peaks: {peak}, error: {distance_peaks_err[i]}")
     wavelength_peaks, wavelength_peaks_err = FindSpectrumPeakWavelengths()
 
+    final_params_wavelength_up = 0
+    final_params_wavelength_err = 0
+    final_params_distance_up = 0
+    final_params_distance_err = 0
     for i, distance in enumerate(distance_peaks):
         params, params_err, covar = FitToLinearModel(distance, wavelength_peaks, distance_peaks_err[i], wavelength_peaks_err)
         print(f"params for wavelength: {params}, error: {params_err}")
         print(f"covariance {covar}")
+        final_params_wavelength_up += params/(params_err**2)
+        final_params_wavelength_err += 1/(params_err**2)
+        PlotLineFit(distance, wavelength_peaks, distance_peaks_err[i], wavelength_peaks_err, params, r"$y \, \mathrm{[mm]}$", r"$\lambda \, \mathrm{[nm]}$", f"line_fit_wavelength_{i}", "g")
+
         params, params_err, covar = FitToLinearModel(wavelength_peaks, distance, wavelength_peaks_err, distance_peaks_err[i])
         print(f"params for distance: {params}, error: {params_err}")
         print(f"covariance {covar}")
-        PlotLineFit(wavelength_peaks, distance, wavelength_peaks_err, distance_peaks_err[i], params, r"$\lambda \, \mathrm{[nm]}$", r"$y \, \mathrm{[mm]}$", f"line_fit_{i}", "r")
+        final_params_distance_up += params/(params_err**2)
+        final_params_distance_err += 1/(params_err**2)
+        PlotLineFit(wavelength_peaks, distance, wavelength_peaks_err, distance_peaks_err[i], params, r"$\lambda \, \mathrm{[nm]}$", r"$y \, \mathrm{[mm]}$", f"line_fit_distance_{i}", "r")
+
+    print(f"weighted params for wavelength: {final_params_wavelength_up/final_params_wavelength_err}, error: {np.sqrt(1/final_params_wavelength_err)}")
+    print(f"weighted params for distance: {final_params_distance_up/final_params_distance_err}, error: {np.sqrt(1/final_params_distance_err)}")
 
 # SpectrumAnalysis()
 DetectorAnalysis()
