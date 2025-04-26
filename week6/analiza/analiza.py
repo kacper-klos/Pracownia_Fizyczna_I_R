@@ -68,7 +68,9 @@ def PlotLineFit(
     title,
     line_color,
 ):
-    plt.errorbar(x, y, yerr=y_err, fmt="o", label=data_label)
+    
+    plt.errorbar(x[::2], y[::2], yerr=y_err[::2], fmt="oy", label=r"jasne pierścienie")
+    plt.errorbar(x[1::2], y[1::2], yerr=y_err[1::2], fmt="ok", label=r"ciemne pierścienie")
     x_fit = np.linspace(min(x), max(x), 200)
     y_fit = LinearModel(x_fit, *params)
     plt.plot(x_fit, y_fit, f"-{line_color}", label=fit_label)
@@ -100,8 +102,8 @@ def ColorFit(data, data_err, wavelength, wavelength_err, title, color):
         data_avg,
         data_mean_err,
         param,
-        r"\(k\)",
-        r"\(r_k^2\)",
+        r"$k$",
+        r"$r_k^2$",
         "punkty pomiarowe",
         "dopasowanie liniowe",
         title,
