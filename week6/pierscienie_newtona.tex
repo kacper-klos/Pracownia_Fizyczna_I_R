@@ -21,179 +21,175 @@
 \setlength{\topmargin}{0in}
 \setlength{\headheight}{18pt}
 
-\title{Pomiar krzywizny soczewki (pierścienie newtona)}
+\title{Pomiar krzywizny soczewki (pierścienie Newtona)}
 \author{Kacper Kłos}
 
 \begin{document}
-
 \maketitle
 
-W tym raporcie przedstawimy metodę wyznaczania promienia krzywizny soczewki na podstawie badania pierścieni newtona. Wpierw ustawiliśmy soczewkę na szkle pod mikroskopem, dopasowaliśmy skalę na podstawie papieru milimetrowego. Następnie naświetlaliśmy soczewkę światłem koloru czerwonego, zielonego i niebieskeigo. Później mierzyliśmy średnice \(k\)-tego pierścienia newtona oraz dopasowaliśmy linię do relacji \(D_k^2(k)\). Następnie przebadaliśmy widmo generowane przez używaną lampę w celu wyznaczenia długości fali jaka pada na soczewkę. Przy pomocy otrzymanych danych wyznaczyliśmy promień krzywizny dla każdego z kolorów, a następnie przy użyciu średniej ważonej wyznaczyliśmy finalny promień \(R = (6{,}613 \pm 0{,}014) \, \mathrm{m}\).
+W raporcie opisujemy metodę wyznaczania promienia krzywizny soczewki na podstawie analizy pierścieni Newtona.
+Soczewkę umieszczono na płytce szklanej pod mikroskopem, a skalę dopasowano na podstawie papieru milimetrowego położonego na płytce.
+Układ oświetlano światłem czerwonym, zielonym i niebieskim.
+Po zmierzeniu średnic \(k\)-tych pierścieni dopasowano zależność \(D_k^2(k)\).
+Widmo lampy pozwoliło określić długości fal \(\lambda\).
+Na tej podstawie obliczono promienie krzywizny dla każdego z kolorów, a średnia ważona dała wynik
+\(R = (6{,}613 \pm 0{,}014)\,\mathrm{m}\).
 
-\newpage
+\vspace{1 in}
 
+\section{Wyniki pomiarów}
 
-\section{Wyniki Pomierów}
-W tabli~\ref{tab:rgb_measurements_reversed} widoczne są wyniki jakie uzyskaliśmy mierząc średnice \(k\)-tego pierścienia newtona mierząc do jego środka geometrycznego.
+W tabeli~\ref{tab:rgb_measurements} zestawiono średnice pierścieni (mierzone do środka geometrycznego).
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|cc|cc|cc}
 		\toprule
-        Nr & \multicolumn{2}{c|}{\(D_r \, [\mathrm{cm}]\)} & \multicolumn{2}{c|}{\(D_g \, [\mathrm{cm}]\)} & \multicolumn{2}{c}{\(D_b \, [\mathrm{cm}]\)}                            \\
-		   & 1                            & 2                            & 1                           & 2      & 1      & 2      \\
+		Nr & \multicolumn{2}{c|}{\(D_r\,[\mathrm{cm}]\)} & \multicolumn{2}{c|}{\(D_g\,[\mathrm{cm}]\)} & \multicolumn{2}{c}{\(D_b\,[\mathrm{cm}]\)}                            \\
+		   & 1                                           & 2                                           & 1                                          & 2      & 1      & 2      \\
 		\midrule
-		1  & 0{,}33                       & 0{,}32                       & 0{,}29                      & 0{,}30 & 0{,}22 & 0{,}22 \\
-		2  & 0{,}44                       & 0{,}44                       & 0{,}39                      & 0{,}40 & 0{,}34 & 0{,}34 \\
-		3  & 0{,}52                       & 0{,}52                       & 0{,}47                      & 0{,}48 & 0{,}42 & 0{,}42 \\
-		4  & 0{,}60                       & 0{,}60                       & 0{,}54                      & 0{,}54 & 0{,}49 & 0{,}49 \\
-		5  & 0{,}67                       & 0{,}67                       & 0{,}59                      & 0{,}60 & 0{,}55 & 0{,}55 \\
-		6  & 0{,}74                       & 0{,}73                       & 0{,}65                      & 0{,}66 & 0{,}61 & 0{,}61 \\
-		7  & 0{,}78                       & 0{,}78                       & 0{,}70                      & 0{,}70 & 0{,}66 & 0{,}66 \\
-		8  & 0{,}84                       & 0{,}84                       & 0{,}75                      & 0{,}76 & 0{,}71 & 0{,}71 \\
-		9  & 0{,}88                       & 0{,}88                       & 0{,}79                      & 0{,}79 & 0{,}75 & 0{,}75 \\
-		10 & 0{,}92                       & 0{,}92                       & 0{,}84                      & 0{,}84 & 0{,}79 & 0{,}79 \\
+		1  & 0{,}33                                      & 0{,}32                                      & 0{,}29                                     & 0{,}30 & 0{,}22 & 0{,}22 \\
+		2  & 0{,}44                                      & 0{,}44                                      & 0{,}39                                     & 0{,}40 & 0{,}34 & 0{,}34 \\
+		3  & 0{,}52                                      & 0{,}52                                      & 0{,}47                                     & 0{,}48 & 0{,}42 & 0{,}42 \\
+		4  & 0{,}60                                      & 0{,}60                                      & 0{,}54                                     & 0{,}54 & 0{,}49 & 0{,}49 \\
+		5  & 0{,}67                                      & 0{,}67                                      & 0{,}59                                     & 0{,}60 & 0{,}55 & 0{,}55 \\
+		6  & 0{,}74                                      & 0{,}73                                      & 0{,}65                                     & 0{,}66 & 0{,}61 & 0{,}61 \\
+		7  & 0{,}78                                      & 0{,}78                                      & 0{,}70                                     & 0{,}70 & 0{,}66 & 0{,}66 \\
+		8  & 0{,}84                                      & 0{,}84                                      & 0{,}75                                     & 0{,}76 & 0{,}71 & 0{,}71 \\
+		9  & 0{,}88                                      & 0{,}88                                      & 0{,}79                                     & 0{,}79 & 0{,}75 & 0{,}75 \\
+		10 & 0{,}92                                      & 0{,}92                                      & 0{,}84                                     & 0{,}84 & 0{,}79 & 0{,}79 \\
 		\bottomrule
 	\end{tabular}
-	\caption{Pomiery średnicy \(n\)-tego pierścieni newtona dla świateł o kolorach \(D_r\)-czerwony, \(D_g\)-zielony, \(D_b\)-niebieski przy dwóch seriach pomiarowych. Numery nieprzyste odpowiadają jasnym pierścienią, a parzyste ciemnym}
-	\label{tab:rgb_measurements_reversed}
+	\caption{Średnice pierścieni Newtona dla serii pomiarowych 1 i 2. Numery nieparzyste odpowiadają pierścieniom jasnym, parzyste – ciemnym.}
+	\label{tab:rgb_measurements}
 \end{table}
 
-Za błąd pomiarowy uznajemy \(0{,}01 \, \mathrm{cm}\) w przypadku wszystkich pierścieni poza pierwszymi 2 pierścieniami jasnymi.
-Dla dwóch pierszyszych jasnych pierścienie we wszystkich pomiarach zakładamy błąd w okolicach \(0{,}02 \, \mathrm{cm}\) jako że były one znacznie grubsze a nasze pomiary mierzyły śrdnice wyznaczaną przez środek geometryczny, który w przypadku funkcji kwadratowej nie koniecznie się pokrywa.
+Niepewność pojedynczego odczytu przyjęto na poziomie \(0{,}01\,\mathrm{cm}\) (dla dwóch pierwszych jasnych pierścieni \(0{,}02\,\mathrm{cm}\) ze względu na ich większą grubość oraz pomiar średnicy przez środek geometryczny).
 
-Nasępnie do tych dancyh możemy dopasować prostą wyznaczoną w instrukcji~\cite{skrypt} do zmierzonych średnic z tabli~\ref{tab:rgb_measurements_reversed} aby wyznaczyć współczynnik kierunkowy.
+\subsection{Dopasowanie liniowe}
+
+Wzór teoretyczny podany w~\cite{skrypt} ma postać
 \begin{equation}
-	D_k^2 = \frac{k \lambda R}{8}
-	\label{eq:radious}
+	D_k^2 = \frac{k \lambda R}{8},
+	\label{eq:radius}
 \end{equation}
-Gdzie \(r_k\) jest promieniem \(k\)-tego pierścienia newtona, \(R\) promień krzywizny soczewki, \(\lambda\) długość fali.
+gdzie \(D_k\) – średnica \(k\)-tego pierścienia, \(\lambda\) – długość fali, \(R\) – promień krzywizny.
+
+Średnie wartości z pomiarów (tab.~\ref{tab:rgb_measurements}) dla każdego koloru dopasowujemy do równania \(D_k^2 = a k + b\).
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}{0.3\textwidth}
-		\centering
 		\includegraphics[width=\linewidth]{red}
 		\caption{czerwony}
-		\label{fig:red_line}
-	\end{subfigure}
-	\hfill
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.3\textwidth}
-		\centering
 		\includegraphics[width=\linewidth]{green}
 		\caption{zielony}
-		\label{fig:green_line}
-	\end{subfigure}
-	\hfill
+	\end{subfigure}\hfill
 	\begin{subfigure}{0.3\textwidth}
-		\centering
 		\includegraphics[width=\linewidth]{blue}
 		\caption{niebieski}
-		\label{fig:blue_line}
 	\end{subfigure}
-	\caption{Punkty pomiarowe oraz dopasowanie liniowe do średnicy pierścieni newtona dla różnych kolorów}
+	\caption{Dopasowanie liniowe \(D_k^2(k)\) dla trzech barw.}
 	\label{fig:line_graphs}
 \end{figure}
-Dopasowanie do równania \(D_k^2 = a k + b\) daje wyniki:
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|cc}
 		\toprule
-		kolor     & $a$                             & $b$                            \\
+		kolor     & \(a\,[10^{-9}]\) & \(b\,[10^{-9}]\) \\
 		\midrule
-		czerwony  & \((210 \pm 18) \times 10^{-9}\) & \((59 \pm 7) \times 10^{-9}\)  \\
-		zielony   & \((170 \pm 10) \times 10^{-9}\) & \((49 \pm 4) \times 10^{-9}\)  \\
-		niebieski & \((161 \pm 8) \times 10^{-9}\)  & \((-37 \pm 3) \times 10^{-9}\) \\
+		czerwony  & \(210 \pm 18\)   & \(59 \pm 7\)     \\
+		zielony   & \(170 \pm 10\)   & \(49 \pm 4\)     \\
+		niebieski & \(161 \pm 8\)    & \(-37 \pm 3\)    \\
 		\bottomrule
 	\end{tabular}
-	\caption{Współczynniki kierunkowe dopasowane do zależności \(r_k^2(k)\) dla różnych kolorów światła.}
+	\caption{Parametry dopasowania \(D_k^2 = a k + b\).}
 	\label{tab:lines_params}
 \end{table}
 
-Aby wekstrachować z otrzymanych współczynników promień krzywizny soczewki potrzebujemy dokładnie wyznaczyć długość fali światła dla badanego koloru. Aby to zrobić musimy przeanalizować wykresy zależności intensywności od długości fali dla światła które używaliśmy. W tym celu dla każdego z wykresów zależności intensywności od długości fali wyznaczymy długość fali na podstawie punktu dla którego jest maksymalna intensywność. Następnie wyznaczymy dla jakiej długości fal przyjmowane są wartości na poziomie \(50\%\) maksymalnej intensywności, a błąd uznamy za większą z różnic między punktem z \(50\%\) a maksymalną intensywnością.
+\subsection{Wyznaczenie długości fali}
+
+Długość fali określano z widm lampy: maksimum intensywności oraz punkty o~\(50\%\) tej wartości wyznaczały \(\lambda\) i jej niepewność.
+Wykresy widm przedstawiono na rysunkach~\ref{fig:red_wavelength}, \ref{fig:green_wavelength} i~\ref{fig:blue_wavelength}, odpowiadających kolejno światłu czerwonemu, zielonemu i niebieskiemu.
+
 \begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.3]{red_wavelength}
-	\caption{Wykres intensywności światła od długości fali}
+	\centering\includegraphics[scale=0.3]{red_wavelength}
+	\caption{Widmo światła czerwonego.}
 	\label{fig:red_wavelength}
 \end{figure}
-Na wykresie~\ref{fig:red_wavelength} dla światła czerwonego widzimy lekkie zakłócenia, lecz niewątpliwie maksimum intensywności \(I \approx 60000\) napotykamy przy fali długości \(\lambda_{\mathrm{red}} = 640 \, \mathrm{nm}\), podczas gdy połowę tej intensywności napotykamy dla punktów \(\lambda_{\mathrm{r1}} = 628 \, \mathrm{nm}\) oraz \(\lambda_{\mathrm{r2}} = 650 \, \mathrm{nm}\). Dlatego dla światła czerwonego otrzymujemy wynik \(\lambda_{\mathrm{red}} = 640 \pm 12 \, \mathrm{nm}\).
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{green_wavelength}
-	\caption{Wykres intensywności światła od długości fali}
+	\caption{Widmo światła zielonego.}
 	\label{fig:green_wavelength}
 \end{figure}
-Analogiczną analize wykonujemy dla światła zielonego widocznego na wykresie~\ref{fig:green_wavelength}. Szczyt przyjmowany dla intensywności \(I \approx 8000\) i długości fali \(\lambda_{\mathrm{green}} = 515 \, \mathrm{nm}\) jest znacznie mniej wyrazisty niż w przypadku światła czerwonego. Połowę maksymalnej intensywności napotykamy dla punktów \(\lambda_{\mathrm{g1}} = 495 \, \mathrm{nm}\) oraz \(\lambda_{\mathrm{g2}} = 540 \, \mathrm{nm}\). Także dla światła zielonego otrzymujemy wynik \(\lambda_{\mathrm{green}} = 515 \pm 25 \, \mathrm{nm}\) z dwa razy większym błędem dla światła czerwonego.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{blue_wavelength}
-	\caption{Wykres intensywności światła od długości fali}
+	\caption{Widmo światła niebieskiego.}
 	\label{fig:blue_wavelength}
 \end{figure}
-Finalnie analizując wykres~\ref{fig:blue_wavelength} dla światła niebieskiego. Szczyt napotykamy dla intensywności \(I \approx 28000\) i długości fali \(\lambda_{\mathrm{blue}} = 468 \, \mathrm{nm}\). Połowę maksymalnej intensywności napotykamy dla punktów \(\lambda_{\mathrm{b1}} = 455 \, \mathrm{nm}\) oraz \(\lambda_{\mathrm{g2}} = 488 \, \mathrm{nm}\). Podsumowując wyniki dla światła niebieskiego \(\lambda_{\mathrm{blue}} = 468 \pm 20 \, \mathrm{nm}\) będąc bardziej dokładnym od światła zielonego lecz mniej od światła czerwonego.
 
-Finalnie otrzymujemy
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|c}
 		\toprule
-		kolor     & \(\lambda \, [\mathrm{nm}]\) \\
+		kolor     & \(\lambda\,[\mathrm{nm}]\) \\
 		\midrule
-		czerwony  & \(640 \pm 12\)               \\
-		zielony   & \(515 \pm 25\)               \\
-		niebieski & \(468 \pm 20\)               \\
+		czerwony  & \(640 \pm 12\)             \\
+		zielony   & \(515 \pm 25\)             \\
+		niebieski & \(468 \pm 20\)             \\
 		\bottomrule
 	\end{tabular}
-	\caption{Wyznaczone długości fal dla badanych kolorów}
+	\caption{Długości fal użytych świateł.}
 	\label{tab:wavelength}
 \end{table}
 
-Korzystając z danych z tabel~\ref{tab:lines_params}~\ref{tab:wavelength} oraz wzoru \eqref{eq:radious} możemy wyznaczyć promień krzywizny soczewki za pomocą wzoru
+\subsection{Promień krzywizny}
+
+Ze wzorów
 \[
-	R = 8\frac{a}{\lambda}
+	R = 8\,\frac{a}{\lambda}, \qquad
+	u(R) = R\sqrt{\left(\frac{u(\lambda)}{\lambda}\right)^2 + \left(\frac{u(a)}{a}\right)^2},
 \]
-Oraz błąd
-\[
-	u(R) = 8\frac{a}{\lambda} \sqrt{(\frac{u(\lambda)}{\lambda})^2 + (\frac{u(a)}{a})^2}
-\]
-Przy pomocy tych wzorów otrzymujemy
+otrzymujemy
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{c|c}
 		\toprule
-		kolor     & \(R [\mathrm{m}]\)    \\
+		kolor     & \(R\,[\mathrm{m}]\)   \\
 		\midrule
 		czerwony  & \(6{,}58 \pm 0{,}14\) \\
-		zielony   & \(6{,}59 \pm 0{,}4\)  \\
-		niebieski & \(6{,}86 \pm 0{,}3 \) \\
+		zielony   & \(6{,}59 \pm 0{,}40\) \\
+		niebieski & \(6{,}86 \pm 0{,}30\) \\
 		\bottomrule
 	\end{tabular}
-	\caption{Wyznaczone promienie soczewki dla danych kolorów}
-	\label{tab:radious}
+	\caption{Promień krzywizny dla poszczególnych barw.}
+	\label{tab:radius}
 \end{table}
 
-Biorąc średnią ważoną z tabeli~\ref{tab:radious}
+Średnia ważona (na podstawie tabeli~\ref{tab:radius}) daje
 \[
-	R = \frac{\sum_i \frac{R_i}{u(R)_i^2}}{\sum_i \frac{1}{u(R)_i^2}}, \quad u(R) = \frac{1}{\sum_i \frac{1}{u(R)_i^2}}
+	R = 6{,}613 \pm 0{,}014\,\mathrm{m}.
 \]
-Finalnie korzystając z tych wzorów otrzymujemy promień
-\[
-	R = 6{,}613 \pm 0{,}014
-\]
-Możemy zauważyć że główną przyczyną błędów w naszych pomiarach jest błąd pochodzący z długości fali. Światło czerwone posiadało największy błąd dopasowaniaa, lecz z powodu najmniejszego błędu długości fali jest to najdokładniejszy pomiar promienia. Widzimy że najbardziej odbiegający wynik jest dla światła niebieskiego, podczas tych pomiarów musiał się wkraść niespodziewany błąd który widzimy szczególnie z powodu że parametr \(b\) jest ujemny. Obecny jest też błąd systematyczny spowodowany kalibracją skali do papieru mimiletrowego.
+
+\subsection{Dyskusja niepewności}
+
+Dominującym źródłem niepewności jest dokładność wyznaczenia \(\lambda\).
+Choć dopasowanie dla światła czerwonego ma największy błąd współczynnika \(a\), to najmniejsza niepewność \(\lambda\) sprawia, że wynik ten jest najdokładniejszy.
+Najbardziej odstaje wartość dla koloru niebieskiego. W szczególności problematyczny jest parametr \(b<0\), co jest sprzeczne z teorią przedstawioną w~\cite{skrypt} i wskazuje na dodatkowy błąd przypadkowy w tej serii pomiarów.
+Występuje także błąd systematyczny wynikający z kalibracji skali względem papieru milimetrowego.
 
 \newpage
-
-
 \begin{thebibliography}{1}
 
 	\bibitem{skrypt}
 	\emph{Interferencyjny Pomiar Krzywizny Soczewki (Pierścienie Newtona)}, Uniwersytet Warszawski.
 
 \end{thebibliography}
-
 
 \end{document}
