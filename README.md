@@ -9,10 +9,11 @@ To repozytorium zawiera raporty sporządzone w trakcie realizacji przedmiotu [Pr
 ├── pelne/          # pierwsze pięć raportów, wszystkie ocenione na 5
 └── skrocone/       # pozostałe raporty w wersji skróconej
      └── <nazwa_eksperymentu>/
-         ├── raport.tex     # źródło LaTeX
-         ├── raport.pdf     # wynikowy PDF
-         ├── analiza/       # skrypty Python + dane pomiarowe
-         └── images/        # wykresy i zdjęcia używane w LaTeX
+         ├── <nazwa_eksperymentu>.tex               # źródło LaTeX
+         ├── <nazwa_eksperymentu>.pdf               # wynikowy PDF
+         ├── <nazwa_eksperymentu>Instrukcja.pdf     # PDF z instrukcją
+         ├── analiza/                               # skrypty Python + dane pomiarowe
+         └── images/                                # wykresy i zdjęcia używane w LaTeX
 ```
 
 > **Uwaga**  
