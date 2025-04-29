@@ -6,8 +6,8 @@ To repozytorium zawiera raporty sporządzone w trakcie realizacji przedmiotu [Pr
 
 ```
 .
-├── Raporty pełne/          # pierwsze pięć raportów, wszystkie ocenione na 5
-└── Raporty skrócone/       # pozostałe raporty w wersji skróconej
+├── pelne/          # pierwsze pięć raportów, wszystkie ocenione na 5
+└── skrocone/       # pozostałe raporty w wersji skróconej
      └── <nazwa_eksperymentu>/
          ├── raport.tex     # źródło LaTeX
          ├── raport.pdf     # wynikowy PDF
