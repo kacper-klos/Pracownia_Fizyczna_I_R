@@ -96,9 +96,22 @@ def CableDistanceAnalysis(measurments, title):
         LinearModel, measurments[0], measurments[1], sigma=time_distance_err
     )
     PlotLineFit(
-        measurments[0], measurments[1], 0, time_distance_err, params, LinearModel, "", "", title, "r"
+        measurments[0],
+        measurments[1],
+        0,
+        time_distance_err,
+        params,
+        LinearModel,
+        "",
+        "",
+        title,
+        "r",
     )
-    print(f"Parmas for distance: {params}, error: {np.sqrt(np.diag(params_err))}")
+    speed = 1 / (2 * params[0])
+    speed_err = np.sqrt(params_err[0][0]) / (2 * params[0] ** 2)
+    print(f"params: {params}, error: {params_err}")
+    print(f"speed: {speed}, error: {speed_err}")
+    return speed, speed_err
 
 
 def ResistnaceError(data):
@@ -118,14 +131,26 @@ def ResistnaceError(data):
 
 def AdjustVoltageDataToLinear(measurments, input_voltage):
     x = 1 / measurments[0]
-    y = (input_voltage-measurments[1])/(input_voltage+measurments[1])
-    x_err = np.abs(ResistnaceError(measurments[0]/(measurments[0]**2)))
-    y_err = 2*cable_voltage_measurment_voltage_err*np.sqrt(((3*input_voltage+measurments[1])/((input_voltage + measurments[1])**2))**2)
+    y = (input_voltage - measurments[1]) / (input_voltage + measurments[1])
+    x_err = np.abs(ResistnaceError(measurments[0] / (measurments[0] ** 2)))
+    y_err = (
+        2
+        * cable_voltage_measurment_voltage_err
+        * np.sqrt(
+            (
+                (3 * input_voltage + measurments[1])
+                / ((input_voltage + measurments[1]) ** 2)
+            )
+            ** 2
+        )
+    )
 
-    return x, y, 0, 0 
+    return x, y, 0, 0
+
 
 def VoltageMeasurmentModel(x, a, b):
-    return b*(x-a)/(x+a)
+    return b * (x - a) / (x + a)
+
 
 def PlotRawData(measurments, title):
     plt.scatter(measurments[0], measurments[1])
@@ -135,16 +160,53 @@ def PlotRawData(measurments, title):
 
 def CableVoltageAnalysis(measurments, input_voltage, title):
     params, params_err = scipy.optimize.curve_fit(
-        VoltageMeasurmentModel, measurments[0], measurments[1], sigma=cable_voltage_measurment_voltage_err 
+        VoltageMeasurmentModel,
+        measurments[0],
+        measurments[1],
+        sigma=cable_voltage_measurment_voltage_err,
     )
     PlotLineFit(
-        measurments[0], measurments[1], 0, cable_voltage_measurment_voltage_err, params, VoltageMeasurmentModel, "", "", title, "r"
+        measurments[0],
+        measurments[1],
+        0,
+        cable_voltage_measurment_voltage_err,
+        params,
+        VoltageMeasurmentModel,
+        "",
+        "",
+        title,
+        "r",
     )
-    print(f"Parmas for distance: {params}, error: {np.sqrt(np.diag(params_err))}")
+    print(f"Parmas for voltage: {params}, error: {np.sqrt(np.diag(params_err))}")
+    return params[0], np.sqrt(params_err[0][0])
 
-#CableDistanceAnalysis(good_cable_distance_measurments, "good_cable_distance")
-#CableDistanceAnalysis(bad_cable_distance_measurments, "bad_cable_distance")
-#PlotRawData(good_cable_voltage_measurments, "good_cable_voltage_raw")
-#PlotRawData(bad_cable_voltage_measurments, "bad_cable_voltage_raw")
-CableVoltageAnalysis(good_cable_voltage_measurments, good_cable_input_voltage, "good_cable_voltage")
-CableVoltageAnalysis(bad_cable_voltage_measurments, bad_cable_input_voltage, "bad_cable_voltage")
+
+def FinalValues(speed, impedence, speed_err, impedence_err):
+    capacitance = 1 / (speed * impedence)
+    capacitance_err = capacitance * np.sqrt(
+        (speed_err / speed) ** 2 + (impedence_err / impedence) ** 2
+    )
+    inductance = impedence / speed
+    inductance_err = inductance * np.sqrt(
+        (speed_err / speed) ** 2 + (impedence_err / impedence) ** 2
+    )
+    print(f"capacitance: {capacitance}, error: {capacitance_err}")
+    print(f"inductance: {inductance}, error: {inductance_err}")
+
+
+# PlotRawData(good_cable_voltage_measurments, "good_cable_voltage_raw")
+# PlotRawData(bad_cable_voltage_measurments, "bad_cable_voltage_raw")
+speed_good, speed_good_err = CableDistanceAnalysis(
+    good_cable_distance_measurments, "good_cable_distance"
+)
+speed_bad, speed_bad_err = CableDistanceAnalysis(
+    bad_cable_distance_measurments, "bad_cable_distance"
+)
+impedence_good, impedence_good_err = CableVoltageAnalysis(
+    good_cable_voltage_measurments, good_cable_input_voltage, "good_cable_voltage"
+)
+impedence_bad, impedence_bad_err = CableVoltageAnalysis(
+    bad_cable_voltage_measurments, bad_cable_input_voltage, "bad_cable_voltage"
+)
+FinalValues(speed_good, impedence_good, speed_good_err, impedence_good_err)
+FinalValues(speed_bad, impedence_bad, speed_bad_err, impedence_bad_err)
