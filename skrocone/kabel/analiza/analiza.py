@@ -25,6 +25,8 @@ bad_cable_distance_measurments = np.array(
 )  # t [nm]
 bad_cable_distance_measurments[1] *= NANO
 time_distance_err = 4 * NANO
+DISTANCE_ERROR_SCALE = 5
+VOLTAGE_ERROR_SCALE = 5
 
 good_cable_input_voltage = 2.840
 good_cable_voltage_measurments = np.array(
@@ -81,7 +83,7 @@ def PlotLineFit(
     title,
     line_color,
 ):
-    plt.errorbar(x, y, xerr=x_err, yerr=y_err, fmt="o", ms=3)
+    plt.errorbar(x, y, xerr=x_err, yerr=y_err, fmt="o")
     x_fit = np.linspace(min(x), max(x), 200)
     y_fit = Model(x_fit, *params)
     plt.plot(x_fit, y_fit, f"-{line_color}")
@@ -92,6 +94,7 @@ def PlotLineFit(
 
 
 def CableDistanceAnalysis(measurments, title):
+    measurments[1] /= NANO
     params, params_err = scipy.optimize.curve_fit(
         LinearModel, measurments[0], measurments[1], sigma=time_distance_err
     )
@@ -99,11 +102,11 @@ def CableDistanceAnalysis(measurments, title):
         measurments[0],
         measurments[1],
         0,
-        time_distance_err,
+        DISTANCE_ERROR_SCALE*time_distance_err/NANO,
         params,
         LinearModel,
-        "",
-        "",
+        r"$d \, [m]$",
+        r"$t \, [ns]$",
         title,
         "r",
     )
@@ -118,7 +121,7 @@ def ResistnaceError(data):
     first_range = 200
     second_range = 2000
 
-    return_data = data
+    return_data = data.copy()
     return_data[data <= first_range] = (
         0.03 * PERCENT * data[data <= first_range] + 0.005 * PERCENT * first_range
     )
@@ -165,15 +168,17 @@ def CableVoltageAnalysis(measurments, input_voltage, title):
         measurments[1],
         sigma=cable_voltage_measurment_voltage_err,
     )
+    resistance_error = ResistnaceError(measurments[0])
+    print(resistance_error)
     PlotLineFit(
         measurments[0],
         measurments[1],
-        0,
-        cable_voltage_measurment_voltage_err,
+        VOLTAGE_ERROR_SCALE*resistance_error,
+        VOLTAGE_ERROR_SCALE*cable_voltage_measurment_voltage_err,
         params,
         VoltageMeasurmentModel,
-        "",
-        "",
+        r"$R \, [\Omega]$",
+        r"$U \, [V]$",
         title,
         "r",
     )
