@@ -1,0 +1,211 @@
+\documentclass[12pt]{article}
+
+% ====== Kodowanie i język =============================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish,provide=*]{babel}
+
+% ====== Pakiety matematyczne i symbole ===============
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{latexsym}
+
+% ====== Jednostki i liczby ===========================
+\usepackage{siunitx}
+\sisetup{
+  locale = DE,              % przecinek dziesiętny
+  separate-uncertainty = true,
+  per-mode = symbol
+}
+
+% ====== Grafika i wykresy ============================
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\graphicspath{{./images/}}
+
+% ====== Pozostałe ====================================
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+% ====== Układ strony =================================
+\setlength{\parindent}{0pt}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+% -----------------------------------------------------
+\title{Przemiany gazowe}
+\author{Kacper Kłos}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+W niniejszym raporcie analizujemy zachowanie powietrza podczas dwóch przemian gazowych. 
+Najpierw przeprowadziliśmy \textbf{przemianę izochoryczną} w celu wyznaczenia temperatury zera bezwzględnego \(T_0\) oraz liczby moli \(n\) zamkniętego gazu. Z dwóch serii pomiarowych otrzymaliśmy
+\begin{align*}
+  T_{0,1} &= \SI{-287\pm 8}{\celsius}, & n_1 &= \SI{20.1\pm0.7e-3}{\mole},\\
+  T_{0,2} &= \SI{-282\pm 6}{\celsius}, & n_2 &= \SI{20.2\pm0.5e-3}{\mole},
+\end{align*}
+co po uśrednieniu ważonym daje \(T_0 = \SI{-284\pm 5}{\celsius}.\)
+
+Następnie wykonaliśmy \textbf{przemianę izotermiczną}, badając zakres stosowalności równania gazu doskonałego oraz ponownie wyznaczając \(n\). Otrzymano zakresy ciśnień
+\begin{align*}
+  P_1 &\in \left[\SI{105.5}{\kilo\pascal};\,\SI{152.1}{\kilo\pascal}\right], &
+  P_2 &\in \left[\SI{60.7}{\kilo\pascal};\,\SI{97.6}{\kilo\pascal}\right],\\
+  n_1 &= \SI{4.4\pm0.7e-3}{\mole}, & n_2 &= \SI{1.5\pm0.5e-3}{\mole}.
+\end{align*}
+
+\newpage
+\section{Aparatura pomiarowa i stałe}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Czujnik ciśnienia} PASCO PS-3203\cite{pressure} (dokładność: \SI{\pm2}{\kilo\pascal}).
+  \item \textbf{Czujnik temperatury} PASCO PS-3222\cite{temperature} (dokładność: \SI{\pm0.5}{\celsius}).
+  \item \textbf{Stała gazowa}: \(R = \SI{8.314}{\joule\per\mole\per\kelvin}\)\cite{gas_const}.
+\end{itemize}
+
+\section{Przemiana izochoryczna}
+Gaz zamknięto w miedzianej kuli o promieniu \SI{2}{in} (\SI{1}{in} = \SI{2.54}{cm}). Wnętrze wyposażono w wymienione wyżej czujniki. Kulę ogrzewano strumieniem wrzątku do momentu osiągnięcia równowagi termodynamicznej.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c|cc|cc}
+    \toprule
+    \textbf{Nr} & $T_1$ [\si{\celsius}] & $P_1$ [\si{\kilo\pascal}] & $T_2$ [\si{\celsius}] & $P_2$ [\si{\kilo\pascal}] \\
+    \midrule
+    1  &  5,9 &  95,1 &  7,9 &  87,6 \\
+    2  & 12,7 &  97,4 & 18,0 &  91,2 \\
+    3  & 17,2 &  98,9 & 27,0 &  94,1 \\
+    4  & 23,6 & 100,6 & 31,2 &  95,6 \\
+    5  & 29,6 & 102,7 & 37,1 &  98,3 \\
+    6  & 34,7 & 104,9 & 40,7 &  99,1 \\
+    7  & 40,1 & 106,5 & 47,5 & 100,7 \\
+    8  & 46,3 & 108,1 & 50,3 & 101,4 \\
+    9  & 52,3 & 108,9 & 53,9 & 102,6 \\
+    10 & 58,5 & 110,6 & 57,5 & 103,8 \\
+    11 & 64,0 & 113,8 & 60,9 & 104,6 \\
+    12 & 71,1 & 114,9 & 65,6 & 105,8 \\
+    13 & 79,4 & 119,4 & 70,0 & 106,9 \\
+    14 & 84,8 & 122,1 & 75,4 & 109,3 \\
+    15 &  --  &   --  & 81,6 & 110,2 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Wyniki pomiarów izochorycznych: temperatura \(T\) (niepewność \SI{0.5}{\celsius}) oraz ciśnienie \(P\) (niepewność \SI{2}{\kilo\pascal}).}
+  \label{tab:isochoric_measurements}
+\end{table}
+
+Przyjmując, że w badanym zakresie powietrze zachowuje się jak gaz doskonały, opisuje je równanie
+\[
+  PV = nR\left(T - T_0\right),
+\]
+Ze względu na to, że błąd pomiaru temperatury jest znacznie mniejszy od błędu pomiaru ciśnienia (od \SI{2}{\%} do \SI{0.2}{\%} w badanym zakresie), regresję liniową prowadzimy z \(T\) jako zmienną niezależną skutkuje w równaniu.
+\[
+  P = aT + b, \quad a = \frac{nR}{V}, \; b = -\frac{nRT_0}{V}.
+\]
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=\linewidth]{izohoric_0}
+    \caption{Seria 1}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=\linewidth]{izohoric_1}
+    \caption{Seria 2}
+  \end{subfigure}
+  \caption{Zależność ciśnienia \(P\) od temperatury \(T\) dla gazu o stałej objętości. Czerwone linie przedstawiają dopasowanie liniowe.}
+  \label{fig:izohoric}
+\end{figure}
+Dopasowanie daje współczynniki
+\begin{align*}
+  a_1 &= \SI{0.320\pm0.010}{\kilo\pascal\per\celsius}, & b_1 &= \SI{93.1\pm0.5}{\kilo\pascal},\\
+  a_2 &= \SI{0.305\pm0.006}{\kilo\pascal\per\celsius}, & b_2 &= \SI{86.0\pm0.3}{\kilo\pascal}.
+\end{align*}
+Z nich wyznaczamy
+\[
+  T_0 = -\frac{b}{a}, \qquad n = \frac{aV}{R},
+\]
+co przy objętości kuli \(V = \frac{4}{3}\pi r^3 = \SI{5.24e-4}{\meter^3}\) (\(r = \SI{2}{in} = \SI{5.08}{cm}\)) prowadzi do wyników.
+\begin{align*}
+  T_{0,1} &= \SI{-287\pm 8}{\celsius}, & n_1 &= \SI{20.1\pm0.7e-3}{\mole},\\
+  T_{0,2} &= \SI{-282\pm 6}{\celsius}, & n_2 &= \SI{20.2\pm0.5e-3}{\mole},
+\end{align*}
+co po uśrednieniu ważonym daje \(T_0 = \SI{-284\pm 5}{\celsius}.\)
+
+\section{Przemiana izotermiczna}
+Gaz o różnych liczbach moli został zamknięty w strzykawce połączonej z czujnikami. Po przestawieniu tłoka czekaliśmy, aż temperatura powróci do wartości otoczenia \(T = \SI{23.0\pm0.1}{\celsius}.\)
+
+\begin{table}[H]
+  \centering
+  \caption{Dane pomiarowe dla przemiany izotermicznej. Niepewności: \(\Delta V = \SI{1.2}{\milli\liter},\; \Delta P = \SI{2}{\kilo\pascal}.\)}
+  \label{tab:isothermal_data}
+  \begin{tabular}{c|cc|cc}
+    \toprule
+    \textbf{Nr} & $V_1$ [\si{\milli\liter}] & $P_1$ [\si{\kilo\pascal}] & $V_2$ [\si{\milli\liter}] & $P_2$ [\si{\kilo\pascal}] \\
+    \midrule
+    1  & 60 &  99,6 & 26 & 97,6 \\
+    2  & 56 & 105,5 & 30 & 87,4 \\
+    3  & 52 & 110,4 & 34 & 78,8 \\
+    4  & 48 & 116,0 & 38 & 73,1 \\
+    5  & 44 & 121,1 & 42 & 68,0 \\
+    6  & 41 & 125,3 & 46 & 63,9 \\
+    7  & 37 & 130,5 & 50 & 60,7 \\
+    8  & 33 & 137,7 & 54 & 57,9 \\
+    9  & 29 & 144,8 & 58 & 56,3 \\
+    10 & 26 & 152,1 & 60 & 55,6 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Teoretycznie powinno zachodzić równanie
+\begin{equation}
+  \frac{P\,(V+V_0)}{T - T_0} = nR = \text{const},
+\end{equation}
+które można zapisać w postaci liniowej
+\begin{equation}
+  \frac{PV}{T - T_0} = aP + b.
+\end{equation}
+Dla punktów mieszczących się w granicach błędów w pobliżu prostej regresji liniowej otrzymano współczynniki
+\begin{align*}
+  a_1 &= \SI{-0.154\pm0.005}{\milli\liter\kelvin^{-1}}, & b_1 &= \SI{36.6\pm0.6}{\pascal\liter\kelvin^{-1}},\\
+  a_2 &= \SI{-0.040\pm0.005}{\milli\liter\kelvin^{-1}}, & b_2 &= \SI{12.3\pm0.3}{\pascal\liter\kelvin^{-1}}.
+\end{align*}
+Liczbę moli wyznaczamy z relacji
+\begin{equation}
+  n = \frac{b}{R},
+\end{equation}
+co prowadzi do wartości przytoczonych we wstępie.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=\linewidth]{izotermic_0}
+    \caption{Seria 1 — sprężanie}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.47\textwidth}
+    \includegraphics[width=\linewidth]{izotermic_1}
+    \caption{Seria 2 — rozprężanie}
+  \end{subfigure}
+  \caption{Zależność $\tfrac{PV}{T - T_0}$ od ciśnienia $P$ przy $T = \SI{23.0\pm0.1}{\celsius}$. Czerwone linie to dopasowanie liniowe w zakresie stosowalności równania gazu doskonałego.}
+  \label{fig:isothermal}
+\end{figure}
+
+\section{Podsumowanie}
+Otrzymana wartość temperatury zera bezwzględnego \(T_0 = \SI{-284\pm5}{\celsius}\) jest — w granicach \(3\sigma\) — zgodna z wartością zalecaną \cite{zero}. Głównym źródłem niepewności w części izochorycznej było wyznaczenie momentu osiągnięcia równowagi cieplnej. W pomiarach izotermicznych dominowały błędy wynikające z nieidealnej szczelności układu — po zmianie objętości obserwowano stopniowy dryf ciśnienia ku wartościom atmosferycznym.
+
+\medskip
+Liczba moli wpływa istotnie na zakres ciśnień, dla którego powietrze można traktować jako gaz doskonały. Dla większej \(n\) uzyskano zakres wyższych ciśnień, natomiast przy mniejszej \(n\) — zakres przesunął się do niższych ciśnień, a charakter odchylenia od prostoliniowości zmienił znak krzywizny.
+
+\begin{thebibliography}{5}
+  \bibitem{temperature} \url{https://cdn.pasco.com/product_document/Wireless-Temperature-Link-Manual-PS-3222_1_.pdf}
+  \bibitem{pressure}   \url{https://www.pasco.com/products/sensors/wireless/wireless-pressure-sensor#documents-panel}
+  \bibitem{skrypt}      A. Drabińska, \emph{Badanie przemian gazowych. Wyznaczanie temperatury zera bezwzględnego}, Uniwersytet Warszawski.
+  \bibitem{gas_const}   \url{https://physics.nist.gov/cgi-bin/cuu/Value?r}
+  \bibitem{zero}        \url{https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf/2d2b50bf-f2b4-9661-f402-5f9d66e4b507}
+\end{thebibliography}
+
+\end{document}
