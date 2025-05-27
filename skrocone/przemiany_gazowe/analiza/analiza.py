@@ -6,12 +6,14 @@ import os
 plt.rcParams.update({"font.size": 14})
 
 IMAGE_PATH = "images"
-ML_TO_M3 = 1e-3
+ML_TO_M3 = 1e-6
 CM_TO_M = 1e-2
 ABSOLUTE_ZERO_TEMP = -273.15
 KILO = 1e3
-R = 8.314462
+R = 8.314
 SPHERE_VOLUME = np.pi*4/3*(2*2.54*CM_TO_M)**3
+
+IZOHORIC_ERROR_PLOT_SCALE=1
 
 syringe_data = [np.array([
         [60, 56, 52, 48, 44, 41, 37, 33, 29, 26], # V[ml]
@@ -31,8 +33,8 @@ izohoric_data = [np.array([
         ])]
 
 temperature_error = 0.5
-pressure_error = 0.01
-syringe_volume_error = 1*ML_TO_M3
+pressure_error = 2
+syringe_volume_error = 1.2
 
 
 def LinearModel(x, a, b):
@@ -70,7 +72,7 @@ def LineFitIzohoric(data):
     zero_temp_error = zero_temp * np.sqrt(param_error[0][0]/(param[0]**2) + param_error[1][1]/(param[1]**2))
     moles = KILO*param[0]*SPHERE_VOLUME/R
     moles_error = np.sqrt(param_error[0][0])/param[0] * moles
-    print(f"fitted params: {param}, error: {param_error}")
+    print(f"fitted params: {param}, error: {np.sqrt(np.diag(param_error))}")
     print(f"absolute zero temperature: {zero_temp}, error: {zero_temp_error}")
     print(f"moles: {moles}, error: {moles_error}")
     return param, param_error, zero_temp, zero_temp_error
@@ -84,9 +86,9 @@ def LineFitIzotermic(data, gass_data, gass_data_error, range):
     param, param_error = scipy.optimize.curve_fit(
         LinearModel, data[1][range[0] : range[1]], gass_data[range[0] : range[1]], sigma=gass_data_error[range[0] : range[1]]
     )
-    moles = param[1]/R
+    moles = param[1]/(R*KILO)
     moles_error = moles * np.sqrt(param_error[1][1])/param[1]
-    print(f"fitted params: {param}, error: {param_error}")
+    print(f"fitted params: {param}, error: {np.sqrt(np.diag(param_error))}")
     print(f"moles: {moles}, error: {moles_error}")
     return param, param_error 
 
@@ -96,13 +98,27 @@ def SyringeAnalysis():
     for i, syringe_data_sample in enumerate(syringe_data):
         gass_data, gass_data_error = GassModel(syringe_data_sample[1], pressure_error, syringe_data_sample[0], syringe_volume_error, syringe_temp, temperature_error)
         param, param_error = LineFitIzotermic(syringe_data_sample, gass_data, gass_data_error, linear_range[i])
-        PlotLineFit(syringe_data_sample[1], gass_data, pressure_error, gass_data_error, param, LinearModel, r"P $[kPa]$", r"$\frac{PV}{T}$ $[kPa \, ml \, K^{-1}]$", f"izotermic_{i}", "r", plot_range[i])
+        PlotLineFit(syringe_data_sample[1], gass_data, pressure_error, gass_data_error, param, LinearModel, r"P $[kPa]$", r"$\frac{PV}{T}$ $[Pa \, L \, K^{-1}]$", f"izotermic_{i}", "r", plot_range[i])
+
+def WeightedAverage(temp, temp_err):
+    inverse_square = 1/temp_err**2
+    inverse_sum = 1/(np.sum(inverse_square))
+    temp_weighted = np.sum(inverse_square*temp)*inverse_sum
+    temp_weighted_err = np.sqrt(inverse_sum)
+    print(f"Weighted temperature: {temp_weighted}, error: {temp_weighted_err}")
+    return temp_weighted, temp_weighted_err
 
 
 def IzohoricAnalysis():
+    temps = []
+    temps_error = []
     for i, izohoric_data_sample in enumerate(izohoric_data):
         param, param_err, zero_temp, zero_temp_error = LineFitIzohoric(izohoric_data_sample)
-        PlotLineFit(izohoric_data_sample[0], izohoric_data_sample[1], temperature_error, pressure_error, param, LinearModel, r"T $[C^\circ]$", r"P $[kPa]$", f"izohoric_{i}", "r")
+        temps.append(zero_temp)
+        temps_error.append(zero_temp_error)
+        PlotLineFit(izohoric_data_sample[0], izohoric_data_sample[1], IZOHORIC_ERROR_PLOT_SCALE*temperature_error, IZOHORIC_ERROR_PLOT_SCALE*pressure_error, param, LinearModel, r"T $[C^\circ]$", r"P $[kPa]$", f"izohoric_{i}", "r")
+    print()
+    WeightedAverage(np.array(temps), np.array(temps_error))
 
-IzohoricAnalysis()
-#SyringeAnalysis()
+# IzohoricAnalysis()
+SyringeAnalysis()
