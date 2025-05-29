@@ -21,224 +21,268 @@
 \setlength{\topmargin}{0in}
 \setlength{\headheight}{18pt}
 
-\title{Wachadła Sprężone}
+\title{Wahadła sprzężone}
 \author{Kacper Kłos}
 
 \begin{document}
 
 \maketitle
 
-Abstract
+W poniższym raporcie wyznaczyliśmy współczynnik sprężystości sprężyny trzema metodami. Najpierw zawiesiliśmy sprężynę i podczepialiśmy pod nią ciężarki, mierząc rozciągnięcie. Do punktów pomiarowych dopasowaliśmy zależność liniową, z której parametrów otrzymaliśmy stałą sprężystości \(k_0 = (29{,}34 \pm 0{,}21)\, \mathrm{N\,m^{-1}}\).
+
+Następnie dwa identyczne wahadła połączyliśmy sprężyną na tej samej wysokości i mierzyliśmy osobno drgania w fazie i w przeciwfazie. W oby przypadkach do wyznaczenia częstotliwości wykorzystaliśmy transformację Fouriera. Doświadczenie powtórzyliśmy dla trzech różnych odległości sprężyny od osi obrotu. Dla tych pomiarów średnia ważona stałej sprężystości wyniosła \(k_p = (32{,}4 \pm 2{,}0)\, \mathrm{N\,m^{-1}}\).
+
+Na końcu zbadaliśmy dudnienia obu połączonych wahadeł, wyznaczając stałą sprężystości z dwóch częstotliwości, z jakimi wahadła drgały. Średnia z pomiarów dla trzech odległości sprężyny od osi obrotu wynosi \(k_d = (29{,}6 \pm 2{,}0)\, \mathrm{N\,m^{-1}}\).
 
 \newpage
-\section{Wyniki Pomiarów}
+\section{Wyniki pomiarów}
 
-\subsection{Stałe}
-Podczas raportu będziemy nadmiernie korzystać ze stałej grawitacyjnej \(g = 9{,}81 m \, s^{-2}\)
+W raporcie będziemy korzystać ze stałej grawitacyjnej \(g = 9{,}81\, \mathrm{m\,s^{-2}}\).
 
-\subsection{Pomiar Statyczny}
-Pomiary zaczynamy od zawieszenia sprężyny i podwieszaniu ciężarków do jej końca. 
+\subsection{Pomiar statyczny}
+Pomiar rozpoczynamy od zawieszenia sprężyny i kolejnego podwieszania ciężarków na jej końcu.
 \begin{table}[H]
-    \centering
-    \begin{tabular}{c|cc}
-        \toprule
-        \textbf{Nr} & Masa $m$ [g] & Długość sprężyny $L$ [cm] \\
-        \midrule
-        1  & 49{,}14  & 31{,}4 \\
-        2  & 91{,}27  & 32{,}8 \\
-        3  & 151{,}85 & 34{,}8 \\
-        4  & 201{,}43 & 36{,}6 \\
-        5  & 250{,}71 & 38{,}2 \\
-        6  & 299{,}12 & 39{,}7 \\
-        7  & 348{,}18 & 41{,}4 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Pomiary długości sprężyny $L$ w zależności od masy obciążenia $m$.}
-    \label{tab:spring_mass}
+	\centering
+	\begin{tabular}{c|cc}
+		\toprule
+		\textbf{Nr} & Masa \(m\) [g] & Długość sprężyny \(L\) [cm] \\
+		\midrule
+		1           & 49{,}14        & 31{,}4                      \\
+		2           & 91{,}27        & 32{,}8                      \\
+		3           & 151{,}85       & 34{,}8                      \\
+		4           & 201{,}43       & 36{,}6                      \\
+		5           & 250{,}71       & 38{,}2                      \\
+		6           & 299{,}12       & 39{,}7                      \\
+		7           & 348{,}18       & 41{,}4                      \\
+		\bottomrule
+	\end{tabular}
+	\caption{Długość sprężyny \(L\) w zależności od masy obciążenia \(m\).}
+	\label{tab:spring_mass}
 \end{table}
-Za błąd pomiarowy długości uznajemy $0{,}3 \, cm$ podczas gdy błąd wagi na poziomie $0{,}01 \, g$ uznajemy za pomijalnie mały.
 
-Do danych jakie zebraliśmy dopasujemy parametry równania liniowego
+Za błąd pomiarowy długości przyjmujemy \(0{,}3\,\mathrm{cm}\), natomiast błąd wagi na poziomie \(0{,}01\,\mathrm{g}\) uznajemy za pomijalnie mały w porównaniu z błędem długości.
+
+Do zebranych danych dopasowujemy równanie liniowe
 \[
-    L = a m + L_0
+	L = a m + L_0,
 \]
-Otrzymujemy w ten sposób wykres
+otrzymując wykres
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{spring_mass}
-    \caption{Wykres zależności długości sprężyny od zawieszonej na niej masy wraz z dopasowaniem liniowym}
-    \label{fig:spring_mass}
+	\centering
+	\includegraphics[scale=0.6]{spring_mass}
+	\caption{Zależność długości sprężyny od zawieszonej masy wraz z dopasowaniem liniowym.}
+	\label{fig:spring_mass}
 \end{figure}
-Parametry wyznaczonej krzywej wynoszą
+Wyznaczone parametry krzywej wynoszą
 \[
-    a = (0{,}03344 \pm 0{,}00024) \, [cm \, g^{-1}], b = (29{,}77 \pm 0{,}06) \, [cm]
+	a = (0{,}03344 \pm 0{,}00024)\,\mathrm{cm\,g^{-1}}, \quad b = (29{,}77 \pm 0{,}06)\,\mathrm{cm}.
 \]
-Przy pomocy parametru a możemy wyznaczyć stałą sprężystości badanej sprężyny
+Na podstawie parametru \(a\) obliczamy stałą sprężystości
 \[
-    k = \frac{g}{a}
-\]
-Co odpowiada wartości
-\[
-    k = (29{,}34 \pm 0{,}21) \, [m \, kg^{-1}]
+	k_0 = \frac{g}{a} = (29{,}34 \pm 0{,}21)\,\mathrm{N\,m^{-1}}.
 \]
 
+\subsection{Pomiar dynamiczny}
+Za pomocą dwóch czujników PASCO PS-3219 rejestrowaliśmy położenia obu identycznych wahadeł w funkcji czasu; zebrane dane znajdują się w pliku dołączonym do dokumentu. Zawiera on trzy serie pomiarowe (po dwa pomiary): najpierw dudnienia, a następnie drgania w przeciwfazie, każdorazowo dla trzech odległości sprężyny od osi obrotu wahadła. Ostatnia seria dotyczy jednego wahadła bez podłączonej sprężyny. We wszystkich poniższych pomiarach błąd transformacji Fouriera przyjmujemy równy połowie jej rozdzielczości, \(\tfrac{f_s}{2N}\), gdzie \(f_s = 40\,\mathrm{Hz}\) oznacza częstotliwość próbkowania, a \(N\) liczbę próbek w danej serii pomiarowej. Wyznaczana tą metodą częstotliwość była praktycznie identyczna dla obu wahadeł: różnice pojawiały się poza miejscem cyfr znaczących, dlatego ignorujem tę różnicę. Kluczowa w naszych pomiarach jest odległość środka masy, wyznaczona jako \(r = (79{,}7 \pm 0{,}1) \,\mathrm{cm}\) poprzez balansowanie wachadła na cieńkiej płytce, oraz masa wahadła \(m = (3000 \pm 40)\,\mathrm{g}\). Przy pomiarach odległości od osi \(a\) zakładamy, że różnica pomiędzy wahadłami mieści się w granicach błędu pomiarowego, więc możemy ją pominąć.
 
+\subsection{Wahadło bez sprężyny i drgania w przeciwfazie}
 
-\subsection{Pomiar Dynamiczny}
-Przy pomocy dwóch czujników PASCO PS-3219 wyznaczamy położenie obu wachadeł w zależności od czasu, zebrane dane są w pliku dołączonym do dokumentu. Zawiera on 3 serie pomiarowe po 2 pomiary, wpierw dudnienia a potem drgania w przeciwfazie dla trzech różnych odległości sprężyny od osi obrodu wachadła. Ostatnia seria zawiera pomiar dla jednego wachadła bez podłączonej sprężyny. We wszystkich poniższych pomiarach uznajemy błąd transformaty fouriera za jej rozdzielczość \(\frac{f_s}{n}\) gdzie \(f_s = 40 \, Hz\) oznacza częstotliwość pobierania danych przez detektor, a \(N\) liczbę punktów pomiarowych. Kluczowe w naszych pomiarch będzie odległość środka masy którą wyznaczyliśmy równoważąc wachadło na \(r = 79{,}7 \, cm\). Oraz istotna jest masa wachadła wynosząca \(m = (3000 \pm 40) \, g\)
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=1]{diagram}
+	\caption{Diagram układu pomiarowego stosowanego w eksperymencie. Widoczne są dwa wahadła oraz dwa czujniki odległości 1 i 2.}
+	\label{fig:diagram}
+\end{figure}
 
-\subsection{Wachadło Bez Sprężyny}
-
-Analize danych zacznijmy od przypadku bez podłączonej sprężyny
+Analizę danych rozpoczynamy od przypadku bez podłączonej sprężyny, w którym badamy zachowanie pojedynczego wahadła.
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{no_spring}
-    \caption{Wykres zależności wychlenia od czasu dla wachadła bez sprężyny}
-    \label{fig:pendulum_nospring}
+	\centering
+	\includegraphics[width=\linewidth]{no_spring}
+	\caption{Wychylenie wahadła bez sprężyny w funkcji czasu.}
+	\label{fig:pendulum_nospring}
 \end{figure}
-Aby odczytać z jaką częstotliwością drga wachadło wykonujemy transformatę Fouriera
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{no_spring_fft}
-    \caption{Wykres transformaty fouriera dla danych z wykresu \ref{fig:pendulum_nospring}}
-    \label{fig:pendulum_nospring_fft}
+	\centering
+	\includegraphics[width=\linewidth]{no_spring_fft}
+	\caption{Transformacja Fouriera danych z rys.~\ref{fig:pendulum_nospring}.}
+	\label{fig:pendulum_nospring_fft}
 \end{figure}
-Wartość uzyskanej w ten sposób częstotliwości odpowiada
+Uzyskana częstotliwość wynosi
 \[
-    f_0 = (0{,}535 \pm 0{,}016) \, Hz
+	f_0 = (0{,}5346 \pm 0{,}008)\,\mathrm{Hz}.
 \]
-Wiemy że częstotliwość drgania wachadła wynosi\cite{skrypt}
+Wiadomo, że częstotliwość drgań wahadła spełnia\cite{skrypt}
 \[
-    \omega_1^2 = (2\pi f_0)^2 = \frac{mgr}{I}
+	\omega_1^2 = (2\pi f_0)^2 = \frac{mgr}{I}.
 \]
-Możemy wykorzystać ten wzór do uzyskania momentu bezwładności 
+Stąd moment bezwładności wynosi
 \[
-    I = \frac{mgr}{(2\pi f_0)^2}
-\]
-\[
-    I = (2{,}08 \pm 0{,}13) \, kg \, m^2
-\]
-
-
-\subsection{Drgania w przeciwfazie}
-Przeanalizujemy zachowanie wachadeł kiedy drgają w przeciwfazie przy różnych punktach zaczepienia sprężyn, dla których wyznaczymy częstotliwość drgania przy pomocy transformaty fouriera
-Wpierw analizując \(d = (30 \pm 0{,}1) cm\)
-Zaczynamy od badania przeciwfazy
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_1}
-    \caption{Wykres zależności wychlenia wachadła lewego \(x_1\) i prawego \(x_2\) od czasu \(t\), dla wachadeł drgających w przeciwfazie}
-    \label{fig:counter_phase_0}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_1_fft}
-    \caption{Wykres transformaty fouriera dla danych z wykresu \ref{fig:counter_phase_0}}
-    \label{fig:coutner_phase_0_fft}
-\end{figure}
-\[
-    f_{p_1} = (0{,}6045 \pm 0{,}015) \, Hz
-\]
-To samo wykonujemy dla \(d = (40 \pm 0{,}1) cm\)
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_2}
-    \caption{Wykres zależności wychlenia wachadła lewego \(x_1\) i prawego \(x_2\) od czasu \(t\), dla wachadeł drgających w przeciwfazie}
-    \label{fig:counter_phase_1}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_2_fft}
-    \caption{Wykres transformaty fouriera dla danych z wykresu \ref{fig:counter_phase_1}}
-    \label{fig:coutner_phase_1_fft}
-\end{figure}
-\[
-    f_{p_2} = (0{,}639 \pm 0{,}016) \, Hz
-\]
-Finalnie dla \(d = (45 \pm 0{,}1) cm\)
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_3}
-    \caption{Wykres zależności wychlenia wachadła lewego \(x_1\) i prawego \(x_2\) od czasu \(t\), dla wachadeł drgających w przeciwfazie}
-    \label{fig:counter_phase_2}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_3_fft}
-    \caption{Wykres transformaty fouriera dla danych z wykresu \ref{fig:counter_phase_2}}
-    \label{fig:coutner_phase_2_fft}
-\end{figure}
-\[
-    f_{p_3} = (0{,}666 \pm 0{,}015) \, Hz
+	I = \frac{mgr}{(2\pi f_0)^2} = (2{,}08 \pm 0{,}07)\,\mathrm{kg\,m^2}.
 \]
 
+Przeanalizujemy teraz zachowanie wahadeł drgających w przeciwfazie dla różnych punktów zaczepienia sprężyny. Częstotliwości wyznaczamy z transformacji Fouriera.
+
+\newpage
+
+\(d = (30 \pm 0{,}1)\,\mathrm{cm}\)
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_1}
+	\caption{Wychylenia lewego (\(x_1\)) i prawego (\(x_2\)) wahadła w funkcji czasu przy drganiach w przeciwfazie.}
+	\label{fig:counter_phase_0}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_1_fft}
+	\caption{Transformacja Fouriera danych z rys.~\ref{fig:counter_phase_0}.}
+	\label{fig:coutner_phase_0_fft}
+\end{figure}
+\[
+	f_{p_1} = (0{,}6045 \pm 0{,}008)\,\mathrm{Hz}.
+\]
+
+\(d = (40 \pm 0{,}1)\,\mathrm{cm}\)
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_2}
+	\caption{Wychylenia lewego (\(x_1\)) i prawego (\(x_2\)) wahadła w funkcji czasu przy drganiach w przeciwfazie.}
+	\label{fig:counter_phase_1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_2_fft}
+	\caption{Transformacja Fouriera danych z rys.~\ref{fig:counter_phase_1}.}
+	\label{fig:coutner_phase_1_fft}
+\end{figure}
+\[
+	f_{p_2} = (0{,}639 \pm 0{,}008)\,\mathrm{Hz}.
+\]
+
+\(d = (45 \pm 0{,}1)\,\mathrm{cm}\)
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_3}
+	\caption{Wychylenia lewego (\(x_1\)) i prawego (\(x_2\)) wahadła w funkcji czasu przy drganiach w przeciwfazie.}
+	\label{fig:counter_phase_2}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_3_fft}
+	\caption{Transformacja Fouriera danych z rys.~\ref{fig:counter_phase_2}.}
+	\label{fig:coutner_phase_2_fft}
+\end{figure}
+\[
+	f_{p_3} = (0{,}666 \pm 0{,}008)\,\mathrm{Hz}.
+\]
+
+Dla przeciwfazy częstotliwość drgań spełnia\cite{skrypt}
+\[
+	\omega_2^2 = (2\pi f_p)^2 = \frac{mgr + 2ka^2}{I}.
+\]
+Wykorzystując wyniki dla drgań bez sprężyny, możemy zapisać
+\[
+	k = 2\pi^2 I \frac{f_p^2 - f_0^2}{a^2}.
+\]
+Otrzymujemy
+\[
+	k_1 = (36 \pm 6)\,\mathrm{N\,m^{-1}}, \quad
+	k_2 = (32 \pm 4)\,\mathrm{N\,m^{-1}}, \quad
+	k_3 = (32 \pm 3)\,\mathrm{N\,m^{-1}}.
+\]
+Średnia ważona z tych wyników wynosi
+\[
+	k_p = (32{,}4 \pm 2{,}0)\,\mathrm{N\,m^{-1}}.
+\]
 
 \subsection{Dudnienie}
-Teraz zbadamy zachowanie wachadeł podczas dudnienia i również wyznaczymy częstotliwości drgania poprzez transformatę fouriera.
+Zbadamy teraz dudnienie wahadeł, również wyznaczając częstotliwości metodą transformacji Fouriera.
 
-Wpierw analizując \(d = (30 \pm 0{,}1) cm\)
+\(d = (30 \pm 0{,}1)\,\mathrm{cm}\)
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{beats_1}
-    \caption{Wykres zależności wychlenia wachadła lewego \(x_1\) i prawego \(x_2\) od czasu \(t\), dla wachadeł dudniących}
-    \label{fig:beats_0}
+	\centering
+	\includegraphics[width=\linewidth]{beats_1}
+	\caption{Wychylenia lewego (\(x_1\)) i prawego (\(x_2\)) wahadła w funkcji czasu przy dudnieniu.}
+	\label{fig:beats_0}
 \end{figure}
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_1_fft}
-    \caption{Wykres transformaty fouriera dla danych z wykresu \ref{fig:beats_0}}
-    \label{fig:coutner_phase_0_fft}
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_1_fft}
+	\caption{Transformacja Fouriera danych z rys.~\ref{fig:beats_0}.}
+	\label{fig:coutner_phase_0_fft}
 \end{figure}
-Uzyskujemy w ten sposób dwie częstotliwości
 \[
-    f_{d_10} = (0{,}536 \pm 0{,}016) \, Hz ,\quad f_{d_11} = (0{,}598 \pm 0{,}016) \, Hz
+	f_{d_{10}} = (0{,}536 \pm 0{,}016)\,\mathrm{Hz}, \quad
+	f_{d_{11}} = (0{,}598 \pm 0{,}008)\,\mathrm{Hz}.
 \]
-
-To samo wykonujemy dla \(d = (40 \pm 0{,}1) cm\)
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{beats_2}
-    \caption{Wykres zależności wychlenia wachadła lewego \(x_1\) i prawego \(x_2\) od czasu \(t\), dla wachadeł dudniących}
-    \label{fig:beats_1}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_2_fft}
-    \caption{Wykres transformaty fouriera dla danych z wykresu \ref{fig:beats_1}}
-    \label{fig:coutner_phase_1_fft}
-\end{figure}
-Uzyskujemy w ten sposób dwie częstotliwości
-\[
-    f_{d_20} = (0{,}547 \pm 0{,}016) \, Hz ,\quad f_{d_21} = (0{,}641 \pm 0{,}016) \, Hz
-\]
-
-Finalnie dla \(d = (45 \pm 0{,}1) cm\)
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{beats_3}
-    \caption{Wykres zależności wychlenia wachadła lewego \(x_1\) i prawego \(x_2\) od czasu \(t\), dla wachadeł dudniących}
-    \label{fig:beats_2}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{counterphase_3_fft}
-    \caption{Wykres transformaty fouriera dla danych z wykresu \ref{fig:beats_2}}
-    \label{fig:coutner_phase_2_fft}
-\end{figure}
-Uzyskujemy w ten sposób dwie częstotliwości
-\[
-    f_{d_30} = (0{,}540 \pm 0{,}015) \, Hz ,\quad f_{d_31} = (0{,}668 \pm 0{,}015) \, Hz
-\]
-\section{Podsumowanie}
-
-
 
 \newpage
 
-\begin{thebibliography}{2}
+\(d = (40 \pm 0{,}1)\,\mathrm{cm}\)
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{beats_2}
+	\caption{Wychylenia lewego (\(x_1\)) i prawego (\(x_2\)) wahadła w funkcji czasu przy dudnieniu.}
+	\label{fig:beats_1}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_2_fft}
+	\caption{Transformacja Fouriera danych z rys.~\ref{fig:beats_1}.}
+	\label{fig:coutner_phase_1_fft}
+\end{figure}
+\[
+	f_{d_{20}} = (0{,}547 \pm 0{,}016)\,\mathrm{Hz}, \quad
+	f_{d_{21}} = (0{,}641 \pm 0{,}008)\,\mathrm{Hz}.
+\]
 
-\bibitem{skrypt}
-\emph{Wachadła sprzężone}, Aneta Drabińska, Roman J. Nowak i Andrzej Witowski, Uniwersytet Warszawski.
+\(d = (45 \pm 0{,}1)\,\mathrm{cm}\)
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{beats_3}
+	\caption{Wychylenia lewego (\(x_1\)) i prawego (\(x_2\)) wahadła w funkcji czasu przy dudnieniu.}
+	\label{fig:beats_2}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{counterphase_3_fft}
+	\caption{Transformacja Fouriera danych z rys.~\ref{fig:beats_2}.}
+	\label{fig:coutner_phase_2_fft}
+\end{figure}
+\[
+	f_{d_{30}} = (0{,}540 \pm 0{,}055)\,\mathrm{Hz}, \quad
+	f_{d_{31}} = (0{,}668 \pm 0{,}007)\,\mathrm{Hz}.
+\]
+
+Dwie częstotliwości występujące podczas dudnienia odpowiadają częstotliwościom własnym układu\cite{skrypt}, dlatego możemy powtórzyć analizę z poprzedniego przypadku, korzystając z wzorów
+\[
+	I = \frac{mgr}{(2\pi f_{d0})^2}, \qquad
+	k = 2\pi^2 I \frac{f_{d1}^2 - f_{d0}^2}{a^2}.
+\]
+Otrzymujemy
+\[
+	I_1 = (2{,}07 \pm 0{,}07)\,\mathrm{kg\,m^2}, \quad
+	I_2 = (1{,}99 \pm 0{,}07)\,\mathrm{kg\,m^2}, \quad
+	I_3 = (2{,}04 \pm 0{,}07)\,\mathrm{kg\,m^2},
+\]
+\[
+	k_1 = (32 \pm 6)\,\mathrm{N\,m^{-1}}, \quad
+	k_2 = (27 \pm 4)\,\mathrm{N\,m^{-1}}, \quad
+	k_3 = (31 \pm 3)\,\mathrm{N\,m^{-1}}.
+\]
+Z tych wyników wyznaczamy średnią ważoną
+\[
+	k_d = (29{,}6 \pm 2{,}0)\,\mathrm{N\,m^{-1}}.
+\]
+
+\section{Podsumowanie}
+Z otrzymanych wyników wynika, że najdokładniejszą metodą okazało się wyznaczanie stałej sprężystości poprzez statyczne podwieszanie ciężarków, które dało rezultat \(k_0 = (29{,}34 \pm 0{,}21)\,\mathrm{N\,m^{-1}}\). Obie metody wykorzystujące wahadła charakteryzują się tym samym błędem, jednak analiza dudnień dostarczyła wyniku bliższego wartości statycznej, \(k_d = (29{,}6 \pm 2{,}0)\,\mathrm{N\,m^{-1}}\), podczas gdy badanie fazy i przeciwfazy oddzielnie zaowocowało \(k_p = (32{,}4 \pm 2{,}0)\,\mathrm{N\,m^{-1}}\). Błąd w metodzie statycznej wynika głównie z trudności w dokładnym określeniu długości sprężyny, której nie można dotykać, aby nie zaburzyć długości oraz drobnych drgań sprężyny. Dla pomiarów z wahadłami największe znaczenie ma niepewność wynikająca z transformacji Fouriera; jej zmniejszenie wymagałoby dłuższych rejestracji. Warto zauważyć, że błąd był mniejszy dla większych wartości \(a\), które zwiększały wpływ sprężyny w pomiarach. Z kolei analiza dudnień jest dokładniejsza od sztucznego rozdzielania drgań własnych, ponieważ w jej trakcie nie występuje przerwa czasowa, w której układ mógłby ulec nieznacznym zmianom wpływającym na wynik końcowy.
+
+\newpage
+
+\begin{thebibliography}{1}
+
+	\bibitem{skrypt}
+	\emph{Wahadła sprzężone}, Aneta Drabińska, Roman J. Nowak i Andrzej Witowski, Uniwersytet Warszawski.
 
 \end{thebibliography}
 

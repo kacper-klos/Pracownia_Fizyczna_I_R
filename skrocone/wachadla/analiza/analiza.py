@@ -25,6 +25,9 @@ spring_data = np.array([
     ])
 DISTANCE_ERROR = 0.3
 
+spring_height = np.array([30, 40, 45])
+spring_height_err = 0.1
+
 
 def SimpleModel(t, A, omega, phi, b):
     return A * np.cos(omega*t + phi) + b
@@ -126,10 +129,12 @@ def SingleAnalysisSimple(index):
     b_fourier = FourierTransform(Interpolate(b_combined))
     a_freq, a_amp = FindFourierPeaks(a_fourier)
     b_freq, b_amp = FindFourierPeaks(b_fourier)
-    print(f"częstotliwość transformacji fouriera przeciwfazy A: {a_freq}, z błędem {SAMPLE_FREQ/len(a_combined[0])}")
-    print(f"częstotliwość transformacji fouriera przeciwfacy B: {b_freq}, z błędem {SAMPLE_FREQ/len(b_combined[0])}")
+    a_freq_err = SAMPLE_FREQ/(2*len(a_combined[0]))
+    print(f"częstotliwość transformacji fouriera przeciwfazy A: {a_freq}, z błędem {a_freq_err}")
+    print(f"częstotliwość transformacji fouriera przeciwfacy B: {b_freq}, z błędem {a_freq_err}")
     PlotOscilations(title, b_combined, a_combined, True)
     PlotFourier(title, a_fourier, b_fourier, True)
+    return a_freq[0], a_freq_err
 
 def SingleAnalysisBeats(index):
     title = f"beats_{index//2+1}"
@@ -138,15 +143,17 @@ def SingleAnalysisBeats(index):
     b_fourier = FourierTransform(Interpolate(b_combined))
     a_freq, a_amp = FindFourierPeaks(a_fourier)
     b_freq, b_amp = FindFourierPeaks(b_fourier)
-    a_freq_err = SAMPLE_FREQ/len(a_combined[0])
+    a_freq_err = SAMPLE_FREQ/(2*len(a_combined[0]))
     print(f"częstotliwość transformacji fouriera dudnienia A: {a_freq}, z błędem {a_freq_err}")
-    print(f"częstotliwość transformacji fouriera dudnienia B: {b_freq}, z błędem {SAMPLE_FREQ/len(b_combined[0])}")
+    print(f"częstotliwość transformacji fouriera dudnienia B: {b_freq}, z błędem {a_freq_err}")
     PlotFourier(title, a_fourier, b_fourier, True)
     PlotOscilations(title, b_combined, a_combined, True)
+    return a_freq[0], a_freq[1] , a_freq_err
 
 def MomentOfInercia(freq, freq_err):
     inercia = MASS*GRAVITY*MASS_CENTRE/((2*np.pi*freq)**2) * CM/KG
     inercia_err = inercia * np.sqrt((MASS_ERR/MASS)**2 + (MASS_CENTRE_ERR/MASS_CENTRE)**2 + (2*freq_err/freq)**2)
+    print(f"moment inercji: {inercia}, z błędem {inercia_err}")
     return inercia, inercia_err
 
 
@@ -176,20 +183,65 @@ def NoSpringPendulum():
     title = "no_spring"
     b_fourier = FourierTransform(Interpolate(b_combined))
     b_freq, b_amp = FindFourierPeaks(b_fourier)
-    b_freq_err = SAMPLE_FREQ/len(a_combined[0])
+    b_freq_err = SAMPLE_FREQ/(2*len(a_combined[0]))
     inercia, inercia_err = MomentOfInercia(b_freq, b_freq_err)
     print(f"częstotliwość transformacji fouriera: {b_freq}, z błędem {b_freq_err}")
-    print(f"moment inercji: {inercia}, z błędem {inercia_err}")
     PlotFourier(title, b_fourier)
     PlotOscilations(title, b_combined)
+    return b_freq, b_freq_err, inercia, inercia_err
 
-NoSpringPendulum()
+def EigenFrequenciesSpringConstant(high_freq, high_freq_err, low_freq, low_freq_err, inercia, inercia_err, spring_distance, spring_distance_err):
+    part = 2*np.pi**2*inercia/(spring_distance**2)
+    spring_const = part*(high_freq**2-low_freq**2)
+    spring_distance_dif = 2*spring_const*spring_distance_err/spring_distance
+    inercia_dif = spring_const*inercia_err/inercia
+    high_freq_dif = 2*part*high_freq*high_freq_err
+    low_freq_dif = 2*part*low_freq*low_freq_err
+    spring_const_err = np.sqrt((spring_distance_dif)**2 + (inercia_dif)**2 +(high_freq_dif)**2 +(low_freq_dif)**2)
+    print(f"Stała sprężyny: {spring_const}, error: {spring_const_err}")
+    return spring_const, spring_const_err
 
-SingleAnalysisSimple(1)
-SingleAnalysisBeats(0)
-SingleAnalysisSimple(3)
-SingleAnalysisBeats(2)
-SingleAnalysisSimple(5)
-SingleAnalysisBeats(4)
+def WeightedAverage(val, val_err):
+    inverse_square = 1/val_err**2
+    inverse_sum = 1/(np.sum(inverse_square))
+    vals_weighted = np.sum(inverse_square*val)*inverse_sum
+    vals_weighted_err = np.sqrt(inverse_sum)
+    print(f"Średnia ważona: {vals_weighted}, error: {vals_weighted_err}")
+    return vals_weighted, vals_weighted_err
+
+low_freq, low_freq_err, inercia, inercia_err = NoSpringPendulum()
+
+beats_vals = [[], []]
+counterphase_vals = [[], []]
+
+high_freq, high_freq_err = SingleAnalysisSimple(1)
+vals = EigenFrequenciesSpringConstant(high_freq, high_freq_err, low_freq, low_freq_err, inercia, inercia_err, spring_height[0]*CM, spring_height_err*CM)
+counterphase_vals[0].append(vals[0])
+counterphase_vals[1].append(vals[1])
+beats = np.sort(SingleAnalysisBeats(0))
+vals = EigenFrequenciesSpringConstant(beats[2], beats[0], beats[1], beats[0], *MomentOfInercia(beats[1], beats[0]), spring_height[0]*CM, spring_height_err*CM)
+beats_vals[0].append(vals[0])
+beats_vals[1].append(vals[1])
+
+high_freq, high_freq_err = SingleAnalysisSimple(3)
+vals = EigenFrequenciesSpringConstant(high_freq, high_freq_err, low_freq, low_freq_err, inercia, inercia_err, spring_height[1]*CM, spring_height_err*CM)
+counterphase_vals[0].append(vals[0])
+counterphase_vals[1].append(vals[1])
+beats = np.sort(SingleAnalysisBeats(2))
+vals = EigenFrequenciesSpringConstant(beats[2], beats[0], beats[1], beats[0], *MomentOfInercia(beats[1], beats[0]), spring_height[1]*CM, spring_height_err*CM)
+beats_vals[0].append(vals[0])
+beats_vals[1].append(vals[1])
+
+high_freq, high_freq_err = SingleAnalysisSimple(5)
+vals = EigenFrequenciesSpringConstant(high_freq, high_freq_err, low_freq, low_freq_err, inercia, inercia_err, spring_height[2]*CM, spring_height_err*CM)
+counterphase_vals[0].append(vals[0])
+counterphase_vals[1].append(vals[1])
+beats = np.sort(SingleAnalysisBeats(4))
+vals = EigenFrequenciesSpringConstant(beats[2], beats[0], beats[1], beats[0], *MomentOfInercia(beats[1], beats[0]), spring_height[2]*CM, spring_height_err*CM)
+beats_vals[0].append(vals[0])
+beats_vals[1].append(vals[1])
+
+WeightedAverage(np.array(counterphase_vals[0]), np.array(counterphase_vals[1]))
+WeightedAverage(np.array(beats_vals[0]), np.array(beats_vals[1]))
 
 #SpringAnalysis()
